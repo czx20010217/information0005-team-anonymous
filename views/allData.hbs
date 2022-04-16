@@ -1,0 +1,14 @@
+<h1>Displaying all data</h1>
+<ul>
+{{!-- loops over the data set --}}
+{{#each data}}
+    <li><a href="/people/{{this.id}}">{{this.first_name}} {{this.last_name}}</a></li>
+{{/each}}
+</ul>
+
+<form action="/people" method="POST">
+    <input type="number" placeholder="ID" name="id" min="0" max="999" />
+    <input type="text" placeholder="First name" name="first_name" />
+    <input type="text" placeholder="Last name" name="last_name" />
+    <input type="submit" />
+</form>

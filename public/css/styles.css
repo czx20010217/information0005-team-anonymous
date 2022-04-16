@@ -1,0 +1,8 @@
+body {
+    font-family: "Verdana", "Geneva", "Tahoma", sans-serif;
+}
+
+header, footer {
+    background-color: lightgray;
+    text-align: center;
+}
