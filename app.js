@@ -29,11 +29,9 @@ app.use(express.json()) // needed if POST data is in JSON format
 app.use(express.urlencoded({ extended: false })) // only needed for URL-encoded input
 
 // link to our router
-const peopleRouter = require('./routes/peopleRouter')
 const doctorRouter = require('./routes/doctorRouter')
 
 // the demo routes are added to the end of the '/people' path
-app.use('/people', peopleRouter)
 app.use('/doctor', doctorRouter)
 
 // Tells the app to send the string: "Our demo app is working!" when you hit the '/' endpoint.

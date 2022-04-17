@@ -20,7 +20,6 @@ const db = mongoose.connection.on('error', err => {
 db.once('open', async () => { 
     console.log(`Mongo connection started on ${db.host}:${db.port}`) 
 }) 
-require('./author')
 require('./record')
 require('./patient')
 require('./doctor')
