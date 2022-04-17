@@ -7,7 +7,7 @@ const doctorRouter = express.Router()
 const doctorController = require('../controllers/doctorController')
 
 // add a route to handle the GET request for one data instance
-doctorRouter.get('/:patient_id', doctorController.getPatientById)
+doctorRouter.get('/patientDetail/:patient_id', doctorController.getPatientById)
 
 // export the router
 module.exports = doctorRouter
