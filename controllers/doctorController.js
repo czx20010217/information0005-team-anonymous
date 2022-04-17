@@ -1,4 +1,5 @@
 const Patient = require('../models/patient')
+var stringify = require('json-stringify-safe');
 
 const getPatientById = async(req, res, next) => { 
     try { 
@@ -8,7 +9,7 @@ const getPatientById = async(req, res, next) => {
             return res.sendStatus(404) 
         } 
         // found person 
-        return res.render('onePatient', { oneItem: patient }) 
+        return res.render('onePatient', { oneItem: stringify(patient) }) 
     } catch (err) { 
         return next(err) 
     } 
