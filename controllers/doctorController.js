@@ -9,7 +9,7 @@ const getPatientById = async(req, res, next) => {
             return res.sendStatus(404) 
         } 
         // found person 
-        return res.render('onePatient', { oneItem: stringify(patient) }) 
+        return res.render('onePatient', { oneItem: stringify(patient) }) // using toString for temp use, change to return object when hbs ready
     } catch (err) { 
         return next(err) 
     } 
