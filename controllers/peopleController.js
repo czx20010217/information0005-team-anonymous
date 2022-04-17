@@ -1,4 +1,5 @@
 const Author = require('../models/author') 
+
 const getAllPeopleData = async (req, res, next) => { 
     try { 
         const authors = await Author.find().lean() 
@@ -7,6 +8,7 @@ const getAllPeopleData = async (req, res, next) => {
         return next(err) 
     } 
 } 
+
 const getDataById = async(req, res, next) => { 
     try { 
         const author = await Author.findById(req.params.author_id).lean() 

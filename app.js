@@ -1,5 +1,5 @@
 const exphbs = require('express-handlebars')
-
+require('./models')
 // Import express
 const express = require('express')
 // Set your app up as an express app
@@ -17,6 +17,12 @@ app.engine(
 app.set('view engine', 'hbs')
 
 app.use(express.static('public'))
+
+// log all request
+app.use((req,res,next) => {
+    console.log('message arrived: ' + req.method + ' ' + req.path)
+    next()
+})
 
 // Set up to handle POST requests
 app.use(express.json()) // needed if POST data is in JSON format
