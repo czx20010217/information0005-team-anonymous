@@ -1,13 +1,20 @@
-<h1>Displaying all data</h1>
-<ul>
+<h1>Monitor Your Patient</h1>
 {{!-- loops over the data set --}}
-{{#each data}}
-    <li><a href="/people/{{this._id}}">{{this.first_name}} {{this.last_name}}</a></li>
-{{/each}}
-</ul>
-
-<form action="/people" method="POST">
-    <input type="text" placeholder="First name" name="first_name" />
-    <input type="text" placeholder="Last name" name="last_name" />
-    <input type="submit" />
-</form>
+<table border="1">
+    <tr>
+        <th>name</th>
+        <th>blood glucose</th>
+        <th>weight</th>
+        <th>doses of insulin</th>
+        <th>exerices</th>
+        <th>last update</th>
+    </tr>
+    {{#each data}}
+        <td><a href="/doctor/patientDetail/{{this._id}}">{{this.first_name}} {{this.last_name}}</a></td>
+        <td>{{this.blood_glucose_level}}</td>
+        <td>{{this.weight}}</td>
+        <td>{{this.doses_of_insulin_taken}}</td>
+        <td>{{this.exercise}}</td>
+        <td>{{this.updatedAt}}</td>
+    {{/each}}
+</table>

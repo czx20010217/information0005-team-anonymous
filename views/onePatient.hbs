@@ -1,26 +1,22 @@
 {{#with oneItem}}
+
 <h1>{{this.first_name}} {{this.last_name}}</h1>
+
+<form>
+    <label for="blood_glucose_level_minimum">blood glucose level</label><br>
+    <input type="number" placeholder={{this.blood_glucose_level_minimum}} name="blood_glucose_level_minimum" />
+    <input type="number" placeholder={{this.blood_glucose_level_maximum}} name="blood_glucose_level_maximum" /><br><br>
+    <label for="weight_minimum">weight</label><br>
+    <input type="number" placeholder={{this.weight_minimum}} name="weight_minimum" />
+    <input type="number" placeholder={{this.weight_maximum}} name="weight_maximum" /><br><br>
+    <label for="doses_of_insulin_taken_minimum">doses of insulin taken</label><br>
+    <input type="number" placeholder={{this.doses_of_insulin_taken_minimum}} name="doses_of_insulin_taken_minimum" />
+    <input type="number" placeholder={{this.doses_of_insulin_taken_maximum}} name="doses_of_insulin_taken_maximum" /><br><br>
+    <label for="exercise_minimum">weight</label><br>
+    <input type="number" placeholder={{this.exercise_minimum}} name="exercise_minimum" />
+    <input type="number" placeholder={{this.exercise_maximum}} name="exercise_maximum" /><br><br>
+</form>
 {{/with}}
-
-<ul style="list-style-type:none">
-    {{#with oneItem}}
-    <li>blood glucose level</li>
-    <textarea>{{this.blood_glucose_level_minimum}}</textarea>
-    <textarea>{{this.blood_glucose_level_maximum}}</textarea>
-
-    <li>weight</li>
-    <textarea>{{this.weight_minimum}}</textarea>
-    <textarea>{{this.weight_maximum}}</textarea>
-
-    <li>doses of insulin taken</li>
-    <textarea>{{this.doses_of_insulin_taken_minimum}}</textarea>
-    <textarea>{{this.doses_of_insulin_taken_maximum}}</textarea>
-
-    <li>exercise</li>
-    <textarea>{{this.exercise_minimum}}</textarea>
-    <textarea>{{this.exercise_maximum}}</textarea>
-    {{/with}}
-</ul>
 
 <table border="1">
     <tr>
@@ -31,13 +27,13 @@
         <th>exerices</th>
     </tr>
     {{#each recordList}}
-    <tr>
-        <td>{{this.updatedAt}}</td>
-        <td>{{this.blood_glucose_level}}</td>
-        <td>{{this.weight}}</td>
-        <td>{{this.doses_of_insulin_taken}}</td>
-        <td>{{this.exercise}}</td>
-    </tr>
+        <tr>
+            <td>{{this.updatedAt}}</td>
+            <td>{{this.blood_glucose_level}}</td>
+            <td>{{this.weight}}</td>
+            <td>{{this.doses_of_insulin_taken}}</td>
+            <td>{{this.exercise}}</td>
+        </tr>
     {{/each}}
 </table>
 
