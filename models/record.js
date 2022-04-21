@@ -10,6 +10,8 @@ const schema = new mongoose.Schema({
     exercise: Number, 
     exercise_commment: String, 
     submitted: Boolean
+}, {
+    timestamps: true
 }) 
 const Record = mongoose.model('Record', schema) 
 module.exports = Record 

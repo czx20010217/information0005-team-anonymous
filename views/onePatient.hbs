@@ -1,6 +1,43 @@
-<h1>Displaying one patient</h1>
 {{#with oneItem}}
-<ul>
-    <li>{{this}}</li>
-</ul>
+<h1>{{this.first_name}} {{this.last_name}}</h1>
 {{/with}}
+
+<ul style="list-style-type:none">
+    {{#with oneItem}}
+    <li>blood glucose level</li>
+    <textarea>{{this.blood_glucose_level_minimum}}</textarea>
+    <textarea>{{this.blood_glucose_level_maximum}}</textarea>
+
+    <li>weight</li>
+    <textarea>{{this.weight_minimum}}</textarea>
+    <textarea>{{this.weight_maximum}}</textarea>
+
+    <li>doses of insulin taken</li>
+    <textarea>{{this.doses_of_insulin_taken_minimum}}</textarea>
+    <textarea>{{this.doses_of_insulin_taken_maximum}}</textarea>
+
+    <li>exercise</li>
+    <textarea>{{this.exercise_minimum}}</textarea>
+    <textarea>{{this.exercise_maximum}}</textarea>
+    {{/with}}
+</ul>
+
+<table border="1">
+    <tr>
+        <th>time</th>
+        <th>blood glucose</th>
+        <th>weight</th>
+        <th>doses of insulin</th>
+        <th>exerices</th>
+    </tr>
+    {{#each recordList}}
+    <tr>
+        <td>{{this.updatedAt}}</td>
+        <td>{{this.blood_glucose_level}}</td>
+        <td>{{this.weight}}</td>
+        <td>{{this.doses_of_insulin_taken}}</td>
+        <td>{{this.exercise}}</td>
+    </tr>
+    {{/each}}
+</table>
+
