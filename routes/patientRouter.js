@@ -7,10 +7,7 @@ const patientRouter = express.Router()
 const patientController = require('../controllers/patientController')
 
 // add a route to handle the GET request for all people data
-peopleRouter.get('/', peopleController.getAllPeopleData)
-
-// add a route to handle the GET request for one data instance
-peopleRouter.get('/:patient_id', peopleController.getDataById)
+patientRouter.post('/addDailyRecord', patientController.insertRecord)
 
 // export the router
-module.exports = peopleRouter
+module.exports = patientRouter

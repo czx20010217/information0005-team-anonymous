@@ -30,9 +30,11 @@ app.use(express.urlencoded({ extended: false })) // only needed for URL-encoded 
 
 // link to our router
 const doctorRouter = require('./routes/doctorRouter')
+const patientRouter = require('./routes/patientRouter')
 
-// the demo routes are added to the end of the '/people' path
+// manage routers
 app.use('/doctor', doctorRouter)
+app.use('/patient', patientRouter)
 
 // Tells the app to send the string: "Our demo app is working!" when you hit the '/' endpoint.
 app.get('/', (req, res) => {
