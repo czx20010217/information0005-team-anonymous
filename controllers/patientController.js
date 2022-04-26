@@ -23,6 +23,24 @@ const insertRecord = (req,res) => {
     res.send(newRecord)
 }
 
+const getDashBoard = (req,res) => {
+    try { 
+        return res.render('patientDashBoard')
+    } catch (err) { 
+        return next(err) 
+    } 
+}
+
+const addDailyRecord = (req,res) => {
+    try { 
+        return res.render('addRecords')
+    } catch (err) { 
+        return next(err) 
+    } 
+}
+
 module.exports = {
     insertRecord, 
+    getDashBoard, 
+    addDailyRecord, 
 }

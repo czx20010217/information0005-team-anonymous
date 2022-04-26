@@ -16,7 +16,8 @@ app.engine(
 // set Handlebars view engine
 app.set('view engine', 'hbs')
 
-app.use(express.static('public'))
+app.use(express.static('public'));
+app.use(express.static('media'));
 
 // log all request
 app.use((req,res,next) => {

@@ -8,6 +8,8 @@ const patientController = require('../controllers/patientController')
 
 // add a route to handle the GET request for all people data
 patientRouter.post('/addDailyRecord', patientController.insertRecord)
+patientRouter.get('/addDailyRecord', patientController.addDailyRecord)
 
+patientRouter.get('/dashboard', patientController.getDashBoard)
 // export the router
 module.exports = patientRouter
