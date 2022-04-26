@@ -21,8 +21,8 @@ const insertRecord = (req,res) => {
         exercise, exercise_commment});
 
     newRecord.save();
-    // return the new Record after cleaning
-    res.send(newRecord)
+    // return the new Record after cleaningy
+    res.render("recordSubmited")
 }
 
 const getDashBoard = (req,res) => {

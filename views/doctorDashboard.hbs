@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css2?family=Scada&display=swap' rel='stylesheet'>
+        <title>Diabetes@Home</title>
+        <link rel="stylesheet" href="/css/doctor/style.css">
+    </head>
+    <body>
+
+        <div class="header">
+            <img src="/media/logo.png" alt="LOGO">
+            <nav>
+                <ul>
+                <!-- <li> 
+                  <form >
+                    <input type="text" placeholder="search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                  </form>
+                </li> -->
+                <li><a href="#">New Patient</a></li>
+                <li><a href="#">Comments</a></li>
+                <li><a href="#">Log Out</a></li>
+              </ul>
+            </nav>
+          </div>
+
+        <div class="main">
+          <div class="aside">
+            <img src="/media/doctoricon new.png" alt="doctoricon">
+            
+            <p>Hello, Chris! </p>
+          </div>
+  
+          <div class="content">
+            <h3>Monitor Your Patients</h3>
+           
+            <input id="date" type="date" value="2022-04-29">
+          </div>
+  
+          <div class="datatable">
+            <table>
+              <tr>
+                <th>name</th>
+                <th>blood glucose level(nmol/L)</th>
+                <th>weight(kg)</th>
+                <th>number of doses of insulin taken</th>
+                <th>step count</th>
+                <th>last update time</th>
+              </tr>
+              {{#each data}}
+              <tr>
+                <td><a href="/doctor/patientDetail/{{this._id}}">{{this.first_name}} {{this.last_name}}</a></td>
+                <td>{{this.blood_glucose_level}}</td>
+                <td>{{this.weight}}</td>
+                <td>{{this.doses_of_insulin_taken}}</td>
+                <td>{{this.exercise}}</td>
+                <td>{{this.updatedAt}}</td>
+              </tr>>
+              {{/each}}
+            </table>
+          </div>
+          
+          <div class="attention">Attention: Data that exceed the threshold or are abnormal will be marked red, please pay attention.</div>
+        </div>
+        <!-- <div class="aside">
+          <img src="./media/doctoricon new.png" alt="doctoricon">
+          
+          <p>Hi, Chris! You can now view the health data of your patients.</p>
+        </div>
+
+        <div class="content">
+          <h3>Monitor Your Patients</h3>
+          <br>
+          <input id="date" type="date" value="2022-04-29">
+        </div>
+
+        <div class="datatable">
+          <table>
+            <tr>
+              <th>name</th>
+              <th>blood glucose level(nmol/L)</th>
+              <th>weight(kg)</th>
+              <th>number of doses of insulin taken</th>
+              <th>step count</th>
+              <th>last update time</th>
+            </tr>
+            <tr>
+              <td>PAT</td>
+              <td>100</td>
+              <td>100</td>
+              <td>100</td>
+              <td>100</td>
+              <td>100</td>
+            </tr>
+          </table>
+        </div>
+        
+        <div class="attention">Attention: Data that exceed the threshold or are abnormal will be marked red, please pay attention.</div> -->
+          
+
+  <footer>
+
+          
+  </footer>
+          
+
+
+    </body>
+</html>

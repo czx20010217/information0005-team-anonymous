@@ -6,7 +6,7 @@ var stringify = require('json-stringify-safe');
 const getAllPatientData = async (req, res, next) => {
     try { 
         const records = await Record.find().lean()
-        return res.render('allData', { data: records }) 
+        return res.render('doctorDashboard', { layout: false , data: records.slice(-5)}) 
     } catch (err) { 
         return next(err) 
     }
