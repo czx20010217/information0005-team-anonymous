@@ -668,7 +668,7 @@ header, footer {
 
 body{
     background: #ffffff;
-    background-image: url("../media/doctor\ background.jpeg");
+    background-image: url("../media/doctor background.jpeg");
     
 }
 
@@ -763,7 +763,7 @@ body{
     height: 292px; */
     /* float:left; */
     margin: 0%;
-    background: url(../media/doctoricon\ new.png);
+    background: url(/media/doctoricon\ new.png);
 
     box-sizing: border-box;
  }
