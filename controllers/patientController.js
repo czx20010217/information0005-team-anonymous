@@ -3,21 +3,23 @@ const Record = require('../models/record')
 
 // add records
 const insertRecord = (req,res) => {
+    // hard code user for temporary usage
     console.log("adding new record, input param: ", req.body)
-    const {patient_id, 
+
+    const {
         blood_glucose_level, blood_glucose_level_commment, 
         weight, weight_commment, 
         doses_of_insulin_taken, doses_of_insulin_taken_commment, 
-        exercise, exercise_commment, 
-        submitted } = req.body;
+        exercise, exercise_commment} = req.body;
 
-
-    const newRecord = new Record({patient_id, 
+    patient_id = "625bd3b2263cf5c4c2442a16"
+    submitted = true
+    const newRecord = new Record({  patient_id, submitted, 
         blood_glucose_level, blood_glucose_level_commment, 
         weight, weight_commment, 
         doses_of_insulin_taken, doses_of_insulin_taken_commment, 
-        exercise, exercise_commment, 
-        submitted });
+        exercise, exercise_commment});
+
     newRecord.save();
     // return the new Record after cleaning
     res.send(newRecord)

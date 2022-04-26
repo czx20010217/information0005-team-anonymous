@@ -1,102 +1,91 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-        <link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
-        <title>Diabetes@Home</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
+<body>
 
-        <div class="header2">
-            <h1>Diabete@Home</h1>
-            <img src="/media/logo.png" alt="LOGO">          
-              <div class="Backbutton">
-                <p><a href="#back" style="color: white;text-decoration: none;">＜Back</a></p>
-               </div>
-          </div>
+    <div class="header2">
+        <h1>Diabete@Home</h1>
+        <img src="/media/logo.png" alt="LOGO">          
+          <div class="Backbutton">
+            <p><a href="#back" style="color: white;text-decoration: none;">＜Back</a></p>
+            </div>
+      </div>
 
 
-          <div class="row">     
-            <div class="content4">
-              <h2>DAILY RECORD</h2>
-                
-          <div class="date">
-                <form action="">
-                <p>Date:<input type="date" /></p>
-                
-          </div>
-        </div>
-          <div class="records">
-              <form action="" method="get">
-                <ul class="recorddata">
-                    <li class="records1">
-                        <h3>blood glucose level:</h3>
-                        <input type="number" name="bloodglucoselevel" min="0" step="0.1"><span>nmol/L</span>
-                        <p>comment(optional)</p>
-                        <textarea></textarea>
-                    </li>
-                    <hr>
-                    <li class="records2">
-                        <h3>weight:</h3>
-                        <input type="number" name="weight" min="0" step="0.01"><span>kg</span>
-                        <p>comment(optional)</p>
-                        <textarea></textarea>
-                    </li>
-                    <hr>                    
-                    <li class="records3">
-                        <h3>doses of insulin taken:</h3>
-                        <select>
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                          </select><span>doses</span>
-                        <p>comment(optional)</p>
-                        <textarea></textarea>
-                    </li>
-                    <hr>                   
-                    <li class="records4">
-                        <h3>exercise:</h3>
-                        <input type="number" name="exercise" min="0"><span>steps</span>
-                        <p>comment(optional)</p>
-                        <textarea></textarea>
-                    </li>
-                    <a href='index4.html'><input class="submitbutton" type="submit" value="submit"></a>
-                   </ul>
-              </form>
-                        
-          <HR align=center width=100% color=#7B7B7B SIZE=1>
+      <div class="row">     
+        <div class="content4">
+          <h2>DAILY RECORD</h2>
+            
+      <div class="date">
+            <form action="">
+            <p>Date:<input type="date" /></p>
+            </form>    
+      </div>
+    </div>
+      <div class="records">
+          <form id="test-register" action="#" method="post">
+            <ul class="recorddata">
+                <li class="records1">
+                    <h3>blood glucose level:</h3>
+                    <input type="number" name="blood_glucose_level" min="0" step="0.1"><span>nmol/L</span>
+                    <p>comment(optional)</p>
+                    <textarea></textarea>
+                </li>
+                <hr>
+                <li class="records2">
+                    <h3>weight:</h3>
+                    <input type="number" name="weight" min="0" step="0.01"><span>kg</span>
+                    <p>comment(optional)</p>
+                    <textarea></textarea>
+                </li>
+                <hr>                    
+                <li class="records3">
+                    <h3>doses of insulin taken:</h3>
+                    <select name="doses_of_insulin_taken">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select><span>doses</span>
+                    <p>comment(optional)</p>
+                    <textarea></textarea>
+                </li>
+                <hr>                   
+                <li class="records4">
+                    <h3>exercise:</h3>
+                    <input type="number" name="exercise" min="0"><span>steps</span>
+                    <p>comment(optional)</p>
+                    <textarea></textarea>
+                </li>
+                <input class="submitbutton" type="submit" value="submit">
+                <a href='index4.html'><input class="submitbutton" type="submit" value="submit"></a>
+                </ul>
+          </form>
+                    
+      <HR align=center width=100% color=#7B7B7B SIZE=1>
 
 
-           </div>          
-           <div class="downnav">
-            <p style="text-align: center;">
-               <img src="/media/home.png" alt="Home" width="30%" height="30%"> 
-            </p>
+        </div>          
+        <div class="downnav">
+        <p style="text-align: center;">
+            <img src="/media/home.png" alt="Home" width="30%" height="30%"> 
+        </p>
 
-            <p style="text-align: center;">
-               <img src="/media/message.png" alt="Home" width="30%" height="30%">
-            </p>
+        <p style="text-align: center;">
+            <img src="/media/message.png" alt="Home" width="30%" height="30%">
+        </p>
 
 
-            <p style="text-align: center;">
-               <img src="/media/more.png" alt="Home" width="30%" height="30%">
-            </p>
+        <p style="text-align: center;">
+            <img src="/media/more.png" alt="Home" width="30%" height="30%">
+        </p>
 
-          
-          <a href="#">HOME</a>
-          <a href="#">SUPPORT MASSAGE</a>
-          <a href="#">MORE</a>
-        </div>
-          </div>
-        </div>
+      
+      <a href="#">HOME</a>
+      <a href="#">SUPPORT MASSAGE</a>
+      <a href="#">MORE</a>
+    </div>
+      </div>
+    </div>
 
-                  
-    </body>
-    </html>
+              
+</body>
