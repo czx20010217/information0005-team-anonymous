@@ -49,7 +49,7 @@
                 <th>weight(kg)</th>
                 <th>number of doses of insulin taken</th>
                 <th>step count</th>
-                <th>last update time</th>
+                <th>time</th>
               </tr>
               {{#each data}}
               <tr>
@@ -58,7 +58,7 @@
                 <td>{{this.weight}}</td>
                 <td>{{this.doses_of_insulin_taken}}</td>
                 <td>{{this.exercise}}</td>
-                <td>{{this.updatedAt}}</td>
+                <td>{{this.createdAt}}</td>
               </tr>>
               {{/each}}
             </table>
