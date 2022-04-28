@@ -343,15 +343,15 @@ textarea {
     border: 1px solid black;
     vertical-align: middle;
     text-align: center;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     
 }
 
 .dailydata tbody{
-    height: 500px;       /* Just for the demo          */
+    height: 400px;       /* Just for the demo          */
     overflow-y: auto;    /* Trigger vertical scroll    */
     overflow-x: hidden;  /* Hide the horizontal scroll */
 }
