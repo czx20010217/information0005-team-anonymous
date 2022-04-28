@@ -556,6 +556,7 @@ header, footer {
 /* remove bullet on the unordered lists */
 .records ul{
     list-style-type: none;
+    padding-inline-start: 0px;
 }
 
 /*adjust font size of the span part */
@@ -573,7 +574,7 @@ header, footer {
 
 .records input{
   margin: 0 auto;
-  position:relative;
+  position: relative;
   left: 40%;
   width: 120px;
   height: 30px;
