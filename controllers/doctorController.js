@@ -2,16 +2,14 @@ const Patient = require('../models/patient')
 const Record = require('../models/record')
 
 var stringify = require('json-stringify-safe');
-
 const getAllPatientData = async (req, res, next) => {
     try { 
-        var records = await Record.find().lean()
-        records = records.slice(-5)
+        var records = await Record.find().sort('-createdAt').lean()
+        records = records.slice(-10)
         for (let i = 0; i < records.length; i++) {
             const patient = await Patient.findById(records[i].patient_id).lean()
-            console.log(patient)
-            records[i].first_name = patient.first_name
-            records[i].last_name = patient.last_name
+            records[i].patient = patient
+            records[i].createdAt = records[i].createdAt.toISOString().split('T')[0]
         }
         return res.render('doctorDashboard', { layout: false , data: records}) 
     } catch (err) { 

@@ -100,7 +100,7 @@ body{
     height: 292px; */
     /* float:left; */
     margin: 0%;
-    background: url(../media/doctoricon\ new.png);
+    background: url(./media/doctoricon\ new.png);
 
     box-sizing: border-box;
  }
@@ -129,11 +129,12 @@ body{
  }
  .datatable {
     grid-area: datatable;
-    font-size:larger;
+    font-size: medium;
 }
 
 .datatable table {
     border-collapse: collapse;
+    width: 100%;
 }
 
 .datatable th, td{
@@ -352,9 +353,10 @@ textarea {
     
 }
 
-table{
-    table-layout:fixed;
+.datatable tbody{
+    height: 500px;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
 }
 
-
-
+.datatable thead, tbody { display: block; }

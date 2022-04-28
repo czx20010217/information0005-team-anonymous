@@ -11,6 +11,11 @@ app.engine(
     exphbs.engine({
         defaultLayout: 'main',
         extname: 'hbs',
+        helpers: {
+            outRange: function(value, min, max) {
+                return value < min || value > max;
+            }
+        }
     })
 )
 // set Handlebars view engine
