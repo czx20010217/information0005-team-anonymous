@@ -332,12 +332,14 @@ textarea {
 
 .dailydata table{
     position: relative;
-    
+    font-size: large;
     border-collapse: collapse;
     margin: auto;
+    overflow-y: auto;
 }
 
 .dailydata th, td{
+    font-size: large;
     border: 1px solid black;
     vertical-align: middle;
     text-align: center;
@@ -348,9 +350,14 @@ textarea {
     
 }
 
+.dailydata tbody{
+    height: 500px;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+
 .CHARTVIEW {
     text-align: right;
-    
 }
 
 .datatable tbody{
