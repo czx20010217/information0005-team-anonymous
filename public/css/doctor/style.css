@@ -312,8 +312,12 @@ textarea {
     background-color: #f8f8f8;
     resize: none;
     vertical-align: middle;
+    font-family: "roboto";
     
 }
+
+
+
 .container a {
     position:relative;
     vertical-align: middle;
@@ -339,7 +343,7 @@ textarea {
 }
 
 .dailydata th, td{
-    font-size: large;
+    font-size: medium;
     border: 1px solid black;
     vertical-align: middle;
     text-align: center;
@@ -367,3 +371,14 @@ textarea {
 }
 
 .datatable thead, tbody { display: block; }
+
+.datatable th, td{
+    border: 1px solid black;
+    vertical-align: middle;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
