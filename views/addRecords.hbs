@@ -19,24 +19,25 @@
                </div>
           </div>
 
-
+        <!-- name of daily record page -->
           <div class="row">     
             <div class="content4">
               <h2>DAILY RECORD</h2>
           </div>
+            <!-- this can let patient choose any date -->
             <div class="date">
                 <form action="">
                 <p>Date:<input type="date" /></p>
                 </form>
             </div>
 
-        
+          <!-- patients can enter four data in this page -->
           <div class="records">
               <form action="" method="get">
                 <ul class="recorddata">
                   
                     <li class="records1">
-                      <h3>blood glucose level:</h3>
+                      <h3>blood glucose level:</h3><!-- here to entrer the blood glucose level -->
                       <input type="number" name="bloodglucoselevel" min="0" step="0.1" style= "text-align: center;"><span>nmol/L</span>
                       
                       <p>comment(optional)</p>
@@ -45,7 +46,7 @@
                   
                   
                     <li class="records2">
-                      <h3>weight:</h3>
+                      <h3>weight:</h3><!-- here to enter the weight -->
                       <input type="number" name="weight" min="0" step="0.01"><span>kg</span>
                       <p>comment(optional)</p>
                       <textarea></textarea>
@@ -54,7 +55,7 @@
                   <hr>
                   
                     <li class="records3">
-                      <h3>doses of insulin taken:</h3>
+                      <h3>doses of insulin taken:</h3><!-- here to choose the numbver of doses patient taken -->
                       <select>
                           <option value="0">0</option>
                           <option value="1">1</option>
@@ -70,7 +71,7 @@
                     
                   
                     <li class="records4">
-                      <h3>exercise:</h3>
+                      <h3>exercise:</h3><!-- here to enter exercise -->
                       <input type="number" name="exercise" min="0"><span>steps</span>
                       <p>comment(optional)</p>
                       <textarea></textarea>
@@ -82,6 +83,7 @@
 
            </form>
            </div>
+          <!-- patients can click on the "submit" button to submit -->
           <div class="subline">
             <form method="get">
               <a href="/patient/addDailyRecord">
