@@ -127,7 +127,7 @@ header, footer {
 
 
 
-  /* index 1-Page 1 */
+  /* main page */
 /* Left column */
 .leftcolumn {   
   float: left;
@@ -381,7 +381,7 @@ header, footer {
 }
 
 
-  /* index 2 */
+  /* alldata page */
   /* header2 */
   .header2 {
   padding: 5px;
@@ -423,7 +423,7 @@ header, footer {
 }
 
 
-/* index 2-page 4 */
+/* all data page */
 
 .content4 {
   background-color: #ffffff;
@@ -528,7 +528,7 @@ header, footer {
   }
 }
 
-  /* index3  */
+  /* daily record page  */
   /* date */
   .date p{
     font-size: 1.5vw;
@@ -550,6 +550,7 @@ header, footer {
   color:#000000;
   text-align: center;
   background-color:#6AABDD;
+  margin: 0 auto;
 }
 
 /* remove bullet on the unordered lists */
@@ -561,7 +562,7 @@ header, footer {
 .recorddata span{
   font-size: 2vw;
   position: relative;
-  left: 45%;
+  left: 30%;
 }
 
 /* adjust style of recorddata */
@@ -571,7 +572,7 @@ header, footer {
 }
 
 .records input{
-  margin: 10px auto;
+  margin: 0 auto;
   position:relative;
   left: 40%;
   width: 120px;
@@ -579,7 +580,7 @@ header, footer {
 }
 
 .records select{
-  margin: 10px auto;
+  margin: 0 auto;
   position:relative;
   left: 40%;
   width: 80px;
@@ -606,7 +607,7 @@ header, footer {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 15px;
+  font-size: 20px;
   border-radius: 8px;
 }
 
@@ -618,7 +619,7 @@ header, footer {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-/* index4 */
+/* data submitted */
 /* adjust to the style of the font */
 .submitted h2{
   text-align: center;
