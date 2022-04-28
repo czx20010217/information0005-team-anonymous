@@ -23,17 +23,18 @@
         </nav>
 
     </div>
+    {{!-- body use grid display --}}
 
     <div class="container">
         <div class="backbutton">
-            <a href="/doctor/"><input type="button" value="BACK TO DASHBORD"></a>
+            <a href="/doctor/"><input type="button" value="BACK TO DASHBORD"></a>        {{!-- back button, return to dashboard page --}}
         </div>
 
         {{#with oneItem}}
         <div class="pName">
             {{this.first_name}} {{this.last_name}}
         </div>
-
+        {{!-- patient data check box and safe range--}}
         <div class="bgl">
             blood glucose level (in nmol/L)
             <br>
@@ -83,7 +84,7 @@
                 <input type="checkbox" class="choose"> 
             </form>
         </div>
-
+        {{!-- paitent notes, editable, click icon on the right to view history --}}
         <div class="notes">
             Notes:
             <br>
@@ -92,7 +93,7 @@
             </form>
             <a href="#"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
         </div>
-
+        {{!-- paitent support message, editable, click icon on the right to view history --}}
         <div class="supportMessage">
             Support Message:
             <br>
@@ -103,7 +104,7 @@
             <a href="#"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
         </div>
         {{/with}}
-
+        {{!-- patient daily data history --}}
         <div class="dailydata">
             <table>
                 <tr>
@@ -135,7 +136,7 @@
         </div>
     </div>
   <footer>
-    <div class="CHARTVIEW">
+    <div class="CHARTVIEW"> {{!-- link to chart view page --}}
         <a href="#">CHART VIEW</a>
     </div>
   </footer>

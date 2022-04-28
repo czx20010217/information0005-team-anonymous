@@ -17,12 +17,7 @@
             </a></p>
             <nav>
                 <ul>
-                <!-- <li> 
-                  <form >
-                    <input type="text" placeholder="search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                  </form>
-                </li> -->
+              {{!-- nav bar on the top right of page --}}
                 <li><a href="#">New Patient</a></li>
                 <li><a href="#">Comments</a></li>
                 <li><a href="#">Log Out</a></li>
@@ -31,7 +26,7 @@
           </div>
 
         <div class="main">
-          <div class="aside">
+          <div class="aside"> {{!-- left of the body, contains one icon and one greeting --}}
             <img src="/media/doctoricon new.png" alt="doctoricon">
             
             <p>Hello, Chris! </p>
@@ -39,10 +34,11 @@
   
           <div class="content">
             <h3>Monitor Your Patients</h3>
-           
+           {{!-- calender --}}
             <input id="date" type="date" value="2022-04-29">
           </div>
-  
+
+          {{!-- datatable contains patients name and data --}}
           <div class="datatable">
             <table class="datatable">
               <tr>
@@ -76,40 +72,7 @@
           
           <div class="attention">Attention: Data that exceed the threshold or are abnormal will be marked red, please pay attention.</div>
         </div>
-        <!-- <div class="aside">
-          <img src="./media/doctoricon new.png" alt="doctoricon">
-          
-          <p>Hi, Chris! You can now view the health data of your patients.</p>
-        </div>
-
-        <div class="content">
-          <h3>Monitor Your Patients</h3>
-          <br>
-          <input id="date" type="date" value="2022-04-29">
-        </div>
-
-        <div class="datatable">
-          <table>
-            <tr>
-              <th>name</th>
-              <th>blood glucose level(nmol/L)</th>
-              <th>weight(kg)</th>
-              <th>number of doses of insulin taken</th>
-              <th>step count</th>
-              <th>last update time</th>
-            </tr>
-            <tr>
-              <td>PAT</td>
-              <td>100</td>
-              <td>100</td>
-              <td>100</td>
-              <td>100</td>
-              <td>100</td>
-            </tr>
-          </table>
-        </div>
         
-        <div class="attention">Attention: Data that exceed the threshold or are abnormal will be marked red, please pay attention.</div> -->
           
 
   <footer>

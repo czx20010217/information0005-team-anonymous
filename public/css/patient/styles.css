@@ -735,6 +735,9 @@ body{
   color: #ffffff;
 }
 
+
+
+/* doctor dashboard page body */
 .main {
   padding: 0px;
   text-align: center;
@@ -838,7 +841,8 @@ body{
 
 
 
-
+/*doctor patientdetail page*/
+/*doctor patientdetail page layout*/
 .container {
   padding: 0px;
   text-align: center;
@@ -860,6 +864,8 @@ body{
       "exercise dailydata dailydata dailydata";
 }
 
+
+/*doctor patientdetail page right-top back button */
 .backbutton{
   grid-area: backbutton;
   text-align: right;
@@ -887,6 +893,8 @@ body{
   padding: 10px;
 }
 
+
+/*doctor patientdetail page left-top patient name*/
 .pName {
   grid-area: name;
   font-size: 60px ;
@@ -895,6 +903,8 @@ body{
   padding: 30px; 
 }
 
+
+/*doctor patientdetail page left */
 .bgl {
   grid-area: bgl;
   border:#4770AE solid;
@@ -931,6 +941,8 @@ body{
   padding: 20px;
 }
 
+
+/*doctor patientdetail page form*/
 .container form input[type = checkbox] {
   width: 30px;
   height: 30px;
@@ -941,6 +953,8 @@ body{
   
 }
 
+
+/*doctor patientdetail page top rates*/
 .notes{
   grid-area: notes;
   text-align: start;
@@ -949,6 +963,8 @@ body{
   padding-left: 40px;
 }
 
+
+/*doctor patientdetail page support message*/
 .supportMessage {
   grid-area: supportMessage;
   border:#4770AE solid;
@@ -972,6 +988,8 @@ body{
  
 }
 
+
+/*doctor patientdetail page notes and support message textarea*/
 textarea {
   width: 80%;
   height: 60%;
@@ -990,6 +1008,8 @@ textarea {
   padding-left: 80px;
 }
 
+
+/*doctor patientdetail page data table*/
 .dailydata {
   grid-area: dailydata;
   border:#4770AE solid;
@@ -1018,6 +1038,8 @@ textarea {
   
 }
 
+
+/*doctor patientdetail page bottom right chartview link*/
 .CHARTVIEW {
   text-align: right;
   
