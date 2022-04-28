@@ -20,12 +20,15 @@ const getAllPatientData = async (req, res, next) => {
 const getPatientById = async(req, res, next) => { 
     try { 
         const patient = await Patient.findById(req.params.patient_id).lean()
-        const records = await Record.find({patient_id: req.params.patient_id}).lean()
+        const records = await Record.find({patient_id: req.params.patient_id}).sort('-createdAt').lean()
         if (!patient) { 
             // no patient found in database
-            return res.sendStatus(404) 
+            return res.sendStatus(404)
         }
         // found person 
+        for (let i = 0; i < records.length; i++) {
+            records[i].createdAt = records[i].createdAt.toISOString().split('T')[0]
+        }
         return res.render('onePatient', { oneItem: patient, recordList: records})
     } catch (err) { 
         return next(err) 
