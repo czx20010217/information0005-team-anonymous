@@ -37,8 +37,8 @@ body{
 
 /*header's LOGO img'*/
 .header img{
-  margin:5px;
-  margin-left:20px;
+  margin:1vw;
+  margin-left:2vw;
   display: grid;
   width: 8.5vw;
   height: 8.5vw;
@@ -207,8 +207,8 @@ font-style: italic;
 
 /* well done logo */
 .WellDone img{
-width: 20%;
-height: 20%;
+width: 15vw;
+height: 13vw;
 opacity: 0.3;
 }
 
