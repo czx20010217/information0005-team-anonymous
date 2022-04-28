@@ -207,8 +207,8 @@ font-style: italic;
 
 /* well done logo */
 .WellDone img{
-width: 15vw;
-height: 13vw;
+width: 20%;
+height: 20%;
 opacity: 0.3;
 }
 
@@ -391,9 +391,11 @@ background: #4770AE;
 display: grid;
 grid-template-rows: 1fr;
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+/* fixed header*/
 position: fixed;
-    width:100%;
-    top:0;
+width:100%;
+top:0;
 }
 
 /*header2's h1*/
@@ -1045,23 +1047,18 @@ textarea {
   
 }
 
-body,
-.ui-page {
-    min-height:100% !important;
-    height:auto !important;
-}
-
 .ui-content {
     margin: 0;
-    margin-bottom:100px; /* HEIGHT OF YOUR FOOTER */
+    margin-bottom:80px; /* extra height add at the bottom so that the footer won't cover the content*/
 }
 
 .ui-long-content {
     margin: 0;
-    margin-top:15vw;
-    margin-bottom:100px; /* HEIGHT OF YOUR FOOTER */
+    margin-top:15vw; /* extra height add at the top so that the head won't cover the content*/
+    margin-bottom:80px; /* extra height add at the bottom*/
 }
 
+/* fixed footer*/
 .ui-footer {
     position:fixed;
     width:100%;
@@ -1069,5 +1066,5 @@ body,
 }
 
 .ui-footer hr {
-    margin-block-end: 0;
+    margin-block-end: 0; /* close to the header */
 }
