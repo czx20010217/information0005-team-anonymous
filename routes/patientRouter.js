@@ -11,5 +11,7 @@ patientRouter.post('/addDailyRecord', patientController.insertRecord)
 patientRouter.get('/addDailyRecord', patientController.addDailyRecord)
 
 patientRouter.get('/dashboard', patientController.getDashBoard)
+
+patientRouter.get('/myRecords', patientController.myRecords)
 // export the router
 module.exports = patientRouter

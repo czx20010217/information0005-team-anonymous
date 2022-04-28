@@ -60,8 +60,18 @@ const addDailyRecord = async (req,res) => {
     } 
 }
 
+const myRecords = async (req,res) => {
+    try { 
+
+        return res.render('myrecords', {layout: false})
+    } catch (err) { 
+        return next(err) 
+    } 
+}
+
 module.exports = {
     insertRecord, 
     getDashBoard, 
     addDailyRecord, 
+    myRecords, 
 }
