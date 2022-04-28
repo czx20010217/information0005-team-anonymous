@@ -1,39 +1,139 @@
-{{#with oneItem}}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css2?family=Scada&display=swap' rel='stylesheet'>
+    <title>Diabetes@Home</title>
+    <link rel="stylesheet" href="/css/doctor/style.css">
+</head>
 
-<h1>{{this.first_name}} {{this.last_name}}</h1>
+<body>
 
-<form>
-    <label for="blood_glucose_level_minimum">blood glucose level</label><br>
-    <input type="number" placeholder={{this.blood_glucose_level_minimum}} name="blood_glucose_level_minimum" />
-    <input type="number" placeholder={{this.blood_glucose_level_maximum}} name="blood_glucose_level_maximum" /><br><br>
-    <label for="weight_minimum">weight</label><br>
-    <input type="number" placeholder={{this.weight_minimum}} name="weight_minimum" />
-    <input type="number" placeholder={{this.weight_maximum}} name="weight_maximum" /><br><br>
-    <label for="doses_of_insulin_taken_minimum">doses of insulin taken</label><br>
-    <input type="number" placeholder={{this.doses_of_insulin_taken_minimum}} name="doses_of_insulin_taken_minimum" />
-    <input type="number" placeholder={{this.doses_of_insulin_taken_maximum}} name="doses_of_insulin_taken_maximum" /><br><br>
-    <label for="exercise_minimum">weight</label><br>
-    <input type="number" placeholder={{this.exercise_minimum}} name="exercise_minimum" />
-    <input type="number" placeholder={{this.exercise_maximum}} name="exercise_maximum" /><br><br>
-</form>
-{{/with}}
+    <div class="header">
+        <img src="/media/logo.png" alt="LOGO">
+        <nav>
+            <ul>
+            <li><a href="#">New Patient</a></li>
+            <li><a href="#">Comments</a></li>
+            <li><a href="#">Log Out</a></li>
+          </ul>
+        </nav>
 
-<table border="1">
-    <tr>
-        <th>time</th>
-        <th>blood glucose</th>
-        <th>weight</th>
-        <th>doses of insulin</th>
-        <th>exerices</th>
-    </tr>
-    {{#each recordList}}
-        <tr>
-            <td>{{this.updatedAt}}</td>
-            <td>{{this.blood_glucose_level}}</td>
-            <td>{{this.weight}}</td>
-            <td>{{this.doses_of_insulin_taken}}</td>
-            <td>{{this.exercise}}</td>
-        </tr>
-    {{/each}}
-</table>
+    </div>
 
+    <div class="container">
+        <div class="backbutton">
+            <a href="/doctor/"><input type="button" value="BACK TO DASHBORD"></a>
+        </div>
+
+        {{#with oneItem}}
+        <div class="pName">
+            {{this.first_name}} {{this.last_name}}
+        </div>
+
+        <div class="bgl">
+            blood glucose level (in nmol/L)
+            <br>
+            <br>
+            Range:
+            <form action="#" method="post">
+                <input type="text" class="min" placeholder={{this.blood_glucose_level_minimum}}> -- <input type="text" class="max" placeholder={{this.blood_glucose_level_maximum}}>
+                <input type="checkbox" class="choose"> 
+            </form>  
+        </div>
+
+        <div class="weight">
+            weight (in kg)
+            <br>
+            <br>
+            Range:
+            <form action="#" method="post">
+                <input type="text" class="min" placeholder={{this.weight_level_minimum}}> -- <input type="text" class="max" placeholder={{this.weight_level_maximum}}>
+                <input type="checkbox" class="choose"> 
+            </form>
+        </div>
+
+        <div class="insulin">
+            doses of insulin taken (number of doses)
+            <br>
+            <br>
+
+            Range:
+            <form action="#" method="post">
+                <input type="text" class="min" placeholder={{this.doses_of_insulin_taken_minimum}}> -- <input type="text" class="max" {{this.doses_of_insulin_taken_maximum}}>
+                <input type="checkbox" class="choose"> 
+            </form>
+        </div>
+
+        <div class="exercise">
+            exercise (step count)
+            <br>
+            <br>
+
+            Range:
+            <form action="#" method="post">
+                <input type="text" class="min" placeholder={{this.exercise_minimum}}> -- <input type="text" class="max" placeholder={{this.exercise_maximum}}>
+                <input type="checkbox" class="choose"> 
+            </form>
+        </div>
+
+        <div class="notes">
+            Notes:
+            <br>
+            <form action="#" method="post">
+                <textarea name="notes" >Enter notes here, and press return to submit...</textarea>
+            </form>
+            <a href="#"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
+        </div>
+
+        <div class="supportMessage">
+            Support Message:
+            <br>
+            <form action="#" method="post">
+                <textarea name="supportMessage" >Enter support message here, and press return to submit...</textarea>
+                
+            </form>
+            <a href="#"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
+        </div>
+        {{/with}}
+
+        <div class="dailydata">
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Blood glucose</th>
+                    <th>weight</th>
+                    <th>dose of insulin</th>
+                    <th>exercise</th>
+                </tr>
+                {{#each recordList}}
+                <tr>
+                    <td>{{this.createdAt}}</td>
+                <td 
+                    {{#if (outRange this.blood_glucose_level this.patient.blood_glucose_level_minimum this.patient.blood_glucose_level_maximum)}}style="color:red;"{{/if}}
+                    >{{this.blood_glucose_level}}</td>
+                <td
+                    {{#if (outRange this.weight this.patient.weight_minimum this.patient.weight_maximum)}}style="color:red;"{{/if}}
+                    >{{this.weight}}</td>
+                <td
+                    {{#if (outRange this.doses_of_insulin_taken this.patient.doses_of_insulin_taken_minimum this.patient.doses_of_insulin_taken_maximum)}}style="color:red;"{{/if}}
+                    >{{this.doses_of_insulin_taken}}</td>
+                <td
+                    {{#if (outRange this.exercise this.patient.exercise_minimum this.patient.exercise_maximum)}}style="color:red;"{{/if}}
+                    >{{this.exercise}}</td>
+                </tr>
+                {{/each}}
+            </table>
+
+        </div>
+    </div>
+  <footer>
+    <div class="CHARTVIEW">
+        <a href="#">CHART VIEW</a>
+    </div>
+  </footer>
+
+</body>
+</html>
