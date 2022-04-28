@@ -7,7 +7,7 @@
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
         <title>Diabetes@Home</title>
-        <link rel="stylesheet" href="/css/patient/styles.css">
+        <link rel="stylesheet" href="./123.css">
     </head>
     <body>
 
@@ -23,35 +23,36 @@
           <div class="row">     
             <div class="content4">
               <h2>DAILY RECORD</h2>
-                
-          <div class="date">
+          </div>
+            <div class="date">
                 <form action="">
                 <p>Date:<input type="date" /></p>
-                
-          </div>
-        </div>
+                </form>
+            </div>
+
         
           <div class="records">
               <form action="" method="get">
                 <ul class="recorddata">
-                  <div class="leftcolumn">
+                  
                     <li class="records1">
                       <h3>blood glucose level:</h3>
-                      <input type="number" name="bloodglucoselevel" min="0" step="0.1"><span>nmol/L</span>
+                      <input type="number" name="bloodglucoselevel" min="0" step="0.1" style= "text-align: center;"><span>nmol/L</span>
+                      
                       <p>comment(optional)</p>
                       <textarea></textarea>
                    </li>
-                  </div>
-                  <div class="rightcolumn">
+                  
+                  
                     <li class="records2">
                       <h3>weight:</h3>
                       <input type="number" name="weight" min="0" step="0.01"><span>kg</span>
                       <p>comment(optional)</p>
                       <textarea></textarea>
                     </li>
-                  </div>
+                  
                   <hr>
-                  <div class="leftcolumn">
+                  
                     <li class="records3">
                       <h3>doses of insulin taken:</h3>
                       <select>
@@ -65,35 +66,34 @@
                       <p>comment(optional)</p>
                       <textarea></textarea>
                    </li>
-                  </div>                    
+                                      
                     
-                  <div class="rightcolumn">
+                  
                     <li class="records4">
                       <h3>exercise:</h3>
                       <input type="number" name="exercise" min="0"><span>steps</span>
                       <p>comment(optional)</p>
                       <textarea></textarea>
-                  </li>
+                    </li>
+                  
                 </ul>
+            </div>
 
 
-                      
-             </div> 
-          <div>
-
-              <a href="/patient/recordSubmited">
-                <input class="submitbutton" type="button" value="submit">
+           </form>
+           </div>
+          <div class="subline">
+       
+            <a href="/patient/recordSubmited">
+              <input class="submitbutton" type="button" value="submit"></a>
           </div>
-
-          </form>
-
+        
               
                     
                         
           <HR align=center width=100% color=#7B7B7B SIZE=1>
 
-
-           </div>          
+          
            <div class="downnav">
             <p style="text-align: center;">
                <img src="/media/home.png" alt="Home" width="30%" height="30%"> 
