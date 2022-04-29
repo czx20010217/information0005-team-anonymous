@@ -38,9 +38,9 @@ const insertRecord = async (req,res) => {
 const getDashBoard = async (req,res) => {
     // get current logged in patient's info
     patient_id = "626b81faae8828ea7f3a9983"
-    const patient = await Patient.findById(patient_id).lean()
 
     try { 
+        const patient = await Patient.findById(patient_id).lean()
         return res.render('patientDashboard.hbs', {layout: false, patient: patient})
     } catch (err) { 
         return next(err) 
@@ -49,17 +49,18 @@ const getDashBoard = async (req,res) => {
 
 const addDailyRecord = async (req,res) => {
     patient_id = "626b81faae8828ea7f3a9983"
-    // get current date
-    var now = new Date()
-    const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
-
-    // check and avoid same record for same patient in one day
-    const record = await Record.findOne({patient_id: patient_id, updatedAt: {$gte: startOfToday}}).lean()
-    if (record){
-        res.render("recordAlreadySubmitted", {layout: false})
-        return
-    }
+    
     try { 
+        // get current date
+        var now = new Date()
+        const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+
+        // check and avoid same record for same patient in one day
+        const record = await Record.findOne({patient_id: patient_id, updatedAt: {$gte: startOfToday}}).lean()
+        if (record){
+            res.render("recordAlreadySubmitted", {layout: false})
+            return
+        }
         return res.render('addRecords', {layout: false})
     } catch (err) { 
         return next(err) 
@@ -68,7 +69,6 @@ const addDailyRecord = async (req,res) => {
 
 const myRecords = async (req,res) => {
     try { 
-
         return res.render('myrecords', {layout: false})
     } catch (err) { 
         return next(err) 
