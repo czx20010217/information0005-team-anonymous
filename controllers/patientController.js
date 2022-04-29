@@ -52,7 +52,7 @@ const addDailyRecord = async (req,res) => {
 
     const record = await Record.findOne({patient_id: patient_id, updatedAt: {$gte: startOfToday}}).lean()
     if (record){
-        res.render("recordSubmited", {layout: false})
+        res.render("recordAlreadySubmitted", {layout: false})
         return
     }
     try { 
