@@ -817,18 +817,12 @@ line-height: 200px;
   align-content: center;
 }
 .aside img{
- 
-  /* position: absolute; */
-  /* width: 257px;
-  height: 292px; */
-  /* float:left; */
   margin: 0%;
   background: url(/media/doctoricon\ new.png);
 
   box-sizing: border-box;
 }
 .aside p {
-   /* float: right; */
   font-size: 60px; 
   
 }
@@ -1076,6 +1070,7 @@ textarea {
   margin: auto;
 }
 
+/* style of the table (past records for patient) */
 .dailydata th, td{
   border: 1px solid black;
   vertical-align: middle;
