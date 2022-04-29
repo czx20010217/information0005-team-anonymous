@@ -6,7 +6,6 @@ var stringify = require('json-stringify-safe');
 const getAllPatientData = async (req, res, next) => {
     try { 
         var records = await Record.find().sort('-createdAt').lean()
-        records = records.slice(-10)
         for (let i = 0; i < records.length; i++) {
             const patient = await Patient.findById(records[i].patient_id).lean()
             records[i].patient = patient
