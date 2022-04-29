@@ -1,5 +1,6 @@
 body {
   font-family: "Verdana", "Geneva", "Tahoma", sans-serif;
+  background: #ffffff;
 }
 
 header, footer {
@@ -11,10 +12,6 @@ header, footer {
   box-sizing: border-box;
 }
 
-body{
-  background: #ffffff;
-}
- 
 /* header */
 .header {
   padding: 5px;
@@ -331,6 +328,7 @@ right: 0;
   margin-right: 3vh;
   margin-top: -8vh;
 }
+/* LOGO and company name */
 .header h1{
   font-size: 1.8vw;
   text-align: left;
@@ -509,8 +507,8 @@ font-size: 3vw;
 text-align: center;
 }
 
-/* button part */
-.buttonGroup4{
+/* buttons in myRecords page */
+.myRecordsButtons{
 background-color: #fbfbfb;;
 padding: 20px;
 color: #000000;
@@ -519,7 +517,7 @@ font-weight: bold;
 
 }
 
-.buttonGroup4 a {
+.myRecordsButtons a {
 display: inline-table;
 color: #000000;
 font-size: 3.5vh;
@@ -535,7 +533,7 @@ list-style-type: none;
 text-align:left;
 }
 
-/* button animation */
+/* animation of buttons in myRecords page */
 .Page4button span {
 cursor: pointer;
 display: inline-block;
@@ -572,8 +570,9 @@ position: relative;
 display:contents;
 }
 
+/* healthcare pic in patient dashboard page */
 .healthcarePic img{
-display: none;
+display: none; /* don't display in phone view, display when screen width > 800px */
 }
 
 /* if page's width > 800px, it will.... */
@@ -655,7 +654,8 @@ font-size: 2vw;
 text-indent: 10px;
 }
 
-.records input{
+/* style of data input area */
+.bglInput input, .weightInput input, .dosesInput input, .exerciseInput input{
 margin-top: 3vw;
 margin-left: 40vw;
 align-content: center;
@@ -689,6 +689,7 @@ height: 3.5vw;
 
 /* adjust to submit button */
 .submitbutton{
+margin-left: 44vw;
 background-color:#4770AE;
 border:#000000;
 color: white;
@@ -696,13 +697,13 @@ padding: 10px 20px;
 text-decoration: none;
 display: inline-block;
 margin-top: 5vw;
-margin-left: 75vw;
 font-size: 3vw;
 margin-bottom: 5vw;
 
 
 
 }
+
 
 
 /* data submitted */
@@ -826,269 +827,6 @@ line-height: 200px;
   font-size: 60px; 
   
 }
-
-.content {
-   font-size: 40px;
-   font-weight: bold;
-   grid-area: content;    
-   
-}
-
-.content h3{
-   margin-bottom: 0px;
-   float: left;
-}
-.content input[id = date]{
-   float: left;
-   padding: 5px 10px;
-   font-size:x-large;
-   
-}
-.datatable {
-  grid-area: datatable;
-  font-size:larger;
-}
-
-.datatable table {
-  border-collapse: collapse;
-}
-
-.datatable th, td{
-  border: 1px solid black;
-  vertical-align: middle;
-  text-align: center;
-  padding: 15px;
-}
-
-.datatable table a {
-  color: #4770AE;
-  font-weight:bolder;
-  text-decoration: none; 
-}
-
-.datatable table a:hover{
-  color: whitesmoke;
-  text-decoration: underline; 
-  background-color: #4D7ABD;
-  
-}
-.attention {
-  grid-area: attention;
-  font-size: 36px;
-  padding-right: 100px;
-  color: red;
-  float: left;
-  justify-content: flex-start;
-  
-}
-
-
-
-/*doctor patientdetail page*/
-/*doctor patientdetail page layout*/
-.container {
-  padding: 0px;
-  text-align: center;
-  font-family: "roboto", Arial, Helvetica, sans-serif;
-  display:grid;
-  height: 930px;
-  width: auto;
-  vertical-align: middle;
-  grid-template-columns: repeat(4,1fr);
-  grid-template-rows: repeat(6,1fr);
-  grid-row-gap: 20px;
-  grid-column-gap: 20px;
-  grid-template-areas: 
-      "space  space1 space2 backbutton"
-      "name notes notes notes"
-      "bgl supportMessage supportMessage supportMessage "
-      "weight dailydata dailydata dailydata"
-      "insulin dailydata dailydata dailydata "
-      "exercise dailydata dailydata dailydata";
-}
-
-
-/*doctor patientdetail page right-top back button */
-.backbutton{
-  grid-area: backbutton;
-  text-align: right;
-  padding-top: 20px;
-  vertical-align: middle;
-  
-}
-
-.backbutton a input:hover{
-  background-color: white;
-  color: #4770AE;
-  text-decoration: underline; 
-  border-color: #4770AE;
-  border: #4770AE solid;
-}
-
-.backbutton input[type = button]{
- 
-  background-color: #4770AE;
-  border:#4770AE solid;
-  color: white;
-  font-size: large;
-  text-decoration: none;
-  cursor: pointer;
-  padding: 10px;
-}
-
-
-/*doctor patientdetail page left-top patient name*/
-.pName {
-  grid-area: name;
-  font-size: 60px ;
-  border:#4770AE solid;
-  vertical-align: middle;
-  padding: 30px; 
-}
-
-
-/*doctor patientdetail page left */
-.bgl {
-  grid-area: bgl;
-  border:#4770AE solid;
-  font-size: large;
-  font-weight: bold;
-  text-align: left;;
-  padding: 20px;
-}
-
-.weight {
-  grid-area: weight; 
-  border:#4770AE solid;
-  font-size: large;
-  font-weight: bold;
-  text-align: left;;
-  padding: 20px;
-}
-
-.insulin {
-  grid-area: insulin;
-  border:#4770AE solid;
-  font-size: large;
-  font-weight: bold;
-  text-align: left;;
-  padding: 20px;
-}
-
-.exercise {
-  grid-area: exercise;
-  border:#4770AE solid;
-  font-size: large;
-  font-weight: bold;
-  text-align: left;;
-  padding: 20px;
-}
-
-
-/*doctor patientdetail page form*/
-.container form input[type = checkbox] {
-  width: 30px;
-  height: 30px;
-  clip-path: circle(36% at 50% 50%);
-  position: relative;
-  vertical-align: middle;
-  border: #4770AE solid;
-  
-}
-
-
-/*doctor patientdetail page top rates*/
-.notes{
-  grid-area: notes;
-  text-align: start;
-  font-size: x-large;
-  border:#4770AE solid;
-  padding-left: 40px;
-}
-
-
-/*doctor patientdetail page support message*/
-.supportMessage {
-  grid-area: supportMessage;
-  border:#4770AE solid;
-  text-align: start;
-  font-size: x-large;
-  padding-left: 40px;
-}
-.notes form {
-  width: 100%;
-  margin: 0px;
-  display: inline;
-  padding-left: 30px;
- 
-}
-
-.supportMessage form {
-  width: 100%;
-  margin: 0px;
-  display: inline;
-  padding-left: 30px;
- 
-}
-
-
-/*doctor patientdetail page notes and support message textarea*/
-textarea {
-  width: 80%;
-  height: 60%;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  resize: none;
-  vertical-align: middle;
-  
-}
-.container a {
-  position:relative;
-  vertical-align: middle;
-  padding-left: 80px;
-}
-
-
-/*doctor patientdetail page data table*/
-.dailydata {
-  grid-area: dailydata;
-  border:#4770AE solid;
-  font-size: xx-large;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 2%;
-  
-}
-
-.dailydata table{
-  position: relative;
-  
-  border-collapse: collapse;
-  margin: auto;
-}
-
-/* style of the table (past records for patient) */
-.dailydata th, td{
-  border: 1px solid black;
-  vertical-align: middle;
-  text-align: center;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  
-}
-
-
-/*doctor patientdetail page bottom right chartview link*/
-.CHARTVIEW {
-  text-align: right;
-  
-}
-
 
 .ui-content {
     margin: 0;
