@@ -21,7 +21,6 @@ body{
   text-align: center;
   background: #4770AE;
   display: grid;
-  grid-template-rows: 1fr 0.18fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
@@ -35,15 +34,14 @@ body{
   align-content: center;
 }
 
-/*header's LOGO img'*/
+/*header's LOGO img*/
 .header img{
-  margin:1vw;
-  margin-left:2vw;
-  display: grid;
-  width: 8.5vw;
-  height: 8.5vw;
-  grid-column: 1/2;
-  grid-row: 1/2;
+    margin:1vw;
+    margin-left:2vw;
+    display: grid;
+    height: 8.5vw;
+    grid-column: 1/2;
+    grid-row: 1/2;
 }
  
 /* content */
@@ -127,23 +125,13 @@ button {
 }
 
 
-
 /* main page */
-/* Left column */
-.leftcolumn {   
-float: left;
-width: 50%;
+/* display personal infomation */
+.personalDisplay {   
+display: flex;
+flex-direction:column;
 /* remove white line between two divs */
-margin-top:-1px 
-}
-
-/* right column */
-.rightcolumn {
-float: left;
-width: 50%;
-background-color: #f1f1f1;
-/* remove white line between two divs */
-margin-top:-1px
+margin-top:-1px;
 }
 
 /* information part */
@@ -160,7 +148,7 @@ font-size: 3vh;
 }
 
 .information h3{
-font-size: 3.5vh;
+font-size: 4vh;
 text-decoration: underline;
 }
 
@@ -171,13 +159,7 @@ font-size: 2.5vh;
 /* double color background */
 .card{
 padding: 10px;
-background-color: #4770ae;
-}
-
-/* no background*/
-.card1{
-padding: 10px;
-background-color: white;
+background-color: #ffffff;
 }
 
 /* engagement part */
@@ -207,16 +189,20 @@ font-style: italic;
 
 /* well done logo */
 .WellDone img{
+float: right;
 width: 20%;
 height: 20%;
 opacity: 0.3;
 }
 
-
+.leftcolumn ul {
+    /* no dot */
+    list-style-type: none;
+}
 /* button part */
 .buttonGroup{
 background-color: #fbfbfb;;
-padding: 20px;
+padding: 30px;
 color: #ffffff;
 font-family: 'Roboto';
 font-weight: bold;
@@ -232,26 +218,26 @@ text-decoration: none;
 }
 
 .homebutton{
-display: contents;
+    padding-inline-start: 0px;
 }
 
 /* button background color and radius*/
-.homebutton1{
+.recordDataButton{
 background-color: #6AABDD;
-text-align: center;  
+text-align: center;
 border-radius: 5px;
 }
 
-.homebutton2{
+.viewRecordsButton{
 background-color: #13899F;
 text-align: center;
 border-radius: 5px;
 }
 
-.homebutton3{
+.leadboardButton{
+border-radius: 5px;
 background-color: #38423F;
 text-align: center;
-border-radius: 5px;
 }
 
 
@@ -334,41 +320,123 @@ opacity: 1;
 right: 0;
 }
 
-/* part4---hidden it on the phone size */
-.hiddenPicture{
-background-image: url("hidden.png");
-position: absolute;
-background-repeat: no-repeat;
-width:49vw; 
-height:16vw;
-background-size:cover;
-display: none;
-}
-
-/* if page's width < 800px, it will.... */
-@media screen and (max-width: 800px) {
-.leftcolumn, .rightcolumn {   
-  width: 100%;
-  padding: 0;
-}
-.WellDone img{
-  float: right;
-}
-
+@media screen {
+    
 }
 
 /* if page's width > 800px, it will.... */
 @media screen and (min-width: 800px) {
-/* content part in center*/
-.leftcolumn, .rightcolumn {   
-  text-align: center;
-} 
-/* add some padding to increasing background color */
-.information{
-  padding-bottom: 3vh;
+.WellDone img{
+  width: 11vw;
+  margin-right: 3vh;
+  margin-top: -8vh;
 }
-.hiddenPicture{
-  display: block;
+.header h1{
+  font-size: 1.8vw;
+  text-align: left;
+}
+.row {
+  padding-top: 2%;
+}
+/*header's LOGO img*/
+.header img{
+  float:left;
+  margin-left:13vw;
+  display: grid;
+  height: 3vw;
+  grid-column: 1/2;
+}
+.information{
+  padding-top: 15%;
+  text-align: center;
+}
+.information hr {
+  overflow: hidden;;
+  vertical-align: bottom;
+}
+.card {
+  /* remove white line between two divs */
+  margin-top:-1px;
+  padding: 0px;
+}
+.engagement {
+  /* remove white line between two divs */
+  margin-top:-1px;
+  background-color: #4770ae;
+  text-align: center;
+}
+.engagement h2 {
+  display: grid;
+  font-size: 3vh;
+  color: #ffffff;
+}
+.engagement h3 {
+  font-size: 5vh;
+  margin: 1.5vh;
+  margin-right: 3vh;
+  color: #132333;
+}
+.engagement p {
+  width: 100%;
+  margin-right: 100%;
+  font-size: 2.5vh;
+  text-align: right;
+  color: #ffffff;
+  grid-row: 1/2;
+  padding-right: 14vw;
+}
+.personalDisplay {
+  float: left;
+  position: absolute;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 50%;
+}
+.leftcolumn {
+width: 50%;
+float: right;
+}
+.homebutton{
+display: flex;
+align-content: space-between;
+flex-wrap: wrap;
+justify-content: space-evenly;
+flex-direction: row;
+}
+
+.homebutton br {
+display: none;
+}
+
+.recordDataButton{
+height: 250px;
+width: 41%;
+font-size: 6vw;
+}
+
+.viewRecordsButton{
+height: 250px;
+width: 41%;
+font-size: 8vw;
+}
+    
+.leadboardButton{
+margin-top: 5%;
+background-color: #38423F;
+height: 150px;
+border-radius: 5px;
+width: 90%;
+font-size: 10vh;
+}
+/* button part */
+.buttonGroup{
+padding-top: 15%;
+}
+.buttonGroup a {
+font-size: 3vw;
+}
+.bigDisappearhr {
+display: none;
 }
 }
 
@@ -516,7 +584,6 @@ display:contents;
 .Page4button{
   text-align: center;
 }
-
 /* show the pic */
 .hiddenimage4{
   display: block;
@@ -669,36 +736,6 @@ line-height: 200px;
   color:#4770AE;
   position: relative;
   left: 45%;
-}
-
-* /*all body style*/
-{
-  box-sizing: border-box;
-}
-
-body{
-  background: #ffffff;
-  background-image: url("../media/doctor background.jpeg");
-  
-}
-
-/* header */
-.header {
-  padding: 0px;
-  text-align: center;
-  background: #4770AE;
-  display: grid;
-  grid-template-rows: 50px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-}
-
-/*header's LOGO img'*/
-.header img{
-  display: grid;
-  width: 8.5vw;
-  height: 8.5vw;
-  grid-column: 1/2;
-  grid-row: 1/2;
 }
 
 /* header'menu */
@@ -1049,6 +1086,7 @@ textarea {
 
 .ui-content {
     margin: 0;
+    height: 100%;
     margin-bottom:80px; /* extra height add at the bottom so that the footer won't cover the content*/
 }
 
