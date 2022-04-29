@@ -21,7 +21,7 @@
   <body class="ui-content">
 
       <div class="row">
-        <div class="leftcolumn">
+        <div class="personalDisplay">
           <div class="information">  <!-- information part-first part -->
             <h2>GOOD MORNING,</h2>
             <h3>{{patient.first_name}} {{patient.last_name}}</h3>
@@ -29,42 +29,37 @@
             <p>How are you today?</p>
             <HR align=center width=100% color=#224667 SIZE=1>  <!-- Dividing Line -->
           </div>
-          </div>
-          <div class="rightcolumn">
-            <div class="card">
-              <div class="engagement">   <!-- part 2-about engagement and logo img -->
+        <div class="card">
+            <div class="engagement">   <!-- part 2-about engagement and logo img -->
                 <h2>Your Overall engagement rate is</h2>
                 <h3>50%</h3>
-                  <div class="WellDone">                  
+                  <div class="WellDone">
                   <img src="/media/well done.png" alt="Pic">
                   </div>  
                 <p>Engage everyday to get the badge!
                   <br>
                   (engagement rate >= 80%)
                   </p>
-                </div>
-              </div>
             </div>
-            <HR align=center width=100% color=#E5E5E5 SIZE=10>
-          <div class="rightcolumn">
-            <div class="card1">    <!--  hidden background picture -->
-            <div class="hiddenPicture"></div> 
-            </div>
-          </div>
+        </div>
+      </div>
+            <HR class="bigDisappearhr" align=center width=100% color=#E5E5E5 SIZE=10>
           <div class="leftcolumn">   <!-- button list of menu part to other page -->
             <div class="buttonGroup">
               <ul class="homebutton">
-                <li class="homebutton1"><a href="/patient/addDailyRecord"class="button"><span>RECORD DATA</span></a></li>
+                <li class="recordDataButton"><a href="/patient/addDailyRecord"class="button"><span>RECORD DATA</span></a></li>
                 <br>
-                <li class="homebutton2"><a href="/patient/myRecords"class="button"><span>VIEW DATA</span></a></li>
+                <li class="viewRecordsButton"><a href="/patient/myRecords"class="button"><span>VIEW DATA</span></a></li>
                 <br>
-                <li class="homebutton3"><a href="#"class="button"><span>LEADERBOARD</span></a></li>
+                <li class="leadboardButton"><a href="#"class="button"><span>LEADERBOARD</span></a></li>
                 <br>
             </ul>
           </div>
         </div>
     </div>
-      
+    <div class="healthcarePic">
+                <img src="/media/hidden.png" alt="Pic">
+            </div>
   </body>
   <footer class="ui-footer">
           <HR align=center width=100% color=#7B7B7B SIZE=1>  <!-- Dividing Line -->
