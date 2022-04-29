@@ -24,12 +24,6 @@ app.set('view engine', 'hbs')
 app.use(express.static('public'));
 app.use(express.static('media'));
 
-// log all request
-app.use((req,res,next) => {
-    console.log('message arrived: ' + req.method + ' ' + req.path)
-    next()
-})
-
 // Set up to handle POST requests
 app.use(express.json()) // needed if POST data is in JSON format
 app.use(express.urlencoded({ extended: false })) // only needed for URL-encoded input
@@ -42,7 +36,7 @@ const patientRouter = require('./routes/patientRouter')
 app.use('/doctor', doctorRouter)
 app.use('/patient', patientRouter)
 
-// Tells the app to send the string: "Our demo app is working!" when you hit the '/' endpoint.
+// health check for program
 app.get('/', (req, res) => {
     res.render('index.hbs')
 })

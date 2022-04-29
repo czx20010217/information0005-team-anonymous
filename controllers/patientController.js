@@ -8,13 +8,15 @@ const insertRecord = async (req,res) => {
     // get current date
     var now = new Date()
     const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
-    // console.log(startOfToday)
-    // console.log("adding new record, input param: ", req.body)
+
+    // check and avoid same record for same patient in one day
     const record = await Record.findOne({patient_id: patient_id, updatedAt: {$gte: startOfToday}}).lean()
     if (record){
         res.render("recordSubmited", {layout: false})
         return
     }
+
+    // create and save new record
     const {
         blood_glucose_level, blood_glucose_level_commment, 
         weight, weight_commment, 
@@ -29,11 +31,12 @@ const insertRecord = async (req,res) => {
         exercise, exercise_commment});
 
     newRecord.save();
-    // return the new Record after cleaningy
+
     res.render("recordSubmited", {layout: false})
 }
 
 const getDashBoard = async (req,res) => {
+    // get current logged in patient's info
     patient_id = "626b81faae8828ea7f3a9983"
     const patient = await Patient.findById(patient_id).lean()
 
@@ -45,11 +48,12 @@ const getDashBoard = async (req,res) => {
 }
 
 const addDailyRecord = async (req,res) => {
-    // hard code patient id
     patient_id = "626b81faae8828ea7f3a9983"
+    // get current date
     var now = new Date()
     const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
 
+    // check and avoid same record for same patient in one day
     const record = await Record.findOne({patient_id: patient_id, updatedAt: {$gte: startOfToday}}).lean()
     if (record){
         res.render("recordAlreadySubmitted", {layout: false})
