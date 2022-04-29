@@ -31,6 +31,7 @@ const getPatientById = async(req, res, next) => {
         }
         // found person 
         for (let i = 0; i < records.length; i++) {
+            records[i].patient = patient
             // Change the format of createAt to YYYY/MM/DD
             records[i].createdAt = records[i].createdAt.toISOString().split('T')[0]
         }
