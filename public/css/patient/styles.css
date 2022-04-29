@@ -426,7 +426,7 @@ background-color: #38423F;
 height: 130px;
 border-radius: 5px;
 width: 90%;
-font-size: 10vh;
+font-size: 10vh; /* make 'leaderboard' lower */
 }
 
 .buttonGroup a {
