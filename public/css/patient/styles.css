@@ -409,13 +409,13 @@ display: none;
 }
 
 .recordDataButton{
-height: 250px;
+height: 150px;
 width: 41%;
 font-size: 6vw;
 }
 
 .viewRecordsButton{
-height: 250px;
+height: 150px;
 width: 41%;
 font-size: 8vw;
 }
@@ -428,10 +428,7 @@ border-radius: 5px;
 width: 90%;
 font-size: 10vh;
 }
-/* button part */
-.buttonGroup{
-padding-top: 15%;
-}
+
 .buttonGroup a {
 font-size: 3vw;
 }
@@ -575,8 +572,21 @@ position: relative;
 display:contents;
 }
 
+.healthcarePic img{
+display: none;
+}
+
 /* if page's width > 800px, it will.... */
 @media screen and (min-width: 800px) {
+.healthcarePic img {
+display: block;
+float: right;
+background-repeat: no-repeat;
+width:45%; 
+height:130px;
+padding-right: 5vw;
+object-fit: cover;
+}
 /* content part in center*/
 .content4 {   
   text-align: center;
@@ -1083,6 +1093,7 @@ textarea {
   text-align: right;
   
 }
+
 
 .ui-content {
     margin: 0;
