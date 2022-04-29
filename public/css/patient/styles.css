@@ -240,14 +240,14 @@ text-align: center;
 
 /* button animation */
 /* button 1*/
-.homebutton1 span {
+.recordDataButton span {
 cursor: pointer;
 display: inline-block;
 position: relative;
 transition: 0.5s;
 }
 
-.homebutton1 span:after {
+.recordDataButton span:after {
 content: '»';
 position: absolute;
 opacity: 0;
@@ -256,24 +256,24 @@ right: -20px;
 transition: 0.5s;
 }
 
-.homebutton1:hover span {
+.recordDataButton:hover span {
 padding-right: 25px;
 }
 
-.homebutton1:hover span:after {
+.recordDataButton:hover span:after {
 opacity: 1;
 right: 0;
 }
 
 /* button 2*/
-.homebutton2 span {
+.viewRecordsButton span {
 cursor: pointer;
 display: inline-block;
 position: relative;
 transition: 0.5s;
 }
 
-.homebutton2 span:after {
+.viewRecordsButton span:after {
 content: '»';
 position: absolute;
 opacity: 0;
@@ -282,24 +282,24 @@ right: -20px;
 transition: 0.5s;
 }
 
-.homebutton2:hover span {
+.viewRecordsButton:hover span {
 padding-right: 25px;
 }
 
-.homebutton2:hover span:after {
+.viewRecordsButton:hover span:after {
 opacity: 1;
 right: 0;
 }
 
 /* button 3*/
-.homebutton3 span {
+.leadboardButton span {
 cursor: pointer;
 display: inline-block;
 position: relative;
 transition: 0.5s;
 }
 
-.homebutton3 span:after {
+.leadboardButton span:after {
 content: '»';
 position: absolute;
 opacity: 0;
@@ -308,17 +308,13 @@ right: -20px;
 transition: 0.5s;
 }
 
-.homebutton3:hover span {
+.leadboardButton:hover span {
 padding-right: 25px;
 }
 
-.homebutton3:hover span:after {
+.leadboardButton:hover span:after {
 opacity: 1;
 right: 0;
-}
-
-@media screen {
-    
 }
 
 /* if page's width > 800px, it will.... */
