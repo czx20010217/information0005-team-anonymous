@@ -4,7 +4,7 @@ const Record = require('../models/record')
 // add records
 const insertRecord = async (req,res) => {
     // hard code user for temporary usage
-    patient_id = "626b81faae8828ea7f3a9983"
+    patient_id = "626bad5417463fa57019f569"
     // get current date
     var now = new Date()
     const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
@@ -37,7 +37,7 @@ const insertRecord = async (req,res) => {
 
 const getDashBoard = async (req,res) => {
     // get current logged in patient's info
-    patient_id = "626b81faae8828ea7f3a9983"
+    patient_id = "626bad5417463fa57019f569"
 
     try { 
         const patient = await Patient.findById(patient_id).lean()
@@ -48,7 +48,7 @@ const getDashBoard = async (req,res) => {
 }
 
 const addDailyRecord = async (req,res) => {
-    patient_id = "626b81faae8828ea7f3a9983"
+    patient_id = "626bad5417463fa57019f569"
     
     try { 
         // get current date
