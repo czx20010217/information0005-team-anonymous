@@ -52,18 +52,30 @@
               {{#each data}}
               <tr>
                 <td><a href="/doctor/patientDetail/{{this.patient._id}}">{{this.patient.first_name}} {{this.patient.last_name}}</a></td>
-                <td 
-                {{#if (outRange this.blood_glucose_level this.patient.blood_glucose_level_minimum this.patient.blood_glucose_level_maximum)}}style="color:red;"{{/if}}
-                >{{this.blood_glucose_level}}</td>
-                <td
-                {{#if (outRange this.weight this.patient.weight_minimum this.patient.weight_maximum)}}style="color:red;"{{/if}}
-                >{{this.weight}}</td>
-                <td
-                {{#if (outRange this.doses_of_insulin_taken this.patient.doses_of_insulin_taken_minimum this.patient.doses_of_insulin_taken_maximum)}}style="color:red;"{{/if}}
-                >{{this.doses_of_insulin_taken}}</td>
-                <td
-                {{#if (outRange this.exercise this.patient.exercise_minimum this.patient.exercise_maximum)}}style="color:red;"{{/if}}
-                >{{this.exercise}}</td>
+                {{#if this.blood_glucose_level}}
+                <td {{#if (outRange this.blood_glucose_level this.patient.blood_glucose_level_minimum this.patient.blood_glucose_level_maximum)}}style="color:red;"{{/if}}>{{this.blood_glucose_level}}</td>
+                {{else}}
+                <td style="color:red;">missing</td>
+                {{/if}}
+
+                {{#if this.weight}}
+                <td {{#if (outRange this.weight this.patient.weight_minimum this.patient.weight_maximum)}}style="color:red;"{{/if}}>{{this.weight}}</td>
+                {{else}}
+                <td style="color:red;">missing</td>
+                {{/if}}
+                
+                {{#if this.doses_of_insulin_taken}}
+                <td {{#if (outRange this.doses_of_insulin_taken this.patient.doses_of_insulin_taken_minimum this.patient.doses_of_insulin_taken_maximum)}}style="color:red;"{{/if}}>{{this.doses_of_insulin_taken}}</td>
+                {{else}}
+                <td style="color:red;">missing</td>
+                {{/if}}
+                
+                {{#if this.exercise}}
+                <td {{#if (outRange this.exercise this.patient.exercise_minimum this.patient.exercise_maximum)}}style="color:red;"{{/if}}>{{this.exercise}}</td>
+                {{else}}
+                <td style="color:red;">missing</td>
+                {{/if}}
+                
                 <td>{{this.createdAt}}</td>
               </tr>>
               {{/each}}
