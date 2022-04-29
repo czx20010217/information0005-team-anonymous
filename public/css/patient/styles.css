@@ -411,19 +411,19 @@ display: none;
 .recordDataButton{
 height: 150px;
 width: 41%;
-font-size: 6vw;
+padding: 0px 0;
 }
 
 .viewRecordsButton{
 height: 150px;
 width: 41%;
-font-size: 8vw;
+padding: 20px 0;
 }
     
 .leadboardButton{
 margin-top: 5%;
 background-color: #38423F;
-height: 150px;
+height: 130px;
 border-radius: 5px;
 width: 90%;
 font-size: 10vh;
