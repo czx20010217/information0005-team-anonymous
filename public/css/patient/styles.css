@@ -700,33 +700,47 @@ margin-bottom: 5vw;
 
 }
 
+.submitted {
+  margin-top: 20vh;
+  margin-bottom: 13vh;
+  text-align: center;
 
-
+}
 /* data submitted */
 /* adjust to the style of the font */
 .submitted h2{
 text-align: center;
 color:#4770AE;
-font-size: 4vw;
+font-size: 7vw;
 }
 
 .submitted h3{
 text-align: center;
-font-size: 2.5vw;
+font-size: 4.2vw;
 line-height: 0.8vw;
 }
 
 .submitted p{
 display: block;
+width: 200px;
+
 text-align: center;
 left: 50%;
 margin: 0 auto;
+height: 50%;
+
+margin-top: 10vh;
 }
 
 .submitted br{
 line-height: 200px;
 }
 
+
+.Backbutton2 {
+  margin-top: 8vh;
+  text-align: center;
+}
 
 .Backbutton2 span{
   -webkit-border-radius: 8;
@@ -741,8 +755,7 @@ line-height: 200px;
   text-align: center;
   display: inline-block;
   color:#4770AE;
-  position: relative;
-  left: 45%;
+
 }
 
 /* header'menu */
