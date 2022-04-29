@@ -4,7 +4,7 @@ const Record = require('../models/record')
 // add records
 const insertRecord = async (req,res) => {
     // hard code user for temporary usage
-    patient_id = "625bd3b2263cf5c4c2442a16"
+    patient_id = "626b81faae8828ea7f3a9983"
     // get current date
     var now = new Date()
     const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
@@ -33,10 +33,12 @@ const insertRecord = async (req,res) => {
     res.render("recordSubmited", {layout: false})
 }
 
-const getDashBoard = (req,res) => {
+const getDashBoard = async (req,res) => {
+    patient_id = "626b81faae8828ea7f3a9983"
+    const patient = await Patient.findById(patient_id).lean()
 
     try { 
-        return res.render('patientDashboard.hbs', {layout: false})
+        return res.render('patientDashboard.hbs', {layout: false, patient: patient})
     } catch (err) { 
         return next(err) 
     } 
@@ -44,7 +46,7 @@ const getDashBoard = (req,res) => {
 
 const addDailyRecord = async (req,res) => {
     // hard code patient id
-    patient_id = "625bd3b2263cf5c4c2442a16"
+    patient_id = "626b81faae8828ea7f3a9983"
     var now = new Date()
     const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
 
