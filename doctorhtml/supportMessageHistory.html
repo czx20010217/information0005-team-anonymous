@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/doctor/style.css">
     <title>Diabetes@Home</title>
 </head>
 <body>
     <div class="header">
         <p><a href="/doctor/">
-        <img src="/media/logo.png" alt="LOGO">
+        <img src="../public/media/logo.png" alt="LOGO">
         </a></p>
         <nav>
             <ul>
@@ -19,22 +20,28 @@
             <li><a href="#">Log Out</a></li>
           </ul>
         </nav>
-      </div>
+    </div>
 
     <div class="backbutton">
         <a href="/doctor/"><input type="button" value="BACK TO DASHBORD"></a>   
     </div>
 
     <div class="supportmessagehistory">
-        <p>{{patient's}} support messages</p>
+        <p>{{"patient name's"}} support messages </p>
+
+        <div class="supportmessagerecord">
+            <legend>Date: {{22/4/2022}}</legend>
+            <p> {{ Unsweetened black coffee helps control blood glucose. }}</p>
+
+        </div>
+
+
+
     </div>
 
     
-    <fieldset class="textdisplay">
-        <legend>Date: {{22/4/2022}}</legend>
-        <p>{{Unsweetened black coffee helps control blood glucose. }}</p>
-
-    </fieldset>
+   
+   
 
   
 </body>
