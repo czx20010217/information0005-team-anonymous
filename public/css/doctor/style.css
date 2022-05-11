@@ -5,8 +5,8 @@
 
 body{
     background: #ffffff;
-    background-image: url("/media/doctor\ background.jpeg");
-    
+    background-image: url("/media/doctor\ background.jpeg");  
+
 }
 
 /* header */
@@ -171,8 +171,8 @@ body{
 
 
 
-/*doctor patientdetail page*/
-/*doctor patientdetail page layout*/
+/*doctor patient detail page*/
+/*doctor patient detail page layout*/
 .container {
     padding: 0px;
     text-align: center;
@@ -195,7 +195,7 @@ body{
 }
 
 
-/*doctor patientdetail page right-top back button */
+/*doctor patient detail page right-top back button */
 .backbutton{
     grid-area: backbutton;
     text-align: right;
@@ -224,7 +224,7 @@ body{
     padding: 10px;
   }
 
-/*doctor patientdetail page left-top patient name*/
+/*doctor patient detail page left-top patient name*/
 .pName {
     grid-area: name;
     font-size: 60px ;
@@ -233,7 +233,7 @@ body{
     padding: 30px; 
 }
 
-/*doctor patientdetail page left */
+/*doctor patient detail page left */
 .bgl {
     grid-area: bgl;
     border:#4770AE solid;
@@ -271,7 +271,7 @@ body{
 }
 
 
-/*doctor patientdetail page form*/
+/*doctor patient detail page form*/
 .container form input[type = checkbox] {
     width: 30px;
     height: 30px;
@@ -283,7 +283,7 @@ body{
 }
 
 
-/*doctor patientdetail page top rates*/
+/*doctor patient detail page top rates*/
 .notes{
     grid-area: notes;
     text-align: start;
@@ -292,7 +292,7 @@ body{
     padding-left: 40px;
 }
 
-/*doctor patientdetail page support message*/
+/*doctor patient detail page support message*/
 .supportMessage {
     grid-area: supportMessage;
     border:#4770AE solid;
@@ -316,7 +316,7 @@ body{
    
 }
 
-/*doctor patientdetail page notes and support message textarea*/
+/*doctor patient detail page notes and support message textarea*/
 textarea {
     width: 80%;
     height: 60%;
@@ -340,7 +340,7 @@ textarea {
 }
 
 
-/*doctor patientdetail page data table*/
+/*doctor patient detail page data table*/
 .dailydata {
     grid-area: dailydata;
     border:#4770AE solid;
@@ -398,4 +398,79 @@ textarea {
     padding-right: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+
+/* add new patient page */
+
+.newPatientInfo {
+
+    /* info border */
+
+    border: 2px solid;
+    border-color: #4770AE;
+    border-radius: 40px;
+
+    /* font */
+    font-size: 2vh;
+
+    /* box */
+    margin-left: 10vh;
+    margin-right: 10vh;
+    margin-top: 15vh;
+    padding: 5vh;
+    
+}
+
+/* submit button */
+.newPatientInfo input[type=submit] {
+    
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      
+}
+.newPatientInfo legend{
+    font-size: 4vh;
+    text-align: center;
+}
+
+/* cancel button */
+.newPatientInfo input[type=button] {
+    
+    width: 100%;
+    background-color:#ffffff;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px solid #4CAF50;
+    border-radius: 4px;
+    cursor: pointer;
+  
+}
+
+/* text and password input area */
+.newPatientInfo input[type=text], input[type=password]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.newPatientInfo input[type=submit] :hover {
+    background-color: #45a049;
+}
+
+/* gender check */
+.newPatientInfo input[type=radio]{
+    margin-left: 2vw;
+   
 }
