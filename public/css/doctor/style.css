@@ -507,5 +507,20 @@ doctor registration successful page
     text-align: center;
 
 }
+
+/* comment lists page */
+
+.commentslist{
+    margin-top: 10vh;
+    font-family:"roboto", Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+.commentslist .commentrecord{
+    border: #4770AE 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: large;
+}
  
 
