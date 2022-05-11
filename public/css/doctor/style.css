@@ -547,5 +547,27 @@ doctor registration successful page
     font-size: large;
     color: black;
 }
+
+/* notes history */
+.noteshistory{
+    margin-top: 10vh;
+    font-family:"roboto", Arial, Helvetica, sans-serif;
+    font-size: large;
+
+}
+.noteshistory .patientnotes{
+    font-size: xx-large;
+    color: #4770AE;
+}
+.noterecord{
+
+    border: #4770AE 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: large;
+}
+
+
  
 
