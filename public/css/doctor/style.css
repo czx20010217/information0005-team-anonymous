@@ -522,5 +522,30 @@ doctor registration successful page
     margin-top: 10px;
     font-size: large;
 }
+
+/* support message history */
+.supportmessagehistory{
+    margin-top: 10vh;
+    font-family:"roboto", Arial, Helvetica, sans-serif;
+    font-size: large;
+
+}
+.supportmessagehistory p {
+    font-size: xx-large;
+    color: #4770AE;
+}
+.supportmessagerecord{
+
+    border: #4770AE 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: large;
+}
+
+.supportmessagerecord p {
+    font-size: large;
+    color: black;
+}
  
 
