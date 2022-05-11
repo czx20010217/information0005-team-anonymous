@@ -413,6 +413,7 @@ textarea {
 
     /* font */
     font-size: 2vh;
+    font-family: "roboto", Arial, Helvetica, sans-serif;
 
     /* box */
     margin-left: 10vh;
@@ -474,3 +475,37 @@ textarea {
     margin-left: 2vw;
    
 }
+
+/* 
+doctor registration successful page
+*/
+
+.registrationsuccessful {
+    padding-top: 20vh;
+    text-align: center;
+    font-family: "roboto", Arial, Helvetica, sans-serif;
+    display: grid;
+    
+    grid-template-rows: repeat(3,1fr);
+    
+    grid-template-areas:
+        "rsimg "
+        "rstext"
+        "backbutton";
+    
+    
+}
+
+.rstext{
+    grid-area: rstext;
+    margin-top: 4vh;
+    font-size: xx-large;
+}
+
+.registrationsuccessful .backbutton{
+    grid-area: backbutton;
+    text-align: center;
+
+}
+ 
+
