@@ -153,9 +153,38 @@
 
             <DIV class="chart">
                 <!-- <p>chart area</p> -->
-                <div class="chartarea">
-                    <p>chart test</p>
+                <div id="chartarea" style="width: 1320px; height: 520px;">
+
                 </div>
+                <script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+                <script>
+                    var options = {
+                        chart: {
+                            type: 'line'
+                        },
+                        title: {
+                            text: 'DAILY RECODING'
+                        },
+                        xAxis:{
+                            categories:['22/4', '23/4', '24/4', '25/4']
+                        },
+                        yAxis:{
+                            title: {
+                                text: 'data'
+                            }
+                        },
+                        series:[{
+                            name: 'weight',
+                            data:[12,14,10,16]
+                        },{
+                            name:'exercise',
+                            data:[1,3,2,6]
+                        }]
+                        
+                    };
+                    var chart = Highcharts.chart('chartarea', options)
+                </script>
+                
             </DIV>
 
         </div>
