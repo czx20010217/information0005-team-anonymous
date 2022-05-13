@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
+        <title>Diabetes@Home</title>
+        <link rel="stylesheet" href="/css/patient/styles.css">
+    </head>
+
+
+    <div class="header2">   <!-- header part and logo -->
+        <h1>Diabete@Home</h1>
+        <img src="/media/logo.png" alt="LOGO" >
+        <div class="Backbutton">
+            <p><a href="#" style="color: white;text-decoration: none;">＜Back</a></p>
+           </div>
+      </div>
+</head>
+
+  <body class="ui-content">
+    <div class="SecurityInfoTitle"> <!-- the title for this page -->
+        <h1>Enter Your Security Infomation</h1>
+    </div>
+
+        <div class="SecInputBox">  <!-- user can input email address in this box -->
+            <form action="demo_form.php">
+                <p>Email Address</p>
+                <input class="Email" type="email" name="fname" placeholder="Enter your email address..." required autofocus><br>
+              </form>
+        </div>
+        <div class="BirthDate">  <!-- user can choose their date of birth in this box -->
+            <form action="/action_page.php">
+                <label for="birthday">Date of birth</label>
+                <input type="date" id="birthday" name="birthday" required autofocus>
+              </form>
+        </div>
+        <div class="GivenName"> <!-- user can input their given name in this box -->
+            <form action="demo_form.php">
+            <p>Given Name</p>
+            <input class="name" type="text" name="fname" placeholder="Enter your given name..." required autofocus><br>
+          </form>
+    </div>
+        <div class="FamilyName"> <!-- user can input their family name in this box -->
+            <form action="demo_form.php">
+            <p>Family Name</p>
+            <input class="name" type="text" name="fname" placeholder="Enter your family name..." required autofocus><br>
+          </form>
+    </div>
+    <div class="SecConfirmButton">  <!-- user can fonfirm their information by this button then go to other page -->
+        <a href="#" target="_blank"><input type="submit" value="confirm"></a>
+    </div>
+  </body>
+
+    <footerclass="ui-footer">  <!-- the menu - it has go home button, go message page button, go more page button -->
+    <HR align=center width=100% color=#7B7B7B SIZE=1>
+            <div class="downnav">
+            <p style="text-align: center;">
+                <img src="/media/home.png" alt="Home" width="30%" height="30%"> 
+            </p>
+
+            <p style="text-align: center;">
+                <img src="/media/message.png" alt="Home" width="30%" height="30%">
+            </p>
+
+
+            <p style="text-align: center;">
+                <img src="/media/more.png" alt="Home" width="30%" height="30%">
+            </p>
+
+        <a href="/patient/dashboard">HOME</a>
+        <a href="#">SUPPORT MASSAGE</a>
+        <a href="#">MORE</a>
+    </footer>
+</html>
