@@ -1,10 +1,21 @@
 const Patient = require('../models/patient')
 const Record = require('../models/record')
+const Doctor = require('../models/doctor')
 
 var stringify = require('json-stringify-safe');
 
+const getCurrentpatient = async (req) => {
+    const user_id = req.user._id
+    const doctor = await Doctor.findOne({user_id: user_id}).lean()
+    return doctor
+}
+
 const getAllPatientData = async (req, res, next) => {
+    
     try { 
+        // get curent logged in doctor
+        const current_doctor = await getCurrentpatient(req)
+
         var records = await Record.find().sort('-createdAt').lean()
         for (let i = 0; i < records.length; i++) {
             const patient = await Patient.findById(records[i].patient_id).lean()
@@ -12,7 +23,7 @@ const getAllPatientData = async (req, res, next) => {
             // Change the format of createAt to YYYY/MM/DD
             records[i].createdAt = records[i].createdAt.toISOString().split('T')[0]
         }
-        return res.render('doctorDashboard', { layout: false , data: records}) 
+        return res.render('doctorDashboard', { layout: false , data: records, doctor: current_doctor}) 
     } catch (err) { 
         return next(err) 
     }

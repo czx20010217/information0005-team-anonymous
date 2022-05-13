@@ -2,6 +2,10 @@ const exphbs = require('express-handlebars')
 require('./models')
 // Import express
 const express = require('express')
+// Import flash and session
+const flash = require('express-flash')
+const session = require('express-session')
+
 // Set your app up as an express app
 const app = express()
 
@@ -18,6 +22,33 @@ app.engine(
         }
     })
 )
+
+// Flash messages for failed logins, and (possibly) other success/error messages
+app.use(flash())
+
+// Track authenticated users through login sessions
+app.use(
+    session({
+        // The secret used to sign session cookies (ADD ENV VAR)
+        secret: process.env.SESSION_SECRET || 'keyboard cat',
+        name: 'demo', // The cookie name (CHANGE THIS)
+        saveUninitialized: false,
+        resave: false,
+        cookie: {
+            sameSite: 'strict',
+            httpOnly: true,
+            secure: app.get('env') === 'production'
+        },
+    })
+)
+
+if (app.get('env') === 'production') {
+    app.set('trust proxy', 1); // Trust first proxy
+}
+// Initialise Passport.js
+const passport = require('./passport')
+app.use(passport.authenticate('session'))
+
 // set Handlebars view engine
 app.set('view engine', 'hbs')
 

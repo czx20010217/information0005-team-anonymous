@@ -1,10 +1,19 @@
 const Patient = require('../models/patient')
 const Record = require('../models/record')
+const User = require('../models/user')
+
+const getCurrentpatient = async (req) => {
+    const user_id = req.user._id
+    const patient = await Patient.findOne({user_id: user_id}).lean()
+    return patient
+}
 
 // add records
 const insertRecord = async (req,res) => {
-    // hard code user for temporary usage
-    patient_id = "626bad5417463fa57019f569"
+    // get current user
+    const patient = await getCurrentpatient(req)
+    patient_id = patient._id
+
     // get current date
     var now = new Date()
     const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
@@ -36,11 +45,10 @@ const insertRecord = async (req,res) => {
 }
 
 const getDashBoard = async (req,res) => {
-    // get current logged in patient's info
-    patient_id = "626bad5417463fa57019f569"
+    try {
+        // get current logged in user
+        const patient = await getCurrentpatient(req)
 
-    try { 
-        const patient = await Patient.findById(patient_id).lean()
         return res.render('patientDashboard.hbs', {layout: false, patient: patient})
     } catch (err) { 
         return next(err) 
@@ -48,15 +56,16 @@ const getDashBoard = async (req,res) => {
 }
 
 const addDailyRecord = async (req,res) => {
-    patient_id = "626bad5417463fa57019f569"
-    
     try { 
         // get current date
         var now = new Date()
         const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
 
+        // get current logged in user
+        const patient = await getCurrentpatient(req)
+
         // check and avoid same record for same patient in one day
-        const record = await Record.findOne({patient_id: patient_id, updatedAt: {$gte: startOfToday}}).lean()
+        const record = await Record.findOne({patient_id: patient._id, updatedAt: {$gte: startOfToday}}).lean()
         if (record){
             res.render("recordAlreadySubmitted", {layout: false})
             return
