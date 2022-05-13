@@ -7,6 +7,8 @@
     <link href='https://fonts.googleapis.com/css2?family=Scada&display=swap' rel='stylesheet'>
     <title>Diabetes@Home</title>
     <link rel="stylesheet" href="/css/doctor/style.css">
+    <link rel="stylesheet" href="../public/css/doctor/style.css"> 
+    <!-- css link 删除上面这行 -->
 </head>
 
 <body>
@@ -105,7 +107,7 @@
         </div>
         {{/with}}
         {{!-- patient daily data history --}}
-        <div class="dailydata">
+        <!-- <div class="dailydata">
             <table>
                 <tr>
                     <th>Date</th>
@@ -147,7 +149,14 @@
 
                 </tr>
                 {{/each}}
-            </table>
+            </table> -->
+
+            <DIV class="chart">
+                <!-- <p>chart area</p> -->
+                <div class="chartarea">
+                    <p>chart test</p>
+                </div>
+            </DIV>
 
         </div>
     </div>

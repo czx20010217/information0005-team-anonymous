@@ -620,6 +620,7 @@ doctor registration successful page
     box-sizing: border-box;
 }
 
+
 .login input[type=text] {
     width: 30%;
     padding: 12px 20px;
@@ -628,6 +629,25 @@ doctor registration successful page
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+
+/* chart view page */
+
+.chart {
+    grid-area: dailydata;
+    border:#4770AE solid;
+    margin: 0px;
+    padding: 0px;
+}
+
+.chart .chartarea{
+    border: #45a049 1px solid;
+    margin: 0px;
+    padding: 0px;
+    width: 1340px;
+    height: 529px;
+    background-color: #45a049;
 }
 
 
