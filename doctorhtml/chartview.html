@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css2?family=Scada&display=swap' rel='stylesheet'>
+    <link rel="stylesheet" href="../public/css/doctor/style.css">
+    <title>Diabetes@Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="header">
+        <img src="media/logo.png" alt="LOGO">
+        <nav>
+            <ul>
+            <li><a href="#">New Patient</a></li>
+            <li><a href="#">Comments</a></li>
+            <li><a href="#">Log Out</a></li>
+          </ul>
+        </nav>
+
+    </div>
+
+
+    
+
+    
+    <div class="container">
+        <div class="backbutton">
+            <a href="#"><input type="button" value="BACK TO DASHBORD"></a>
+        </div>
+
+        <div class="pName">
+            {{name}}
+          </div>
+
+        <div class="bgl">
+            blood glucose level (in nmol/L)
+            <br>
+            <br>
+            Range:
+            <form action="#" method="post">
+                <input type="text" class="min"> -- <input type="text" class="max">
+                <input type="checkbox" class="choose"> 
+            </form>  
+        </div>
+
+        <div class="weight">
+            weight (in kg)
+            <br>
+            <br>
+            Range:
+            <form action="#" method="post">
+                <input type="text" class="min"> -- <input type="text" class="max">
+                <input type="checkbox" class="choose"> 
+            </form>
+        </div>
+
+        <div class="insulin">
+            doses of insulin taken (number of doses)
+            <br>
+            <br>
+
+            Range:
+            <form action="#" method="post">
+                <input type="text" class="min"> -- <input type="text" class="max">
+                <input type="checkbox" class="choose"> 
+            </form>
+        </div>
+
+        <div class="exercise">
+            exercise (step count)
+            <br>
+            <br>
+
+            Range:
+            <form action="#" method="post">
+                <input type="text" class="min"> -- <input type="text" class="max">
+                <input type="checkbox" class="choose"> 
+            </form>
+        </div>
+
+        <div class="notes">
+            Notes:
+            <br>
+            <form action="#" method="post">
+                <textarea name="notes" >Enter notes here, and press return to submit...</textarea>
+            </form>
+            <a href="#"><img src="./media/historyicon.png" alt="view history" width="50" height="50"></a>
+        </div>
+
+        <div class="supportMessage">
+            Support Message:
+            <br>
+            <form action="#" method="post">
+                <textarea name="supportMessage" >Enter support message here, and press return to submit...</textarea>
+                
+            </form>
+            <a href="#"><img src="./media/historyicon.png" alt="view history" width="50" height="50"></a>
+        </div>
+
+        <div class="dailydata">
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Blood glucose</th>
+                    <th>weight</th>
+                    <th>dose of insulin</th>
+                    <th>exercise</th>
+                </tr>
+                <tr>
+                    <td>{{date}}</td>
+                    <td>{{bgl}}</td>
+                    <td>{{weight}}</td>
+                    <td>{{does of insulin}}</td>
+                    <td>{{exercise}}</td>
+                </tr>
+            </table>
+
+        </div>
+
+        
+
+            
+
+
+
+
+    </div>
+
+
+
+
+<footer>
+    <div class="CHARTVIEW">
+        <a href="#">TABLE VIEW</a>
+    </div>
+
+
+</footer>
+
+
+
+</body>
+</html> 
