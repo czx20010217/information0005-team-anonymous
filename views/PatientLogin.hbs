@@ -27,6 +27,9 @@
 
         <!-- input email address & password -->
         <div class="InputBox">
+            {{#each flash}}
+            <p class="alert">{{this}}</p>
+            {{/each}}
             <form action="login" method="POST" id="loginForm">
                 <p>Username</p>
                 <input class="email" type="username" name="username" placeholder="Enter your Username..." required autofocus><br>
