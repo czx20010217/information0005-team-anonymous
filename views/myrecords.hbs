@@ -9,12 +9,11 @@
         <title>Diabetes@Home</title>
         <link rel="stylesheet" href="/css/patient/styles.css">
 </head>
-      
         <div class="header2">  <!-- header part and logo img -->
             <h1>Diabete@Home</h1>
             <img src="/media/logo.png" alt="LOGO">          
               <div class="Backbutton">
-                <p><a href="/patient/dashboard" style="color: white;text-decoration: none;">＜Back</a></p>
+                <p><a href="patient/dashboard" style="color: white;text-decoration: none;">＜Back</a></p>
                </div>
           </div>
 </head>
@@ -25,38 +24,66 @@
                 <h2>MY RECORDS</h2> 
           </div>
             <div class="myRecordsButtons">   <!-- button list -->
-              <div class="hiddenimage4">
-                <ul class="Page4button">
-                <li class="Page4button1"><a href="#"class="button"><span>exercise</span></a></li>
-                <br>
-                <li class="Page4button2"><a href="#"class="button"><span>blood glucose level</span></a></li>
-                <br>
-                <li class="Page4button3"><a href="#"class="button"><span>weight</span></a></li>
-                <br>
-                <li class="Page4button4"><a href="#"class="button"><span>doses of insulin</span></a></li>
-                <br>
-               </ul>
+                <div class="RecordDataE">
+                  <input type="checkbox" id="one" >
+                <label for="one" class="exercisePart">
+                    <h2>Exercise ></h2>
+                    <ul class="exerciseButton">
+                        <li style="list-style:none;">1500 Steps</li>
+                        <br>
+                        <li style="list-style:none;color: #383D42;">No comments</li>
+                    </ul>
+                </label>
+              </div>
+              <div class="RecordDataB">
+                <input type="checkbox" id="two" >
+              <label for="two" class="BloodPart">
+                  <h2>Blood glucose level ></h2>
+                  <ul class="BloodButton">
+                      <li style="list-style:none;">11.1 nmol/L</li>
+                  </ul>
+              </label>
              </div>
+             <div class="RecordDataW">
+              <input type="checkbox" id="three" >
+            <label for="three" class="WeightPart">
+                <h2>Weight ></h2>
+                <ul class="WeightButton">
+                  <li style="list-style:none;">72.9 kg</li>
+                </ul>
+            </label>
+           </div>
+           <div class="RecordDataD">
+            <input type="checkbox" id="four" >
+          <label for="four" class="DosesPart">
+              <h2>Doses of insulin  ></h2>
+              <ul class="DosesButton">
+                  <li style="list-style:none;">2 does</li>
+                  <br>
+                  <li style="list-style:none;color: #383D42;">No comments</li>
+              </ul>
+          </label>
+         </div>
             </div>
           </div>
     </body>
 
     <footer class="ui-footer">
-        <HR align=center width=100% color=#7B7B7B SIZE=1> <!-- Dividing Line -->
-      
-      <div class="downnav">  <!-- button list in the menu -->
-        <p style="text-align: center;">
-            <img src="/media/home.png" alt="Home" width="30%" height="30%">
-        </p>
-        <p style="text-align: center;">
-              <img src="/media/message.png" alt="Home" width="30%" height="30%">
-        </p>
-        <p style="text-align: center;">
-              <img src="/media/more.png" alt="Home" width="30%" height="30%">
-        </p>
-        <a href="/patient/dashboard">HOME</a> <!-- back to main home page -->
-        <a href="#">SUPPORT MASSAGE</a>
-        <a href="#">MORE</a>
-      </div>
+      <HR align=center width=100% color=#7B7B7B SIZE=1> <!-- Dividing Line -->
+    
+    <div class="downnav">  <!-- button list in the menu -->
+      <p style="text-align: center;">
+          <img src="/media/home.png" alt="Home" width="30%" height="30%">
+      </p>
+      <p style="text-align: center;">
+            <img src="/media/message.png" alt="Home" width="30%" height="30%">
+      </p>
+      <p style="text-align: center;">
+            <img src="/media/more.png" alt="Home" width="30%" height="30%">
+      </p>
+      <a href="/patient/dashboard">HOME</a> <!-- back to main home page -->
+      <a href="#">SUPPORT MASSAGE</a>
+      <a href="#">MORE</a>
+    </div>
     </footer>
 </html>
