@@ -23,7 +23,7 @@ const isAuthenticated = (req, res, next) => {
 
 // Login page (with failure message displayed upon login failure)
 patientRouter.get('/login', (req, res) => {
-    res.render('login', { flash: req.flash('error'), title: 'Login' })
+    res.render('PatientLogin', { flash: req.flash('error'), title: 'Login' })
 })
 
 // Handle login
@@ -36,6 +36,17 @@ patientRouter.post('/login',
 patientRouter.post('/logout', (req, res) => {
     req.logout()
     res.redirect('./dashboard')
+})
+
+// page do not reauire login
+patientRouter.get('/home', (req, res) => {
+    res.render('Home')
+})
+patientRouter.get('/aboutThisWebsite', (req, res) => {
+    res.render('AboutThisWebsite')
+})
+patientRouter.get('/aboutDiabetes', (req, res) => {
+    res.render('AboutDiabetes')
 })
 
 // add a route to handle the GET request for all people data

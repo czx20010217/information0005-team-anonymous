@@ -8,6 +8,14 @@ const getCurrentpatient = async (req) => {
     return patient
 }
 
+const getHomePage =(req, res, next) => {
+    try {
+        return res.render('Home', { layout: false }) 
+    } catch (err) { 
+        return next(err) 
+    }
+}
+
 // add records
 const insertRecord = async (req,res) => {
     // get current user
@@ -78,7 +86,10 @@ const addDailyRecord = async (req,res) => {
 
 const myRecords = async (req,res) => {
     try { 
-        return res.render('myrecords', {layout: false})
+        const patient = await getCurrentpatient(req)
+        var records = await Record.find({ _id: patient._id}).sort('-createdAt').lean()
+
+        return res.render('myrecords', {layout: false, patient: patient, records: records})
     } catch (err) { 
         return next(err) 
     } 
@@ -89,4 +100,5 @@ module.exports = {
     getDashBoard, 
     addDailyRecord, 
     myRecords, 
+    getHomePage, 
 }

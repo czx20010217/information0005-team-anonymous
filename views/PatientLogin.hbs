@@ -6,7 +6,7 @@
             <title>Diabetes@Home</title>
             <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
             <link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
-            <link rel="stylesheet" href="/css/patient/style.css">
+            <link rel="stylesheet" href="/css/patient/styles.css">
         </head>
                 <!-- header part-back button, title and logo img -->
             <header id="page-header">
@@ -27,11 +27,11 @@
 
         <!-- input email address & password -->
         <div class="InputBox">
-            <form action="demo_form.php">
-                <p>Email address</p>
-                <input class="email" type="email" name="fname" placeholder="Enter your email address..." required autofocus><br>
+            <form action="login" method="POST" id="loginForm">
+                <p>Username</p>
+                <input class="email" type="username" name="username" placeholder="Enter your Username..." required autofocus><br>
                 <p>Password</p>
-                <input class="password" type="password" name="lname" placeholder="Enter your Password..." required autofocus><br>
+                <input class="password" type="password" name="password" placeholder="Enter your Password..." required autofocus><br>
               </form>
               <!-- user can choose forget password to change password-->
               <div class="forgetpassword">
@@ -41,7 +41,8 @@
 
         <!-- click then login user's account -->
         <div class="LoginButton">
-            <a href="#" target="_blank"><input type="submit" value="LOG IN"></a>
+            <button type="submit" value="LOG IN" form="loginForm">
         </div>
         
     </body>
+</html>

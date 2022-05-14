@@ -13,6 +13,10 @@ const schema = new mongoose.Schema({
     doses_of_insulin_taken_maximum: Number, 
     exercise_minimum: Number, 
     exercise_maximum: Number, 
+    need_blood_glucose_level: { type: Boolean, required: true}, 
+    need_weight: { type: Boolean, required: true}, 
+    need_doses_of_insulin_taken: { type: Boolean, required: true}, 
+    need_exercise: { type: Boolean, required: true}, 
 }) 
 const Patient = mongoose.model('Patient', schema) 
 module.exports = Patient
