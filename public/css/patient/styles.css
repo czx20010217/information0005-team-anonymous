@@ -509,14 +509,14 @@ body {
   
   .content4 {
   background-color:#4770AE;
-  
   color:#ffffff;
   font-family: 'Roboto';
   font-weight: bold;
+  margin-top: 10vh;
   }
   
   .content4 h2{
-  font-size: 3vw;
+  font-size: 5.5vw;
   text-align: center;
   }
   
@@ -527,78 +527,163 @@ body {
   color: #000000;
   font-family: 'Quattrocento Sans';
   font-weight: bold;
-  
+  list-style: none;
   }
-  
-  .myRecordsButtons a {
-  display: inline-table;
-  color: #000000;
-  font-size: 3.5vh;
-  font-family: 'Roboto';
-  padding: 20px 0px;
-  text-decoration: none;
+
+  /* Exercise part button and hidden information */
+  .RecordDataE{
+    background-color: #fbfbfb;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #000000;
+    font-family: 'Quattrocento Sans';
+    font-weight: bold;
+    list-style: none;
+    text-align: left;
   }
-  
-  
-  .Page4button{
-  display: contents;
-  list-style-type: none;
-  text-align:left;
+
+  .RecordDataE h2{
+    font-size: 5vw;
+    background-color: #4770AE;
   }
-  
-  /* animation of buttons in myRecords page */
-  .Page4button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+
+  .exerciseButton li{
+    font-size: 3vw;
+    color: #13899F;
   }
-  
-  .Page4button span:after {
-  content: '>';
-  color: #13899F;
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -100px;
-  transition: 0.5s;
+
+  .RecordDataE input[type="checkbox"]{
+      display: none;
   }
-  
-  .Page4button:hover span {
-  padding-right: 25px;
+
+  .exercisePart{
+      display: block;
   }
-  
-  .Page4button:hover span:after {
-  opacity: 1;
-  right: 0;
+  .exerciseButton{
+      overflow: hidden;
+      height: 0;
   }
-  
-  /* hidden background image in table & ipad*/
-  .hiddenimage4{
-  background-image: url(hidden.png);
-  background-position-x: center;
-  background-position-y: center;
-  background-size: cover;
-  position: relative; 
-  display:contents;
+
+  /* Blood glucose level part button and hidden information */
+  .RecordDataB{
+    background-color: #fbfbfb;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #000000;
+    font-family: 'Quattrocento Sans';
+    font-weight: bold;
+    list-style: none;
+    text-align: left;
   }
-  
-  /* healthcare pic in patient dashboard page */
-  .healthcarePic img{
-  display: none; /* don't display in phone view, display when screen width > 800px */
+  .RecordDataB h2{
+    font-size: 5vw;
+    background-color: #4770AE;
   }
+  .BloodButton li{
+    color: #13899F;
+    font-size: 3vw;
+  }
+
+  .RecordDataB input[type="checkbox"]{
+      display: none;
+  }
+
+  .BloodPart{
+      display: block;
+  }
+  .BloodButton{
+      overflow: hidden;
+      height: 0;
+  }
+
+  /* Weight part button and hidden information */
+  .RecordDataW{
+    background-color: #fbfbfb;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #000000;
+    font-family: 'Quattrocento Sans';
+    font-weight: bold;
+    list-style: none;
+    text-align: left;
+  }
+  .RecordDataW h2{
+    font-size: 5vw;
+    background-color: #4770AE;
+  }
+  .WeightButton li{
+    color: #13899F;
+    font-size: 3vw;
+  }
+
+  .RecordDataW input[type="checkbox"]{
+      display: none;
+  }
+
+  .WeightPart{
+      display: block;
+  }
+  .WeightButton{
+      overflow: hidden;
+      height: 0;
+  }
+
+  /* Doses of insulin part button and hidden information */
+  .RecordDataD{
+    background-color: #fbfbfb;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #000000;
+    font-family: 'Quattrocento Sans';
+    font-weight: bold;
+    list-style: none;
+    text-align: left;
+  }
+
+  .RecordDataD h2{
+    font-size: 5vw;
+    background-color: #4770AE;
+  }
+
+  .DosesButton li{
+    font-size: 3vw;
+    color: #13899F;
+  }
+
+  .RecordDataD input[type="checkbox"]{
+      display: none;
+  }
+
+  .DosesPart{
+      display: block;
+  }
+  .DosesButton{
+      overflow: hidden;
+      height: 0;
+  }
+
+
+  /* when click, then show information in input */
+  #one:checked~label[for="one"]>ul{
+      overflow: visible;
+      height: auto;
+  }
+  #two:checked~label[for="two"]>ul{
+      overflow: visible;
+      height: auto;
+  }
+  #three:checked~label[for="three"]>ul{
+    overflow: visible;
+    height: auto;
+  }
+  #four:checked~label[for="four"]>ul{
+    overflow: visible;
+    height: auto;
+  }
+
   
   /* if page's width > 800px, it will.... */
   @media screen and (min-width: 800px) {
-  .healthcarePic img {
-  display: block;
-  float: right;
-  background-repeat: no-repeat;
-  width:45%; 
-  height:130px;
-  padding-right: 5vw;
-  object-fit: cover;
-  }
   /* content part in center*/
   .content4 {   
     text-align: center;
@@ -610,19 +695,16 @@ body {
   .hiddenimage4{
     display: block;
   }
-  
+  .RecordDataE,.RecordDataB,.RecordDataW,.RecordDataD{
+    text-align: center;
+  }
+
   /* add background color to h2 part*/
   .content4 h2{
     background-color:#4770AE;
   
   }
   
-  /* add border for 4 button in page 4 */
-  .Page4button1,.Page4button2,.Page4button3,.Page4button4{
-    border: 2px solid #383D42;
-    border-radius: 5px;
-  }
-  }
   
   /* daily record page  */
   /* date */
