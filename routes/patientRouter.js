@@ -40,7 +40,7 @@ patientRouter.post('/logout', (req, res) => {
 
 // page do not reauire login
 patientRouter.get('/home', (req, res) => {
-    res.render('Home')
+    res.render('home')
 })
 patientRouter.get('/aboutThisWebsite', (req, res) => {
     res.render('AboutThisWebsite')
