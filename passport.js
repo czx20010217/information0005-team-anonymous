@@ -2,6 +2,8 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 
 const User = require('./models/user')
+const Engagement = require('./models/engagement')
+const Patient = require('./models/patient')
 
 // create user if there is no
 User.find({}, (err, users) => {
