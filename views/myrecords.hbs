@@ -13,7 +13,7 @@
             <h1>Diabete@Home</h1>
             <img src="/media/logo.png" alt="LOGO">          
               <div class="Backbutton">
-                <p><a href="patient/dashboard" style="color: white;text-decoration: none;">＜Back</a></p>
+                <p><a href="./dashboard" style="color: white;text-decoration: none;">＜Back</a></p>
                </div>
           </div>
 </head>
@@ -29,9 +29,14 @@
                 <label for="one" class="exercisePart">
                     <h2>Exercise ></h2>
                     <ul class="exerciseButton">
-                        <li style="list-style:none;">2022/5/15 &nbsp&nbsp&nbsp&nbsp&nbsp  1500 Steps</li>
-                        <br>
-                        <li style="list-style:none;color: #383D42;">No comments</li>
+                        <li style="list-style:none;">Date &nbsp&nbsp&nbsp&nbsp&nbsp  Steps</li>
+                        {{#each records}}
+                        {{#if this.exercise}}
+                        <li style="list-style:none;">{{this.createdAt}} &nbsp&nbsp&nbsp&nbsp&nbsp  {{this.exercise}}</li>
+                        {{else}}
+                        <li style="list-style:none; color: red;">{{this.createdAt}} &nbsp&nbsp&nbsp&nbsp&nbsp  missing</li>
+                        {{/if}}
+                        {{/each}}
                     </ul>
                 </label>
               </div>
@@ -40,7 +45,14 @@
               <label for="two" class="BloodPart">
                   <h2>Blood glucose level ></h2>
                   <ul class="BloodButton">
-                      <li style="list-style:none;">11.1 nmol/L</li>
+                      <li style="list-style:none;">Date &nbsp&nbsp&nbsp&nbsp&nbsp  nmol/L</li>
+                      {{#each records}}
+                      {{#if this.blood_glucose_level}}
+                      <li style="list-style:none;">{{this.createdAt}} &nbsp&nbsp&nbsp&nbsp&nbsp  {{this.blood_glucose_level}}</li>
+                      {{else}}
+                      <li style="list-style:none; color: red;">{{this.createdAt}} &nbsp&nbsp&nbsp&nbsp&nbsp  missing</li>
+                      {{/if}}
+                      {{/each}}
                   </ul>
               </label>
              </div>
@@ -49,7 +61,14 @@
             <label for="three" class="WeightPart">
                 <h2>Weight ></h2>
                 <ul class="WeightButton">
-                  <li style="list-style:none;">72.9 kg</li>
+                      <li style="list-style:none;">Date &nbsp&nbsp&nbsp&nbsp&nbsp  kg</li>
+                      {{#each records}}
+                      {{#if this.weight}}
+                      <li style="list-style:none;">{{this.createdAt}} &nbsp&nbsp&nbsp&nbsp&nbsp  {{this.weight}}</li>
+                      {{else}}
+                      <li style="list-style:none; color: red;">{{this.createdAt}} &nbsp&nbsp&nbsp&nbsp&nbsp  missing</li>
+                      {{/if}}
+                      {{/each}}
                 </ul>
             </label>
            </div>
@@ -58,9 +77,14 @@
           <label for="four" class="DosesPart">
               <h2>Doses of insulin  ></h2>
               <ul class="DosesButton">
-                  <li style="list-style:none;">2 does</li>
-                  <br>
-                  <li style="list-style:none;color: #383D42;">No comments</li>
+                  <li style="list-style:none;">Date &nbsp&nbsp&nbsp&nbsp&nbsp  Doses</li>
+                  {{#each records}}
+                  {{#if this.doses_of_insulin_taken}}
+                  <li style="list-style:none;">{{this.createdAt}} &nbsp&nbsp&nbsp&nbsp&nbsp  {{this.doses_of_insulin_taken}}</li>
+                  {{else}}
+                  <li style="list-style:none; color: red;">{{this.createdAt}} &nbsp&nbsp&nbsp&nbsp&nbsp  missing</li>
+                  {{/if}}
+                  {{/each}}
               </ul>
           </label>
          </div>

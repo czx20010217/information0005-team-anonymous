@@ -1,6 +1,7 @@
 const Patient = require('../models/patient')
 const Record = require('../models/record')
 const User = require('../models/user')
+const Engagement = require('../models/engagement')
 
 const getCurrentpatient = async (req) => {
     const user_id = req.user._id
@@ -8,7 +9,7 @@ const getCurrentpatient = async (req) => {
     return patient
 }
 
-const getHomePage =(req, res, next) => {
+const getHomePage = async (req, res, next) => {
     try {
         return res.render('Home', { layout: false }) 
     } catch (err) { 
@@ -48,6 +49,8 @@ const insertRecord = async (req,res) => {
         exercise, exercise_commment});
 
     newRecord.save();
+    const currentEngagement = await Engagement.findOne({patient_id: patient_id})
+    await Engagement.updateOne({patient_id: patient_id}, {engage_count: currentEngagement.engage_count + 1})
 
     res.render("recordSubmited", {layout: false})
 }
@@ -87,7 +90,12 @@ const addDailyRecord = async (req,res) => {
 const myRecords = async (req,res) => {
     try { 
         const patient = await getCurrentpatient(req)
-        var records = await Record.find({ _id: patient._id}).sort('-createdAt').lean()
+        var records = await Record.find({patient_id: patient._id}).sort('-createdAt').lean()
+        for (let i = 0; i < records.length; i++) {
+            // Change the format of createAt to YYYY/MM/DD
+            records[i].createdAt = records[i].createdAt.toISOString().split('T')[0]
+        }
+        console.log(records)
 
         return res.render('myrecords', {layout: false, patient: patient, records: records})
     } catch (err) { 
