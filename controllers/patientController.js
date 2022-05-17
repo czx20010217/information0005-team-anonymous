@@ -103,10 +103,45 @@ const myRecords = async (req,res) => {
     } 
 }
 
+const getLeaderboard = async (req,res, next) => {
+    // get current date
+    var now = new Date()
+    const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+
+    try { 
+        var engagements = await Engagement.find().lean()
+        for (let i = 0; i < engagements.length; i++) {
+            var time_diff = startOfToday.getTime() - engagements[i].createdAt.getTime()
+            var day_diff = Math.floor(time_diff / (1000 * 3600 * 24))
+            engagements[i].engagement_rate = Math.round((engagements[i].engage_count / day_diff) * 100)
+        }
+        engagements.sort((a, b) => parseFloat(a.engagement_rate) - parseFloat(b.engagement_rate));
+        engagements = engagements.slice(0, 5)
+        engagements = engagements.reverse()
+
+        return res.render('leaderboard', {layout: false, engagements: engagements})
+    } catch (err) { 
+        return next(err) 
+    } 
+}
+
+const getSecurityPage = async (req,res, next) => {
+
+    try {
+
+
+        return res.render('EnterSecurity', {layout: false})
+    } catch (err) { 
+        return next(err) 
+    } 
+}
+
 module.exports = {
     insertRecord, 
     getDashBoard, 
     addDailyRecord, 
     myRecords, 
     getHomePage, 
+    getLeaderboard, 
+    getSecurityPage, 
 }

@@ -49,6 +49,8 @@ patientRouter.get('/aboutDiabetes', (req, res) => {
     res.render('AboutDiabetes')
 })
 
+patientRouter.get('/securityQuestion', patientController.getSecurityPage)
+
 // add a route to handle the GET request for all people data
 patientRouter.post('/addDailyRecord', isAuthenticated, patientController.insertRecord)
 patientRouter.get('/addDailyRecord', isAuthenticated, patientController.addDailyRecord)
@@ -56,5 +58,9 @@ patientRouter.get('/addDailyRecord', isAuthenticated, patientController.addDaily
 patientRouter.get('/dashboard', isAuthenticated, patientController.getDashBoard)
 
 patientRouter.get('/myRecords', isAuthenticated, patientController.myRecords)
+
+patientRouter.get('/leaderBoard', isAuthenticated, patientController.getLeaderboard)
+
+
 // export the router
 module.exports = patientRouter
