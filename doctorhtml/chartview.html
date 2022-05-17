@@ -114,8 +114,8 @@
         </div>
         {{/with}}
         {{!-- patient daily data history --}}
-        <!-- <div class="dailydata">
-            <table>
+        <!-- <div class="dailydata"> -->
+            <!-- <table>
                 <tr>
                     <th>Date</th>
                     <th>Blood glucose</th>
@@ -163,6 +163,18 @@
                 <div id="chartarea" style="width: 1320px; height: 520px;">
 
                 </div>
+                <!-- <pre id="data">[
+                    [1,12],
+                    [2,5],
+                    [3,18],
+                    [4,13],
+                    [5,7],
+                    [6,4],
+                    [7,9],
+                    [8,10],
+                    [9,15],
+                    [10,22]
+                    ]</pre> -->
                 <script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
                 <script>
                     var options = {
@@ -178,20 +190,42 @@
                         yAxis:{
                             title: {
                                 text: 'data'
-                            }
+                            },
+                            type: 'logarithmic',
+                            minorTickInterval: 0.1
                         },
                         series:[{
                             name: 'weight',
-                            data:[12,14,10,16]
+                            data:[62,63,64,64]
                         },{
                             name:'exercise',
                             data:[1,3,2,6]
+                        },{
+                            name: 'blood glucose',
+                            data:[8.3,8.2,9.1,7.9]
+                        },{
+                            name: 'does of insulin',
+                            data:[3,3,3,3]
                         }]
                         
                     };
                     var chart = Highcharts.chart('chartarea', options)
                 </script>
                 
+
+                 <!-- <script>
+                    var options = {
+                        chart: {
+                            renderTo: 'chartarea',
+                            type: 'spline'
+                        },
+                        series: [{}]
+                    };
+                    var jsonStr = document.getElementById('data').innerHTML,
+                        jsonData = JSON.parse(jsonStr);
+                    options.series[0].data = jsonData;
+                    Highcharts.chart('chartarea', options);
+                 </script> -->
             </DIV>
 
         </div>
