@@ -2,6 +2,8 @@ const Patient = require('../models/patient')
 const Record = require('../models/record')
 const User = require('../models/user')
 const Engagement = require('../models/engagement')
+const Message = require('../models/message')
+const Doctor = require('../models/doctor')
 
 const getCurrentpatient = async (req) => {
     const user_id = req.user._id
@@ -136,6 +138,23 @@ const getSecurityPage = async (req,res, next) => {
     } 
 }
 
+const getSupprotMessage = async (req,res, next) => {
+    try {
+        const patient = await getCurrentpatient(req)
+        var messages = await Message.find({patient_id: patient._id}).lean()
+
+        for (let i = 0; i < messages.length; i++) {
+            messages[i].createdAt = messages[i].createdAt.toISOString().split('T')[0].replaceAll('-', '/')
+            var doctor = Doctor.findById(messages[i].doctor_id).lean
+            messages[i].doctor = doctor
+        }
+
+        return res.render('supportmessage', {layout: false, messages: messages})
+    } catch (err) { 
+        return next(err) 
+    } 
+}
+
 module.exports = {
     insertRecord, 
     getDashBoard, 
@@ -144,4 +163,5 @@ module.exports = {
     getHomePage, 
     getLeaderboard, 
     getSecurityPage, 
+    getSupprotMessage, 
 }

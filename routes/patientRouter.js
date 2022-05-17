@@ -61,6 +61,8 @@ patientRouter.get('/myRecords', isAuthenticated, patientController.myRecords)
 
 patientRouter.get('/leaderBoard', isAuthenticated, patientController.getLeaderboard)
 
+patientRouter.get('/supportMessage', isAuthenticated, patientController.getSupprotMessage)
+
 
 // export the router
 module.exports = patientRouter
