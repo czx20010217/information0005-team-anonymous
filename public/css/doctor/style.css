@@ -599,7 +599,7 @@ doctor registration successful page
     font-weight: bolder;
 }
 
-.login input[type=button] {
+.login input[type=submit] {
     width: 30%;
     background-color:#4770AE;
     color: white;

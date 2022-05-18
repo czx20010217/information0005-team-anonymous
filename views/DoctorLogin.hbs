@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/doctor/style.css">
+    <title>Diabetes@Home</title>
+</head>
+<body>
+    <div class="header">
+        <p><a href="/doctor/login">
+        <img src="/media/logo.png" alt="LOGO">
+        </a></p>
+        <nav>
+            <ul>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="loginpage">
+        <div class="loginingreeting">
+          <p>Diabetes@Home <br> Welcome Back</p>
+        </div>
+
+        <div class="login">
+            <h1>LOGIN</h1>
+            {{#each flash}}
+                <p class="alert">{{this}}</p>
+            {{/each}}
+            <form action="login" method="POST">
+              <input type="text" class="email address" name="username" placeholder="Enter your email address"> 
+               <br>
+              <input type="password" class="password" name="password" placeholder="Enter your password">
+              <br>
+              <input type="submit" class="loginbutton" value="Submit">
+              <br>
+              <!-- <a href="securityQuestion"> Forget your possword?</a> -->
+              <!-- <p>Click <a href="#">here</a> to create an new account</p> -->
+            </form>
+
+        </div>
+      </div>
+
+
+
+      
+    
+</body>
+</html>
