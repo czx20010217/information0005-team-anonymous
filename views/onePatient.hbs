@@ -46,9 +46,13 @@
             
             
             <form action="#" method="post">Range:
-                <input type="text" class="min" placeholder={{this.blood_glucose_level_minimum}} readonly> 
-                -- <input type="text" class="max" placeholder={{this.blood_glucose_level_maximum}} readonly>
-                <input type="checkbox" class="choose"> 
+                <input type="text" class="min" name="glucoseMin" value={{this.blood_glucose_level_minimum}}> 
+                -- <input type="text" class="max" name="glucoseMax" value={{this.blood_glucose_level_maximum}}>
+                {{#if this.need_blood_glucose_level}}
+                    <input type="checkbox" class="choose" name="needGlucose" checked> 
+                {{else}}
+                    <input type="checkbox" class="choose" name="needGlucose"> 
+                {{/if}}
                 <input type="submit" class="submitbutton"value="SUBMIT">
             </form>  
         </div>
@@ -59,11 +63,14 @@
             
             
             <form action="#" method="post">Range:
-                <input type="text" class="min" placeholder={{this.weight_minimum}} readonly>
-                 -- <input type="text" class="max" placeholder={{this.weight_maximum}} readonly>
-                <input type="checkbox" class="choose">
-                <input type="submit" class="submitbutton"value="SUBMIT"> 
-             
+                <input type="text" class="min" name="weightMin" value={{this.weight_minimum}}> 
+                -- <input type="text" class="max" name="weightMax" value={{this.weight_level_maximum}}>
+                {{#if this.need_weight}}
+                    <input type="checkbox" class="choose" name="needWeight" checked> 
+                {{else}}
+                    <input type="checkbox" class="choose" name="needWeight"> 
+                {{/if}}
+                <input type="submit" class="submitbutton"value="SUBMIT">
             </form>
         </div>
 
@@ -74,9 +81,13 @@
 
             
             <form action="#" method="post">Range:
-                <input type="text" class="min" placeholder={{this.doses_of_insulin_taken_minimum}} readonly> 
-                -- <input type="text" class="max" placeholder={{this.doses_of_insulin_taken_maximum }} readonly>
-                <input type="checkbox" class="choose">
+                <input type="text" class="min" name="doseMin" value={{this.doses_of_insulin_taken_minimum}}> 
+                -- <input type="text" class="max" name="doseMax" value={{this.doses_of_insulin_taken_maximum }}>
+                {{#if need_doses_of_insulin_taken}}
+                    <input type="checkbox" class="choose" name="needDose" checked> 
+                {{else}}
+                    <input type="checkbox" class="choose" name="needDose"> 
+                {{/if}}
                 <input type="submit" class="submitbutton"value="SUBMIT"> 
                 
             </form>
@@ -87,11 +98,14 @@
             <br>
             
 
-            Range:
-            <form action="#" method="post">
-                <input type="text" class="min" placeholder={{this.exercise_minimum}} readonly> 
-                -- <input type="text" class="max" placeholder={{this.exercise_maximum }} readonly>
-                <input type="checkbox" class="choose">
+            <form action="#" method="post">Range:
+                <input type="text" class="min" name="exerciseMin" value={{this.exercise_minimum}}> 
+                -- <input type="text" class="max" name="exerciseMax" value={{this.exercise_maximum }}>
+                {{#if need_exercise}}
+                    <input type="checkbox" class="choose" name="needExercise" checked> 
+                {{else}}
+                    <input type="checkbox" class="choose" name="needExercise"> 
+                {{/if}}
                 <input type="submit" class="submitbutton"value="SUBMIT">
                
             </form>
@@ -104,7 +118,7 @@
             
             <br>
             <form action="#" method="post">
-                <textarea name="notes">Enter notes here, and press return to submit...</textarea>
+                <textarea name="notes" placeholder="Enter notes here, and press return to submit.."></textarea>
                 
                 <input type="submit" class="submitbutton"value="SUBMIT">
             </form>
@@ -116,7 +130,7 @@
             Support Message:
             <br>
             <form action="#" method="post">
-                <textarea name="supportMessage">Enter support message here, and press return to submit...</textarea>
+                <textarea name="supportMessage" placeholder="Enter support message here, and press return to submit..."></textarea>
                 
                 <input type="submit" class="submitbutton"value="SUBMIT">
                 
