@@ -21,40 +21,43 @@ const getHomePage = async (req, res, next) => {
 
 // add records
 const insertRecord = async (req,res) => {
-    // get current user
-    const patient = await getCurrentpatient(req)
-    patient_id = patient._id
+    try {
+        // get current user
+        const patient = await getCurrentpatient(req)
+        patient_id = patient._id
 
-    // get current date
-    var now = new Date()
-    const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+        // get current date
+        var now = new Date()
+        const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
 
-    // check and avoid same record for same patient in one day
-    const record = await Record.findOne({patient_id: patient_id, updatedAt: {$gte: startOfToday}}).lean()
-    if (record){
-        res.render("recordSubmited", {layout: false})
-        return
+        // check and avoid same record for same patient in one day
+        const record = await Record.findOne({patient_id: patient_id, updatedAt: {$gte: startOfToday}}).lean()
+        if (record){
+            res.render("recordSubmited", {layout: false})
+            return
+        }
+
+        // create and save new record
+        const {
+            blood_glucose_level, blood_glucose_level_commment, 
+            weight, weight_commment, 
+            doses_of_insulin_taken, doses_of_insulin_taken_commment, 
+            exercise, exercise_commment} = req.body;
+
+        submitted = true
+        const newRecord = new Record({ patient_id, submitted, 
+            blood_glucose_level, blood_glucose_level_commment, 
+            weight, weight_commment, 
+            doses_of_insulin_taken, doses_of_insulin_taken_commment, 
+            exercise, exercise_commment});
+
+        newRecord.save();
+        const currentEngagement = await Engagement.findOne({patient_id: patient_id})
+        await Engagement.updateOne({patient_id: patient_id}, {engage_count: currentEngagement.engage_count + 1})
+        return res.render('recordSubmited', { layout: false }) 
+    } catch (err) { 
+        return next(err) 
     }
-
-    // create and save new record
-    const {
-        blood_glucose_level, blood_glucose_level_commment, 
-        weight, weight_commment, 
-        doses_of_insulin_taken, doses_of_insulin_taken_commment, 
-        exercise, exercise_commment} = req.body;
-
-    submitted = true
-    const newRecord = new Record({ patient_id, submitted, 
-        blood_glucose_level, blood_glucose_level_commment, 
-        weight, weight_commment, 
-        doses_of_insulin_taken, doses_of_insulin_taken_commment, 
-        exercise, exercise_commment});
-
-    newRecord.save();
-    const currentEngagement = await Engagement.findOne({patient_id: patient_id})
-    await Engagement.updateOne({patient_id: patient_id}, {engage_count: currentEngagement.engage_count + 1})
-
-    res.render("recordSubmited", {layout: false})
 }
 
 const getDashBoard = async (req,res) => {
@@ -97,7 +100,6 @@ const myRecords = async (req,res) => {
             // Change the format of createAt to YYYY/MM/DD
             records[i].createdAt = records[i].createdAt.toISOString().split('T')[0]
         }
-        console.log(records)
 
         return res.render('myrecords', {layout: false, patient: patient, records: records})
     } catch (err) { 
@@ -108,14 +110,16 @@ const myRecords = async (req,res) => {
 const getLeaderboard = async (req,res, next) => {
     // get current date
     var now = new Date()
-    const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
 
     try { 
         var engagements = await Engagement.find().lean()
         for (let i = 0; i < engagements.length; i++) {
-            var time_diff = startOfToday.getTime() - engagements[i].createdAt.getTime()
-            var day_diff = Math.floor(time_diff / (1000 * 3600 * 24))
+            var time_diff = now.getTime() - engagements[i].createdAt.getTime()
+            var day_diff = Math.floor(time_diff / (1000 * 3600 * 24) + 1)
             engagements[i].engagement_rate = Math.round((engagements[i].engage_count / day_diff) * 100)
+
+            const patient = await Patient.findById(engagements[i].patient_id).lean()
+            engagements[i].patient = patient
         }
         engagements.sort((a, b) => parseFloat(a.engagement_rate) - parseFloat(b.engagement_rate));
         engagements = engagements.slice(0, 5)

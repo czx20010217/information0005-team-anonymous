@@ -45,6 +45,8 @@ doctorRouter.get('/dashboard', isAuthenticated, doctorController.getAllPatientDa
 doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.changeDataObligatory)
 doctorRouter.get('/patientDetail/:patient_id', isAuthenticated, doctorController.getPatientById)
 
+doctorRouter.get('/addNewPatient', isAuthenticated, doctorController.addPatientPage)
+doctorRouter.post('/addNewPatient', isAuthenticated, doctorController.insertNewPatient)
 doctorRouter.get('/patientDetail/:patient_id/chartview', isAuthenticated, doctorController.getPatientChartById)
 
 doctorRouter.get('/patientDetail/:patient_id/message', isAuthenticated, doctorController.getPatientMessages)
