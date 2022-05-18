@@ -196,7 +196,7 @@ const getComments  = async(req, res, next) => {
     } 
 }
 
-const changeDataRange = async (req,res) => {
+const changeDataObligatory = async (req,res) => {
     
 }
 
@@ -209,5 +209,5 @@ module.exports = {
     getPatientChartById,
     getPatientMessages,
     getComments,
-    changeDataRange,
+    changeDataObligatory,
 } 
