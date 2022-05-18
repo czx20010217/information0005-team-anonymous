@@ -244,6 +244,21 @@ body{
     padding: 20px;
 }
 
+.bgl input[type = submit]{
+   
+    background-color: #4D7ABD;
+
+    border:#4770AE ;
+    color: white;
+    font-size:small;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 6px;
+  
+    
+    
+}
+
 .weight {
     grid-area: weight; 
     border:#4770AE solid;

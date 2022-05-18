@@ -38,50 +38,57 @@
         <div class="bgl">
             blood glucose level (in nmol/L)
             <br>
-            <br>
-            Range:
-            <form action="#" method="post">
+            
+            
+            <form action="#" method="post">Range:
                 <input type="text" class="min" placeholder={{this.blood_glucose_level_minimum}} readonly> 
                 -- <input type="text" class="max" placeholder={{this.blood_glucose_level_maximum}} readonly>
                 <input type="checkbox" class="choose"> 
+                <input type="submit" class="submitbutton"value="SUBMIT">
             </form>  
         </div>
 
         <div class="weight">
             weight (in kg)
             <br>
-            <br>
-            Range:
-            <form action="#" method="post">
+            
+            
+            <form action="#" method="post">Range:
                 <input type="text" class="min" placeholder={{this.weight_minimum}} readonly>
                  -- <input type="text" class="max" placeholder={{this.weight_maximum}} readonly>
-                <input type="checkbox" class="choose"> 
+                <input type="checkbox" class="choose">
+                <input type="submit" class="submitbutton"value="SUBMIT"> 
+             
             </form>
         </div>
 
         <div class="insulin">
             doses of insulin taken (number of doses)
             <br>
-            <br>
+            
 
-            Range:
-            <form action="#" method="post">
+            
+            <form action="#" method="post">Range:
                 <input type="text" class="min" placeholder={{this.doses_of_insulin_taken_minimum}} readonly> 
                 -- <input type="text" class="max" placeholder={{this.doses_of_insulin_taken_maximum }} readonly>
-                <input type="checkbox" class="choose"> 
+                <input type="checkbox" class="choose">
+                <input type="submit" class="submitbutton"value="SUBMIT"> 
+                
             </form>
         </div>
 
         <div class="exercise">
             exercise (step count)
             <br>
-            <br>
+            
 
             Range:
             <form action="#" method="post">
                 <input type="text" class="min" placeholder={{this.exercise_minimum}} readonly> 
                 -- <input type="text" class="max" placeholder={{this.exercise_maximum }} readonly>
-                <input type="checkbox" class="choose"> 
+                <input type="checkbox" class="choose">
+                <input type="submit" class="submitbutton"value="SUBMIT">
+               
             </form>
         </div>
         {{!-- paitent notes, editable, click icon on the right to view history --}}
