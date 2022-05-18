@@ -619,6 +619,8 @@ doctor registration successful page
     margin-top: 10vh;
     font-family:"roboto", Arial, Helvetica, sans-serif;
     font-size: large;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .commentslist .commentrecord{
     border: #4770AE 1px solid;

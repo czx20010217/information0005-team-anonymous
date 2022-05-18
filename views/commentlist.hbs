@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/doctor/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css2?family=Scada&display=swap' rel='stylesheet'>
     <title>Diabetes@Home</title>
 </head>
 <body>
@@ -28,13 +31,17 @@
 
     <div class="commentslist">
             {{#each comments}}
+            <br>
             <legend>Patient:
                 <a href="/doctor/patientDetail/{{this.patient._id}}">{{this.patient.first_name}} {{this.patient.last_name}}</a>
                 Data: {{this.data}} Date: {{this.createdAt}} </legend>
+                
             <div class="commentrecord">
                 <p>{{this.text}}</p>
+            
             </div>
             {{/each}}
+            
     </div>
 
     
