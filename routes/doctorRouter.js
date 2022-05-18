@@ -46,6 +46,10 @@ doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorControlle
 doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.changeWeight)
 doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.changeDose)
 doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.changeExercise)
+
+// add routes to handle the inserting of the setting of note and message for patient
+doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.addNote)
+doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.addMessage)
 // add a route to handle the GET request for one data instance
 doctorRouter.get('/patientDetail/:patient_id', isAuthenticated, doctorController.getPatientById)
 
@@ -54,6 +58,8 @@ doctorRouter.post('/addNewPatient', isAuthenticated, doctorController.insertNewP
 doctorRouter.get('/patientDetail/:patient_id/chartview', isAuthenticated, doctorController.getPatientChartById)
 
 doctorRouter.get('/patientDetail/:patient_id/message', isAuthenticated, doctorController.getPatientMessages)
+
+doctorRouter.get('/patientDetail/:patient_id/note', isAuthenticated, doctorController.getPatientNotes)
 
 doctorRouter.get('/comment', isAuthenticated, doctorController.getComments)
 

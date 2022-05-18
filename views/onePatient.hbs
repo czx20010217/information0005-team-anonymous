@@ -17,7 +17,7 @@
         <nav>
             <ul>
             <li><a href="#">Edit Patient Info</a></li>
-            <li><a href="#">New Patient</a></li>
+            <li><a href="/doctor/addNewPatient">New Patient</a></li>
             <li><a href="/doctor/comment">Comments</a></li>
             <li><a href="/doctor/login">Log Out</a></li>
           </ul>
@@ -118,11 +118,11 @@
             
             <br>
             <form action="#" method="post">
-                <textarea name="notes" placeholder="Enter notes here, and press return to submit.."></textarea>
+                <textarea name="note" placeholder="Enter notes here, and press return to submit.." required></textarea>
                 
                 <input type="submit" class="submitbutton"value="SUBMIT">
             </form>
-            <a href="#"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
+            <a href="/doctor/patientDetail/{{this._id}}/note"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
         </div>
         {{!-- paitent support message, editable, click icon on the right to view history --}}
         <div class="supportMessage">
@@ -130,7 +130,7 @@
             Support Message:
             <br>
             <form action="#" method="post">
-                <textarea name="supportMessage" placeholder="Enter support message here, and press return to submit..."></textarea>
+                <textarea name="supportMessage" placeholder="Enter support message here, and press return to submit..." required></textarea>
                 
                 <input type="submit" class="submitbutton"value="SUBMIT">
                 

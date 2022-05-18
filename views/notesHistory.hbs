@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/doctor/style.css">
+    <link rel="stylesheet" href="/css/doctor/style.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css2?family=Scada&display=swap' rel='stylesheet'>
@@ -12,32 +12,36 @@
 </head>
 <body>
     <div class="header">
-        <p><a href="/doctor/">
-        <img src="../public/media/logo.png" alt="LOGO">
+        <p><a href="/doctor/dashboard">
+        <img src="/media/logo.png" alt="LOGO">
         </a></p>
         <nav>
             <ul>
           
-            <li><a href="#">New Patient</a></li>
-            <li><a href="#">Comments</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="/doctor/addNewPatient">New Patient</a></li>
+            <li><a href="/doctor/comment">Comments</a></li>
+            <li><a href="/doctor/login">Log Out</a></li>
           </ul>
         </nav>
       </div>
 
     <div class="backbutton">
-        <a href="/doctor/"><input type="button" value="BACK TO DASHBORD"></a>   
+        <a href="/doctor/dashboard"><input type="button" value="BACK TO DASHBORD"></a>   
     </div>
 
     <div class="noteshistory">
-
+        {{#with patient}}
         <div class="patientnotes">
-            <p>{{"patient's"}} notes</p>
+            <p>{{this.first_name}} {{this.last_name}}'s notes</p>
         </div>
-        <legend>Date: {{22/4/2022}}</legend>
+        {{/with}}
+
+        {{#each messages}}
+        <legend>Date: {{this.createdAt}}</legend>
         <div class="noterecord">
-            <p>{{Remind her to exercise more.}}</p>
+            <p>{{this.text}}</p>
         </div>
+        {{/each}}
     </div>
 
     

@@ -2,10 +2,9 @@ const Patient = require('../models/patient')
 const Record = require('../models/record')
 const Doctor = require('../models/doctor')
 const Engagement = require('../models/engagement')
-
-var stringify = require('json-stringify-safe');
 const User = require('../models/user');
 const Message = require('../models/message')
+const Note = require('../models/note')
 
 
 const getCurrentDoctor = async (req) => {
@@ -152,6 +151,22 @@ const getPatientMessages = async(req, res, next) => {
     }
 }
 
+const getPatientNotes = async(req, res, next) => {
+    try {
+        const patient = await Patient.findById(req.params.patient_id).lean()
+        var notes = await Note.find({patient_id: patient._id}).lean()
+
+        for (let i = 0; i < notes.length; i++) {
+            // Change the format of createAt to YYYY-MM-DD
+            notes[i].createdAt = notes[i].createdAt.toISOString().split('T')[0].replaceAll('-', '/')
+        }
+
+        return res.render('notesHistory', {layout: false, patient: patient, notes: notes})
+    } catch (err) { 
+        return next(err) 
+    }
+}
+
 const getComments  = async(req, res, next) => {
     try { 
         var records = await Record.find().sort('-createdAt').lean()
@@ -288,6 +303,33 @@ const changeExercise = async (req, res, next) => {
     } 
 }
 
+const addNote = async (req, res, next) => {
+    try {
+        const {
+            note } = req.body
+        const newNote = new Note({patient_id: req.params.patient_id, text: note})
+        await newNote.save()
+
+        return getPatientById(req, res, next)
+    } catch (err) { 
+        return next(err) 
+    } 
+}
+
+const addMessage = async (req, res, next) => {
+    try {
+        const {
+            supportMessage } = req.body
+        const newMessage = new Message({patient_id: req.params.patient_id, 
+            doctor_id:req.user._id, text: supportMessage})
+        await newMessage.save()
+
+        return getPatientById(req, res, next)
+    } catch (err) { 
+        return next(err) 
+    } 
+}
+
 module.exports = {
     getCurrentDoctor,
     getAllPatientData,
@@ -296,9 +338,12 @@ module.exports = {
     insertNewPatient, 
     getPatientChartById,
     getPatientMessages,
+    getPatientNotes,
     getComments,
     changeGlucose,
     changeWeight,
     changeDose,
     changeExercise,
+    addNote,
+    addMessage,
 } 

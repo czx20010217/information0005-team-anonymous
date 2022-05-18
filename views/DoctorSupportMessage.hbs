@@ -18,7 +18,7 @@
         <nav>
             <ul>
           
-            <li><a href="#">New Patient</a></li>
+            <li><a href="/doctor/addNewPatient">New Patient</a></li>
             <li><a href="/doctor/comment">Comments</a></li>
             <li><a href="/doctor/login">Log Out</a></li>
           </ul>
@@ -30,9 +30,12 @@
     </div>
 
     <div class="supportmessagehistory">
-        <p>{{"patient name's"}} support messages </p>
+        {{#with patient}}
+        <p>{{this.first_name}} {{this.last_name}}'s support messages </p>
+        {{/with}}
+
         {{#each messages}}
-        <legend>Date: {{this.createdAt}}</legend>
+        <legend> Date: {{this.createdAt}}</legend>
 
         <div class="supportmessagerecord">
             
