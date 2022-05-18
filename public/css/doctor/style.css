@@ -216,6 +216,7 @@ body{
 .backbutton input[type = button]{
    
     background-color: #4770AE;
+
     border:#4770AE solid;
     color: white;
     font-size: large;
@@ -308,6 +309,37 @@ body{
    
 }
 
+.notes input[type = submit]{
+   
+    background-color: #4D7ABD;
+
+    border:#4770AE ;
+    color: white;
+    font-size: large;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px;
+    height: 30%;
+    
+}
+
+.supportMessage input[type = submit]{
+   
+    background-color: #4D7ABD;
+
+    border:#4770AE ;
+    color: white;
+    font-size: large;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px;
+    height: 30%;
+    
+  }
+
+
+
+
 .supportMessage form {
     width: 100%;
     margin: 0px;
@@ -319,8 +351,8 @@ body{
 /*doctor patient detail page notes and support message textarea*/
 textarea {
     width: 80%;
-    height: 60%;
-    padding: 12px 20px;
+    height: 35%;
+    padding: 14px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -328,6 +360,7 @@ textarea {
     resize: none;
     vertical-align: middle;
     font-family: "roboto";
+   
     
 }
 
@@ -336,7 +369,7 @@ textarea {
 .container a {
     position:relative;
     vertical-align: middle;
-    padding-left: 80px;
+    padding-left: 50px;
 }
 
 

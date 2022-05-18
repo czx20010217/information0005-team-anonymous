@@ -85,20 +85,28 @@
             </form>
         </div>
         {{!-- paitent notes, editable, click icon on the right to view history --}}
+        <br>
         <div class="notes">
+            <br>
             Notes:
+            
             <br>
             <form action="#" method="post">
                 <textarea name="notes">Enter notes here, and press return to submit...</textarea>
+                
+                <input type="submit" class="submitbutton"value="SUBMIT">
             </form>
             <a href="#"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
         </div>
         {{!-- paitent support message, editable, click icon on the right to view history --}}
         <div class="supportMessage">
+            <br>
             Support Message:
             <br>
             <form action="#" method="post">
                 <textarea name="supportMessage">Enter support message here, and press return to submit...</textarea>
+                
+                <input type="submit" class="submitbutton"value="SUBMIT">
                 
             </form>
             <a href="/doctor/patientDetail/{{this._id}}/message"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
