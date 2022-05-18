@@ -704,6 +704,7 @@ body {
     background-color:#4770AE;
   
   }
+}
   
   
   /* daily record page  */
@@ -1175,12 +1176,12 @@ body {
 
 /* Security information page  */
 /* security information page title */
-.SecurityInfoTitle{
+.EnterSecurityInfoTitle{
   margin-top: 20vw;
   margin-bottom: 10vw;
 }
 
-.SecurityInfoTitle h1{
+.EnterSecurityInfoTitle h1{
   font-family: 'Roboto';
   font-size: 7vw;
   font-weight: bold;
@@ -1219,8 +1220,7 @@ body {
 }
 
 /*  add email icon before the input box*/
-.Email{
-  background-image: url(email.png);
+.UserName{
   background-size: 7vw 7vw;
   background-position: 2px 2px;
   background-repeat: no-repeat;
@@ -1228,89 +1228,19 @@ body {
   text-align: center;
 }
 
-/* birth date input box*/
-.BirthDate{
-  padding-left: 5vw;
-  margin-top: 5vh;
-}
-
-.BirthDate form{
-  font-family: 'Roboto';
-  font-weight: bold;
-  font-size: 4vw;
-  color: #38423F;
-  text-align: left;
-}
-
-.BirthDate label{
-  margin: 0;
-  margin-top: 4vw;
-}
-
-.BirthDate input{
-  padding: 2vw 0;
-  width: 90vw;
-  font-size: 3vw;
-  border: 3px solid #4770AE;
-  margin-top: 3vw;
+.NewPassword{
+  background-size: 7vw 7vw;
+  background-position: 2px 2px;
+  background-repeat: no-repeat;
+  padding-left: 3vw;
   text-align: center;
 }
 
-/* Given name input box */
-.GivenName{
-  padding-left: 5vw;
-  margin-top: 5vh;
-}
-
-.GivenName form{
-  font-family: 'Roboto';
-  font-weight: bold;
-  font-size: 4vw;
-  color: #38423F;
-  text-align: left;
-}
-
-.GivenName p{
-  margin: 0;
-  margin-top: 4vw;
-  color: #38423F;
-}
-
-.GivenName input{
-  padding: 2vw 0;
-  width: 90vw;
-  font-size: 3vw;
-  border: 3px solid #4770AE;
-  margin-top: 3vw;
-  text-align: center;
-}
-
-/* Family name input box */
-.FamilyName{
-  padding-left: 5vw;
-  margin-top: 5vh;
-}
-
-.FamilyName form{
-  font-family: 'Roboto';
-  font-weight: bold;
-  font-size: 4vw;
-  color: #38423F;
-  text-align: left;
-}
-
-.FamilyName p{
-  margin: 0;
-  margin-top: 4vw;
-  color: #38423F;
-}
-
-.FamilyName input{
-  padding: 2vw 0;
-  width: 90vw;
-  font-size: 3vw;
-  border: 3px solid #4770AE;
-  margin-top: 3vw;
+.SecretCode{
+  background-size: 7vw 7vw;
+  background-position: 2px 2px;
+  background-repeat: no-repeat;
+  padding-left: 3vw;
   text-align: center;
 }
 
@@ -1321,7 +1251,7 @@ body {
   text-align: center;
 }
 
-.SecConfirmButton input{
+.SecConfirmButton button{
   font-family: 'Roboto';
   font-size: 5vw;
   font-weight: bold;
@@ -1336,19 +1266,10 @@ body {
 
   /* if page's width > 1050px, it will.... */
 @media screen and (min-width: 800px) {
-  .SecurityInfoTitle h1{
+  .EnterSecurityInfoTitle h1{
     text-align: center;
   }
   .SecInputBox form{
-    text-align: center;
-  }
-  .BirthDate form{
-    text-align: center;
-  }
-  .GivenName form{
-    text-align: center;
-  }
-  .FamilyName form{
     text-align: center;
   }
 }

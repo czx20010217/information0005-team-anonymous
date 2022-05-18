@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/doctor/style.css">
+    <title>Diabetes@Home</title>
+</head>
+<body>
+    <div class="header">
+        <p><a href="/doctor/dashboard">
+        <img src="/media/logo.png" alt="LOGO">
+        </a></p>
+        <nav>
+            <ul>
+          
+            <li><a href="#">New Patient</a></li>
+            <li><a href="/doctor/comment">Comments</a></li>
+            <li><a href="/doctor/login">Log Out</a></li>
+          </ul>
+        </nav>
+      </div>
+
+    <div class="backbutton">
+        <a href="/doctor/dashboard"><input type="button" value="BACK TO DASHBORD"></a>   
+    </div>
+
+    <div class="commentslist">
+            {{#each comments}}
+            <legend>Patient:
+                <a href="/doctor/patientDetail/{{this.patient._id}}">{{this.patient.first_name}} {{this.patient.last_name}}</a>
+                Data: {{this.data}} Date: {{this.createdAt}} </legend>
+            <div class="commentrecord">
+                <p>{{this.text}}</p>
+            </div>
+            {{/each}}
+    </div>
+
+    
+</body>
+</html>
