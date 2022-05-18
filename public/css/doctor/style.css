@@ -268,6 +268,21 @@ body{
     padding: 20px;
 }
 
+.weight input[type = submit]{
+   
+    background-color: #4D7ABD;
+
+    border:#4770AE ;
+    color: white;
+    font-size:small;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 6px;
+  
+    
+    
+}
+
 .insulin {
     grid-area: insulin;
     border:#4770AE solid;
@@ -277,6 +292,21 @@ body{
     padding: 20px;
 }
 
+.insulin input[type = submit]{
+   
+    background-color: #4D7ABD;
+
+    border:#4770AE ;
+    color: white;
+    font-size:small;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 6px;
+  
+    
+    
+}
+
 .exercise {
     grid-area: exercise;
     border:#4770AE solid;
@@ -284,6 +314,21 @@ body{
     font-weight: bold;
     text-align: left;;
     padding: 20px;
+}
+
+.exercise input[type = submit]{
+   
+    background-color: #4D7ABD;
+
+    border:#4770AE ;
+    color: white;
+    font-size:small;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 6px;
+  
+    
+    
 }
 
 
