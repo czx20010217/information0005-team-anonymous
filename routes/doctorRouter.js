@@ -42,7 +42,7 @@ doctorRouter.post('/logout', (req, res) => {
 doctorRouter.get('/dashboard', isAuthenticated, doctorController.getAllPatientData)
 
 // add a route to handle the GET request for one data instance
-doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.changeDataRange)
+doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.changeDataObligatory)
 doctorRouter.get('/patientDetail/:patient_id', isAuthenticated, doctorController.getPatientById)
 
 doctorRouter.get('/patientDetail/:patient_id/chartview', isAuthenticated, doctorController.getPatientChartById)
