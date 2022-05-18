@@ -44,5 +44,8 @@ doctorRouter.get('/dashboard', isAuthenticated, doctorController.getAllPatientDa
 // add a route to handle the GET request for one data instance
 doctorRouter.get('/patientDetail/:patient_id', isAuthenticated, doctorController.getPatientById)
 
+doctorRouter.get('/addNewPatient', isAuthenticated, doctorController.addPatientPage)
+doctorRouter.post('/addNewPatient', isAuthenticated, doctorController.insertNewPatient)
+
 // export the router
 module.exports = doctorRouter
