@@ -33,9 +33,9 @@ doctorRouter.post('/login',
     })
 )
 // Handle logout
-doctorRouter.post('/logout', (req, res) => {
+doctorRouter.get('/logout', (req, res) => {
     req.logout()
-    res.redirect('./')
+    res.redirect('./login')
 })
 
 // add a route to handle the GET request for all patient data

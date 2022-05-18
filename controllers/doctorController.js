@@ -111,7 +111,6 @@ const insertNewPatient = async(req, res, next) => {
         return next(err) 
     } 
 } 
-}
 
 /*
     Find the patient infomation and their records by ID (show chart instead of table)
