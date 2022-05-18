@@ -24,20 +24,20 @@
     <div class="EnterSecurityInfoTitle"> <!-- the title for this page -->
         <h1>Enter Your Security Infomation</h1>
     </div>
-
+        {{#if missMatch}}<p style="color: red;">UserName and secret code mismatch</p>{{/if}}
         <div class="SecInputBox">  <!-- user can input user name in this box -->
-            <form action="demo_form.php">
+            <form method="post">
                 <div class="UserNamePart">
                      <p>UserName</p>
-                <input class="UserName" type="text" name="fname" placeholder="Enter your UserName..." required autofocus><br>
+                <input class="UserName" type="text" name="username" placeholder="Enter your UserName..." required autofocus><br>
                 </div>
                 <div class="NewPasswordPart">
                     <p>New Password</p>
-                <input class="NewPassword" type="password" name="fname" placeholder="Enter your new password..." required autofocus><br>
+                <input class="NewPassword" type="password" name="new_password" placeholder="Enter your new password..." required autofocus><br>
                 </div>
                 <div class="SecretCodePart">
                     <p>Secret Code</p>
-                <input class="SecretCode" type="password" name="fname" placeholder="Enter your Secret code..." required autofocus><br>
+                <input class="SecretCode" type="password" name="secret" placeholder="Enter your Secret code..." required autofocus><br>
                 </div>
                 <div class="SecConfirmButton">
                     <button type="submit">Submit</button>

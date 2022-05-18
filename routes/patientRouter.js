@@ -49,7 +49,8 @@ patientRouter.get('/aboutDiabetes', (req, res) => {
     res.render('AboutDiabetes')
 })
 
-patientRouter.get('/securityQuestion', patientController.getSecurityPage)
+patientRouter.get('/changePassword', patientController.getSecurityPage)
+patientRouter.post('/changePassword', patientController.changePassword)
 
 // add a route to handle the GET request for all people data
 patientRouter.post('/addDailyRecord', isAuthenticated, patientController.insertRecord)

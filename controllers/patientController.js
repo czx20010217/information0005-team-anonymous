@@ -142,6 +142,26 @@ const getSecurityPage = async (req,res, next) => {
     } 
 }
 
+const changePassword = async (req,res, next) => {
+    try {
+        const {
+            username, new_password, secret } = req.body;
+
+        const user = await User.findOne({username: username})
+        if (user.secret != secret){
+            console.log("mismatch")
+            return res.render('EnterSecurity', {layout: false, missMatch: true})
+        }
+
+        user.password = new_password;
+        await user.save()
+
+        return res.render('EnterSecurity', {layout: false})
+    } catch (err) { 
+        return next(err) 
+    } 
+}
+
 const getSupprotMessage = async (req,res, next) => {
     try {
         const patient = await getCurrentpatient(req)
@@ -168,4 +188,5 @@ module.exports = {
     getLeaderboard, 
     getSecurityPage, 
     getSupprotMessage, 
+    changePassword
 }
