@@ -7,7 +7,7 @@
     <link href='https://fonts.googleapis.com/css2?family=Scada&display=swap' rel='stylesheet'>
     <title>Diabetes@Home</title>
     <link rel="stylesheet" href="/css/doctor/style.css">
-    {{!-- 删除· --}}
+   
     <script src="https://code.highcharts.com.cn/highcharts/9.3.2/highcharts.js"></script>
     <script src="https://code.highcharts.com.cn/highcharts/9.3.2/modules/data.js"></script>
     <script src="https://code.highcharts.com.cn/highcharts/9.3.2/modules/exporting.js"></script>
@@ -145,7 +145,7 @@
         {{/with}}
         {{!-- patient daily data history --}}
         <div class="dailydata">
-            {{!-- 删除id --}}
+            
             <table id="datatableforchart">
                 <tr>
                     <th>Date</th>
@@ -191,7 +191,7 @@
 
         </div>
     
-        <div id="chartcontainer" style="width: 1320px; height: 520px;"></div>
+        <div class="chart" id="chartcontainer" style="width: 1320px; height: 520px;"></div>
         <script>
             var chart = Highcharts.chart('chartcontainer', {
 	            data: {
