@@ -7,23 +7,22 @@
     <link href='https://fonts.googleapis.com/css2?family=Scada&display=swap' rel='stylesheet'>
     <title>Diabetes@Home</title>
     <link rel="stylesheet" href="/css/doctor/style.css">
-    <script src="https://code.highcharts.com.cn/jquery/jquery-1.8.3.min.js"></script>
-    <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
-    <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
-    <script src="https://cdn.highcharts.com.cn/highcharts/modules/data.js"></script>
-    <script src="https://cdn.highcharts.com.cn/highcharts/modules/series-label.js"></script>
-    <script src="https://cdn.highcharts.com.cn/highcharts/modules/oldie.js"></script>
-    <script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+    {{!-- 删除· --}}
+    <script src="https://code.highcharts.com.cn/highcharts/9.3.2/highcharts.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/9.3.2/modules/data.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/9.3.2/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/9.3.2/modules/accessibility.js"></script>
 </head>
 
 <body>
     <div class="header">
-        <p><a href="/doctor/">
+        <p><a href="/doctor/dashboard">
             <img src="/media/logo.png" alt="LOGO">
         </a></p>
         <nav>
             <ul>
-            <li><a href="#">New Patient</a></li>
+            <li><a href="#">Edit Patient Info</a></li>
+            <li><a href="/doctor/addNewPatient">New Patient</a></li>
             <li><a href="/doctor/comment">Comments</a></li>
             <li><a href="/doctor/login">Log Out</a></li>
           </ul>
@@ -34,7 +33,11 @@
 
     <div class="container">
         <div class="backbutton">
+            
             <a href="/doctor/dashboard"><input type="button" value="BACK TO DASHBORD"></a>        {{!-- back button, return to dashboard page --}}
+            <br>
+        
+            
         </div>
 
         {{#with patient}}
@@ -45,75 +48,105 @@
         <div class="bgl">
             blood glucose level (in nmol/L)
             <br>
-            <br>
-            Range:
-            <form action="#" method="post">
-                <input type="text" class="min" placeholder={{this.blood_glucose_level_minimum}} readonly> 
-                -- <input type="text" class="max" placeholder={{this.blood_glucose_level_maximum}} readonly>
-                <input type="checkbox" class="choose"> 
+            
+            
+            <form action="#" method="post">Range:
+                <input type="text" class="min" name="glucoseMin" value={{this.blood_glucose_level_minimum}}> 
+                -- <input type="text" class="max" name="glucoseMax" value={{this.blood_glucose_level_maximum}}>
+                {{#if this.need_blood_glucose_level}}
+                    <input type="checkbox" class="choose" name="needGlucose" checked> 
+                {{else}}
+                    <input type="checkbox" class="choose" name="needGlucose"> 
+                {{/if}}
+                <input type="submit" class="submitbutton"value="SUBMIT">
             </form>  
         </div>
 
         <div class="weight">
             weight (in kg)
             <br>
-            <br>
-            Range:
-            <form action="#" method="post">
-                <input type="text" class="min" placeholder={{this.weight_minimum}} readonly>
-                 -- <input type="text" class="max" placeholder={{this.weight_maximum}} readonly>
-                <input type="checkbox" class="choose"> 
+            
+            
+            <form action="#" method="post">Range:
+                <input type="text" class="min" name="weightMin" value={{this.weight_minimum}}> 
+                -- <input type="text" class="max" name="weightMax" value={{this.weight_level_maximum}}>
+                {{#if this.need_weight}}
+                    <input type="checkbox" class="choose" name="needWeight" checked> 
+                {{else}}
+                    <input type="checkbox" class="choose" name="needWeight"> 
+                {{/if}}
+                <input type="submit" class="submitbutton"value="SUBMIT">
             </form>
         </div>
 
         <div class="insulin">
             doses of insulin taken (number of doses)
             <br>
-            <br>
+            
 
-            Range:
-            <form action="#" method="post">
-                <input type="text" class="min" placeholder={{this.doses_of_insulin_taken_minimum}} readonly> 
-                -- <input type="text" class="max" placeholder={{this.doses_of_insulin_taken_maximum }} readonly>
-                <input type="checkbox" class="choose"> 
+            
+            <form action="#" method="post">Range:
+                <input type="text" class="min" name="doseMin" value={{this.doses_of_insulin_taken_minimum}}> 
+                -- <input type="text" class="max" name="doseMax" value={{this.doses_of_insulin_taken_maximum }}>
+                {{#if need_doses_of_insulin_taken}}
+                    <input type="checkbox" class="choose" name="needDose" checked> 
+                {{else}}
+                    <input type="checkbox" class="choose" name="needDose"> 
+                {{/if}}
+                <input type="submit" class="submitbutton"value="SUBMIT"> 
+                
             </form>
         </div>
 
         <div class="exercise">
             exercise (step count)
             <br>
-            <br>
+            
 
-            Range:
-            <form action="#" method="post">
-                <input type="text" class="min" placeholder={{this.exercise_minimum}} readonly> 
-                -- <input type="text" class="max" placeholder={{this.exercise_maximum }} readonly>
-                <input type="checkbox" class="choose"> 
+            <form action="#" method="post">Range:
+                <input type="text" class="min" name="exerciseMin" value={{this.exercise_minimum}}> 
+                -- <input type="text" class="max" name="exerciseMax" value={{this.exercise_maximum }}>
+                {{#if need_exercise}}
+                    <input type="checkbox" class="choose" name="needExercise" checked> 
+                {{else}}
+                    <input type="checkbox" class="choose" name="needExercise"> 
+                {{/if}}
+                <input type="submit" class="submitbutton"value="SUBMIT">
+               
             </form>
         </div>
         {{!-- paitent notes, editable, click icon on the right to view history --}}
+        <br>
         <div class="notes">
+            <br>
             Notes:
+            
             <br>
             <form action="#" method="post">
-                <textarea name="notes" >Enter notes here, and press return to submit...</textarea>
+                <textarea name="note" placeholder="Enter notes here, and press return to submit.." required></textarea>
+                
+                <input type="submit" class="submitbutton"value="SUBMIT">
             </form>
-            <a href="#"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
+            <a href="/doctor/patientDetail/{{this._id}}/note"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
         </div>
         {{!-- paitent support message, editable, click icon on the right to view history --}}
         <div class="supportMessage">
+            <br>
             Support Message:
             <br>
             <form action="#" method="post">
-                <textarea name="supportMessage" >Enter support message here, and press return to submit...</textarea>
+                <textarea name="supportMessage" placeholder="Enter support message here, and press return to submit..." required></textarea>
+                
+                <input type="submit" class="submitbutton"value="SUBMIT">
                 
             </form>
-            <a href="#"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
+            <a href="/doctor/patientDetail/{{this._id}}/message"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
         </div>
         {{/with}}
         {{!-- patient daily data history --}}
-        <!-- <div class="dailydata"> -->
-            <!-- <table>
+        <div class="dailydata">
+            {{!-- 删除id --}}
+            <table id="datatableforchart">
                 <tr>
                     <th>Date</th>
                     <th>Blood glucose</th>
@@ -154,72 +187,48 @@
 
                 </tr>
                 {{/each}}
-            </table> -->
+            </table>
 
-            <DIV class="chart">
-                <!-- <p>chart area</p> -->
-                <div id="chartarea" style="width: 1320px; height: 520px;">
-
-                </div>
-                {{#with recordList}}
-                <pre id="data">{{this}}</pre>
-                    {{/with}}
-                <script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
-                <script>
-                    var options = {
-                        chart: {
-                            type: 'line'
-                        },
-                        title: {
-                            text: 'DAILY RECODING'
-                        },
-                        xAxis:{
-                            categories:[]
-                        },
-                        yAxis:{
+        </div>
+    
+        <div id="chartcontainer" style="width: 1320px; height: 520px;"></div>
+        <script>
+            var chart = Highcharts.chart('chartcontainer', {
+	            data: {
+                    table: 'datatableforchart'
+                    },
+	            chart: {
+		            type: 'line'
+	                },
+	            title: {
+		            text: 'DAILY RECODING'
+		// 该功能依赖 data.js 模块，详见https://www.hcharts.cn/docs/data-modules
+	            },
+                yAxis:{
                             title: {
                                 text: 'data'
                             },
                             type: 'logarithmic',
                             minorTickInterval: 0.1
                         },
-                        series:[{
-                            name: 'weight',
-                            data:[1, 2, 3, 4]
-                        }]
-                        
-                    };
-                    var jsonStr = document.getElementById('data').innerHTML,
-                        jsonData = JSON.parse(jsonStr);
-                    options.series[0].data = jsonData;
-                    Highcharts.chart('chartarea', options)
-                </script>
-                
-
-                 <!-- <script>
-                    var options = {
-                        chart: {
-                            renderTo: 'chartarea',
-                            type: 'spline'
-                        },
-                        series: [{}]
-                    };
-                    var jsonStr = document.getElementById('data').innerHTML,
-                        jsonData = JSON.parse(jsonStr);
-                    options.series[0].data = jsonData;
-                    Highcharts.chart('chartarea', options);
-                 </script> -->
-            </DIV>
-
-        </div>
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '</b><br/>' +
+                            this.point.y + ' 个' + this.point.name.toLowerCase();
+                    }
+                }
+            });
+        </script>
+   
     </div>
   <footer>
     <div class="CHARTVIEW"> {{!-- link to chart view page --}}
         {{#with patient}}
-        <a href="/doctor/patientDetail/{{this._id}}">TABLE VIEW</a>
+        <a href="#">CHART VIEW</a>
         {{/with}}
     </div>
   </footer>
 
 </body>
 </html>
+
