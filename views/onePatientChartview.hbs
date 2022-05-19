@@ -145,7 +145,8 @@
         {{/with}}
         {{!-- patient daily data history --}}
         <div class="dailydata">
-
+{{!-- this table is not use for display --}}
+{{!-- chart acees data from this data table --}}
             <table id="datatableforchart">
                 <tr>
                     <th>Date</th>
@@ -234,7 +235,7 @@
 	                },
 	            title: {
 		            text: 'DAILY RECODING'
-		// 该功能依赖 data.js 模块，详见https://www.hcharts.cn/docs/data-modules
+		
 	            },
                 yAxis:{
                             title: {
