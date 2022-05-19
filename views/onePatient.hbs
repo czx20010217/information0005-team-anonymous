@@ -125,7 +125,7 @@
             </form>
             <a href="/doctor/patientDetail/{{this._id}}/note"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
         </div>
-        {{!-- paitent support message, editable, click icon on the right to view history --}}
+        {{!-- patient support message, editable, click icon on the right to view history --}}
         <div class="supportMessage">
             <br>
             Support Message:
@@ -191,7 +191,7 @@
   <footer>
     <div class="CHARTVIEW"> {{!-- link to chart view page --}}
         {{#with patient}}
-        <a href="#">CHART VIEW</a>
+        <a href="/doctor/patientDetail/{{this._id}}/chartview">CHART VIEW</a>
         {{/with}}
     </div>
   </footer>

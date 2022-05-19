@@ -748,6 +748,11 @@ doctor registration successful page
     padding: 0px;
 }
 
+#datatableforchart{
+    display: none;
+    grid-area: dailydata;
+}
+
 
 
  
