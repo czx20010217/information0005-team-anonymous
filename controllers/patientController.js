@@ -213,8 +213,8 @@ const getLeaderboard = async (req,res, next) => {
             }
         }
         engagements.sort((a, b) => parseFloat(a.engagement_rate) - parseFloat(b.engagement_rate));
-        engagements = engagements.slice(0, 5)
         engagements = engagements.reverse()
+        engagements = engagements.slice(0, 5)
 
         return res.render('leaderboard', {layout: false, engagements: engagements, own_engagement: own_engagement})
     } catch (err) { 
