@@ -12,14 +12,14 @@
 </head>
 <body>
     <div class="header">
-        <p><a href="/doctor/">
+        <p><a href="/doctor/dashboard">
         <img src="/media/logo.png" alt="LOGO">
         </a></p>
         <nav>
             <ul>
-            <li><a href="#">New Patient</a></li>
-            <li><a href="#">Comments</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="/doctor/addNewPatient">New Patient</a></li>
+            <li><a href="/doctor/comment">Comments</a></li>
+            <li><a href="/doctor/login">Log Out</a></li>
           </ul>
         </nav>
       </div>
@@ -46,7 +46,7 @@
                 Password: <input type="text" class="text" name="password" placeholder="Set a password for patient" required><br>
                 Secret Code (for change password): <input type="text" class="text" name="secret" placeholder="Set a password for patient" required><br>
                 <input type="submit" class="submitbutton"value="SUBMIT">
-                <input type="button" class="cancelbutton" value="CANCEL">
+                <input type="button" class="cancelbutton" value="CANCEL" onclick="history.back()>
                 
                 
         </form>
