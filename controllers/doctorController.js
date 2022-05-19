@@ -309,8 +309,10 @@ const editPatientData = async (req, res, next) => {
 
         // this page shows chart (it is in the chartview page) instead of table
         if (req.url.search("chartview") != -1) {
+            return res.redirect('/doctor/patientDetail/' + req.params.patient_id + '/chartview')
             return getPatientChartById(req, res, next)
         } else {
+            return res.redirect('/doctor/patientDetail/' + req.params.patient_id)
             return getPatientById(req, res, next)
         }
     } catch (err) { 
