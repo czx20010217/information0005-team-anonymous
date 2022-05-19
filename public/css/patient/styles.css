@@ -544,33 +544,46 @@ body {
 
   .RecordDataE h2{
     font-size: 5vw;
+    color: #ffffff;
     background-color: #4770AE;
+    padding-left: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
   }
 
   .RecordDataE input[type="checkbox"]{
-      display: none;
+    display: none;
   }
 
   .exercisePart{
-      display: block;
+    display: block;
   }
   .exerciseButton{
-      overflow: hidden;
-      height: 0;
+    overflow: hidden;
+    height: 0;
   }
-
 
   .exerciseButtonTable{
     border: 1px solid #13899F;
     text-align: center;
     margin: auto;
-    padding-left: 3.5vw;
-    padding-bottom: 4vw;
+    border-collapse: collapse;
   }
 
   .exerciseButtonTable th{
+    font-family: 'roboto';
+    font-size: 3vw;
     text-align: start;
-    border: 3px solid #13899F;
+    text-align: center;
+    border: 1px solid #4770AE;
+    padding: 4vw 14vw 0vw 9vw;
+  }
+
+  .exerciseButtonTable td{
+    border: 1px solid #4770AE;
+    font-family: 'roboto';
+    font-size: 3vw;
+    padding: 4vw 14vw 0vw 9vw;
   }
 
   /* Blood glucose level part button and hidden information */
@@ -586,33 +599,49 @@ body {
   }
   .RecordDataB h2{
     font-size: 5vw;
+    color: #ffffff;
     background-color: #4770AE;
+    padding-left: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
   }
 
   .RecordDataB input[type="checkbox"]{
-      display: none;
+    display: none;
   }
 
   .BloodPart{
-      display: block;
+    display: block;
   }
+  
   .BloodButton{
-      overflow: hidden;
-      height: 0;
+    overflow: hidden;
+    height: 0;
   }
 
   .BloodButtonTable{
     border: 1px solid #13899F;
     text-align: center;
     margin: auto;
-    padding-left: 3.5vw;
-    padding-bottom: 4vw;
+    border-collapse: collapse;
   }
 
   .BloodButtonTable th{
+    font-family: 'roboto';
+    font-size: 3vw;
     text-align: start;
-    border: 3px solid #13899F;
+    text-align: center;
+    border: 1px solid #4770AE;
+    padding: 4vw 14vw 0vw 9vw;
   }
+
+  .BloodButtonTable td{
+    border: 1px solid #4770AE;
+    font-family: 'roboto';
+    font-size: 3vw;
+    padding: 4vw 14vw 0vw 9vw;
+  }
+
 
   /* Weight part button and hidden information */
   .RecordDataW{
@@ -627,32 +656,47 @@ body {
   }
   .RecordDataW h2{
     font-size: 5vw;
+    color: #ffffff;
     background-color: #4770AE;
+    padding-left: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
   }
 
   .RecordDataW input[type="checkbox"]{
-      display: none;
+    display: none;
   }
 
   .WeightPart{
-      display: block;
+    display: block;
   }
+
   .WeightButton{
-      overflow: hidden;
-      height: 0;
+    overflow: hidden;
+    height: 0;
   }
 
   .WeightButtonTable{
     border: 1px solid #13899F;
     text-align: center;
     margin: auto;
-    padding-left: 3.5vw;
-    padding-bottom: 4vw;
+    border-collapse: collapse;
   }
 
   .WeightButtonTable th{
+    font-family: 'roboto';
+    font-size: 3vw;
     text-align: start;
-    border: 3px solid #13899F;
+    text-align: center;
+    border: 1px solid #4770AE;
+    padding: 4vw 14vw 0vw 9vw;
+  }
+
+  .WeightButtonTable td{
+    border: 1px solid #4770AE;
+    font-family: 'roboto';
+    font-size: 3vw;
+    padding: 4vw 14vw 0vw 9vw;
   }
 
   /* Doses of insulin part button and hidden information */
@@ -669,43 +713,56 @@ body {
 
   .RecordDataD h2{
     font-size: 5vw;
+    color: #ffffff;
     background-color: #4770AE;
+    padding-left: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
   }
 
   .RecordDataD input[type="checkbox"]{
-      display: none;
+    display: none;
   }
 
   .DosesPart{
-      display: block;
+    display: block;
   }
   .DosesButton{
-      overflow: hidden;
-      height: 0;
+    overflow: hidden;
+    height: 0;
   }
 
   .DosesButtonTable{
     border: 1px solid #13899F;
     text-align: center;
     margin: auto;
-    padding-left: 3.5vw;
-    padding-bottom: 4vw;
+    border-collapse: collapse;
   }
 
   .DosesButtonTable th{
+    font-family: 'roboto';
+    font-size: 3vw;
     text-align: start;
-    border: 3px solid #13899F;
+    text-align: center;
+    border: 1px solid #4770AE;
+    padding: 4vw 14vw 0vw 9vw;
   }
 
+  .DosesButtonTable td{
+    border: 1px solid #4770AE;
+    font-family: 'roboto';
+    font-size: 3vw;
+    padding: 4vw 14vw 0vw 9vw;
+  }
 
   /* when click, then show information in input */
   #one:checked~label[for="one"]>ul{
-      overflow: visible;
-      height: auto;
+    overflow: visible;
+    height: auto;
   }
   #two:checked~label[for="two"]>ul{
-      overflow: visible;
-      height: auto;
+    overflow: visible;
+    height: auto;
   }
   #three:checked~label[for="three"]>ul{
     overflow: visible;
