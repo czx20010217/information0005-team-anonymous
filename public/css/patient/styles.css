@@ -547,11 +547,6 @@ body {
     background-color: #4770AE;
   }
 
-  .exerciseButton li{
-    font-size: 3vw;
-    color: #13899F;
-  }
-
   .RecordDataE input[type="checkbox"]{
       display: none;
   }
@@ -562,6 +557,20 @@ body {
   .exerciseButton{
       overflow: hidden;
       height: 0;
+  }
+
+
+  .exerciseButtonTable{
+    border: 1px solid #13899F;
+    text-align: center;
+    margin: auto;
+    padding-left: 3.5vw;
+    padding-bottom: 4vw;
+  }
+
+  .exerciseButtonTable th{
+    text-align: start;
+    border: 3px solid #13899F;
   }
 
   /* Blood glucose level part button and hidden information */
@@ -579,10 +588,6 @@ body {
     font-size: 5vw;
     background-color: #4770AE;
   }
-  .BloodButton li{
-    color: #13899F;
-    font-size: 3vw;
-  }
 
   .RecordDataB input[type="checkbox"]{
       display: none;
@@ -594,6 +599,19 @@ body {
   .BloodButton{
       overflow: hidden;
       height: 0;
+  }
+
+  .BloodButtonTable{
+    border: 1px solid #13899F;
+    text-align: center;
+    margin: auto;
+    padding-left: 3.5vw;
+    padding-bottom: 4vw;
+  }
+
+  .BloodButtonTable th{
+    text-align: start;
+    border: 3px solid #13899F;
   }
 
   /* Weight part button and hidden information */
@@ -611,10 +629,6 @@ body {
     font-size: 5vw;
     background-color: #4770AE;
   }
-  .WeightButton li{
-    color: #13899F;
-    font-size: 3vw;
-  }
 
   .RecordDataW input[type="checkbox"]{
       display: none;
@@ -626,6 +640,19 @@ body {
   .WeightButton{
       overflow: hidden;
       height: 0;
+  }
+
+  .WeightButtonTable{
+    border: 1px solid #13899F;
+    text-align: center;
+    margin: auto;
+    padding-left: 3.5vw;
+    padding-bottom: 4vw;
+  }
+
+  .WeightButtonTable th{
+    text-align: start;
+    border: 3px solid #13899F;
   }
 
   /* Doses of insulin part button and hidden information */
@@ -645,11 +672,6 @@ body {
     background-color: #4770AE;
   }
 
-  .DosesButton li{
-    font-size: 3vw;
-    color: #13899F;
-  }
-
   .RecordDataD input[type="checkbox"]{
       display: none;
   }
@@ -660,6 +682,19 @@ body {
   .DosesButton{
       overflow: hidden;
       height: 0;
+  }
+
+  .DosesButtonTable{
+    border: 1px solid #13899F;
+    text-align: center;
+    margin: auto;
+    padding-left: 3.5vw;
+    padding-bottom: 4vw;
+  }
+
+  .DosesButtonTable th{
+    text-align: start;
+    border: 3px solid #13899F;
   }
 
 

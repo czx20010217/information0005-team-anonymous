@@ -46,6 +46,7 @@ doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorControlle
 // add a route to handle the GET request for one data instance
 doctorRouter.get('/patientDetail/:patient_id', isAuthenticated, doctorController.getPatientById)
 
+doctorRouter.post('/patientDetail/:patient_id/chartview', isAuthenticated, doctorController.editPatientData)
 doctorRouter.get('/patientDetail/:patient_id/chartview', isAuthenticated, doctorController.getPatientChartById)
 
 doctorRouter.get('/addNewPatient', isAuthenticated, doctorController.addPatientPage)
