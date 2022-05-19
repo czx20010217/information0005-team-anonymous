@@ -307,7 +307,12 @@ const editPatientData = async (req, res, next) => {
             await newMessage.save()
         }
 
-        return getPatientById(req, res, next)
+        // this page shows chart (it is in the chartview page) instead of table
+        if (req.url.search("chartview") != -1) {
+            return getPatientChartById(req, res, next)
+        } else {
+            return getPatientById(req, res, next)
+        }
     } catch (err) { 
         return next(err) 
     } 
