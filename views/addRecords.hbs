@@ -14,79 +14,90 @@
         <div class="header2">
             <h1>Diabete@Home</h1>
             <img src="/media/logo.png" alt="LOGO">          
-              <div class="Backbutton">
+            <div class="Backbutton">
                 <p><a href="/patient/dashboard" style="color: white;text-decoration: none;">＜Back</a></p>
-               </div>
-          </div>
+            </div>
+        </div>
 
         <!-- name of daily record page -->
           <div class="row">     
             <div class="content4">
               <h2>DAILY RECORD</h2>
           </div>
-            <!-- this can let patient choose any date -->
-            <div class="date">
-                <form action="">
-                <p>Date:<input type="date" /></p>
-                </form>
-            </div>
 
-          <!-- patients can enter four data in this page -->
-          <div class="records">
-              <form action="" method="post">
-                <ul class="recorddata">
-                    {{#if patient.need_blood_glucose_level}}
-                    <li class="bglInput">
-                      <h3>blood glucose level:</h3><!-- here to entrer the blood glucose level -->
-                      <input type="number" name="blood_glucose_level" min="0" step="0.1" style= "text-align: center;" value="{{record.blood_glucose_level}}"><span>nmol/L</span>
-                      
-                      <p>comment(optional)</p>
-                      <textarea name="blood_glucose_level_commment">{{record.blood_glucose_level_commment}}</textarea>
-                   </li>
-                   {{/if}}
-                  
-                    {{#if patient.need_weight}}
-                    <li class="weightInput">
-                      <h3>weight:</h3><!-- here to enter the weight -->
-                      <input type="number" name="weight" min="0" step="0.01" value="{{record.weight}}"><span>kg</span>
-                      <p>comment(optional)</p>
-                      <textarea name="weight_commment">{{record.weight_commment}}</textarea>
-                    </li>
-                    {{/if}}
-                  
-                  <hr>
-                    {{#if patient.need_doses_of_insulin_taken}}
-                    <li class="dosesInput">
-                      <h3>doses of insulin taken:</h3><!-- here to choose the numbver of doses patient taken -->
-                      <input type="number" name="doses_of_insulin_taken" min="0" step="0.01" value="{{record.doses_of_insulin_taken}}"><span>doses</span>
-                      <p>comment(optional)</p>
-                      <textarea name="doses_of_insulin_taken_commment">{{record.doses_of_insulin_taken_commment}}</textarea>
-                   </li>
-                   {{/if}}
-                  
-                    {{#if patient.need_exercise}}
-                    <li class="exerciseInput">
-                      <h3>exercise:</h3><!-- here to enter exercise -->
-                      <input type="number" name="exercise" min="0" value="{{record.exercise}}"><span>steps</span>
-                      <p>comment(optional)</p>
-                      <textarea name="exercise_commment">{{record.exercise_commment}}</textarea>
-                    </li>
-                    {{/if}}
-                    <div class="subline">
-                      <input class="submitbutton" type="submit" value="save" formaction="./addDailyRecord/save"></a>
-                      <input class="submitbutton" type="submit" value="submit"></a>
+          <form action="" method="post">
+            <!-- patient can enter blood glucose level -->
+            {{#if patient.need_blood_glucose_level}}  
+            <div class="patientadd">
+                <div class="patientadd-a">
+                    <span>blood glucose level:</span>
+                    <div class="datadata">
+                        <input type="number" name="blood_glucose_level" min="0" step="0.1">
+                        <span>nmol/L</span>
                     </div>
-                    
-                  
-                </ul>
+                </div>
+                <div class="button0">
+                    <span>comment(optional):</span>
+                    <textarea name="" id="" cols="10" rows="18" v-model="xin"></textarea>
+                </div>
             </div>
-
-
-           </form>
-           </div>
+            {{/if}}
             
-          </div>
-          </div>
+            <!-- patient can enter weight -->
+            {{#if patient.need_weight}}
+            <div class="patientadd">
+                <div class="patientadd-a">
+                    <span>weight:</span>
+                    <div class="datadata">
+                        <input type="number" name="weight" min="0" step="0.01">
+                        <span>kg</span>
+                    </div>
+                </div>
+                <div class="button0">
+                    <span>comment(optional):</span>
+                    <textarea name="" id="" cols="10" rows="18" v-model="xin"></textarea>
+                </div>
+            </div>
+            {{/if}}
+            
+            <!-- patient can enter doses of insulin taken -->
+            {{#if patient.need_doses_of_insulin_taken}}
+            <div class="patientadd">
+                <div class="patientadd-a">
+                    <span>doses of insulin taken:</span>
+                    <div class="datadata">
+                        <input type="number" name="doses" min="0">
+                        <span>doses</span>
+                    </div>
+                </div>
+                <div class="button0">
+                    <span>comment(optional):</span>
+                    <textarea name="" id="" cols="10" rows="18" v-model="xin"></textarea>
+                </div>
+            </div>
+            {{/if}}
+            
+            <!-- patient can enter exercise data -->            
+            {{#if patient.need_exercise}}
+            <div class="patientadd">
+                <div class="patientadd-a">
+                    <span>exercise:</span>
+                    <div class="datadata">
+                        <input type="number" name="exercise" min="0">
+                        <span>steps</span>
+                    </div>
+                </div>
+                <div class="button0">
+                    <span>comment(optional):</span>
+                    <textarea name="" id="" cols="10" rows="18"></textarea>
+                </div>
+            </div>
+            {{/if}}
+            
+            <div class="submit-a">
+                <button>Save</button>
+                <button>Submit</button>
+            </div>
 
         <footer class="ui-footer">
           <HR align=center width=100% color=#7B7B7B SIZE=1>
@@ -109,9 +120,9 @@
             </p>
 
           
-        <a href="./dashboard">HOME</a>   <!-- back to main home page -->
-        <a href="./supportMessage">SUPPORT MASSAGE</a>  <!-- go to support message page -->
-        <a href="./more">MORE</a> <!-- Go to more page -->
+          <a href="./dashboard">HOME</a><!-- back to main home page -->
+          <a href="./supportMessage">SUPPORT MASSAGE</a><!-- go to support message page -->
+          <a href="./more">MORE</a><!-- Go to more page -->
           </div>
         </div>
     </footer>
