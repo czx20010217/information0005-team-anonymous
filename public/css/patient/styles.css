@@ -990,57 +990,13 @@ body {
 .WebInfor ul{
   font-family: 'roboto';
   font-size: 5vw;
+  text-align: left;
 }
 
 .WebInfor li{
   margin-bottom: 2vw;
 }
 
-/* Appearence part and button */
-.Appearence h2{
-  font-family: 'Roboto';
-  font-size: 6vw;
-  color: #424C49;
-  font-weight: bold;
-  padding-left: 30px;
-  margin-bottom: -20px;
-}
-
-.AppearenceButton{
-  padding-left: 0px;
-}
-
-.LightMode {
-  border: 3px solid #4770AE;
-  background-color: #4770AE;
-  text-align: center;
-  border-radius: 5px;
-  float: none;
-}
-
-.LightMode span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-/*
-.LightMode:hover{
-  background-color: #383D42;
-  color: white;
-}
-
-.LightMode:focus{
-  background-color: #383D42;
-  color: white;
-}
-
-.LightMode:active{
-  background-color: #383D42;
-  color: white;
-}
-*/
 
 /* Account Part include reset password link & logout link */
 .AccountPart{
@@ -1060,6 +1016,7 @@ body {
   list-style-type: none;
   font-family: 'roboto';
   font-size: 5vw;
+  text-align: left;
 }
 
 .AccountPart li{
@@ -1068,21 +1025,11 @@ body {
 
   /* if page's width > 1050px, it will.... */
   @media screen and (min-width: 800px) {
-  .WebInfor h2{
+  .WebInfor,.WebInfor h2{
     text-align: center;
     margin: 0;
   }
-  .Appearence h2{
-    padding: 0;
-    text-align: center;
-    margin: 0;
-  }
-  .Appearence{
-    margin-bottom: 20vw;
-  }
-  .AppearenceButton{
-    margin-top: 8vw;
-  }
+
   .AccountPart,.AccountPart h2{
     padding: 0;
     margin: 0;
@@ -1664,7 +1611,7 @@ nav p{
 }
 
 /* button part */
-.buttonGroup{
+.HomePagebuttonGroup{
   background-color: #4770AE;;
   color: #ffffff;
   font-family: 'Roboto';
@@ -1672,7 +1619,7 @@ nav p{
   padding-top: 10vh;
 }
 
-.buttonGroup a {
+.HomePagebuttonGroup a{
   display: inline-table;
   color: #ffffff;
   font-size: 5vw;
@@ -1684,15 +1631,15 @@ nav p{
   margin-bottom: 30px;
 }
 
-.homebutton{
+.homePagebutton{
   display: contents; 
 }
 
-.homebutton1.homebutton2 span{
+.homePagebutton1.homePagebutton2 span{
   text-align: center;
 }
 
-.homebutton1 span{
+.homePagebutton1 span{
   margin: 5vw 5vw;
 }
 
