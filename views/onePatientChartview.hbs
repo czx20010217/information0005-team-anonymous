@@ -188,7 +188,7 @@
                 </tr>
                 {{/each}}
             </table>
-            {{!-- 以下 --}}
+            {{!-- chart function, reference from highcharts --}}
         <div id="chartcontainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
         <script>
             var chart = Highcharts.chart('chartcontainer', {
@@ -200,7 +200,7 @@
 	                },
 	            title: {
 		            text: 'DAILY RECODING'
-		// 该功能依赖 data.js 模块，详见https://www.hcharts.cn/docs/data-modules
+		
 	            },
                 yAxis:{
                             title: {
@@ -219,7 +219,7 @@
                 }
             });
         </script>
-        {{!-- 以上 --}}
+        {{!-- chart function end  --}}
 
         </div>
         {{!-- 以下 --}}
