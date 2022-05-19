@@ -211,124 +211,77 @@ const getComments  = async(req, res, next) => {
     } 
 }
 
-const changeGlucose = async (req, res, next) => {
+const editPatientData = async (req, res, next) => {
     try {
         const {
-            glucoseMin, glucoseMax, needGlucose } = req.body
+            glucoseMin, glucoseMax, needGlucose, 
+            weightMin, weightMax, needWeight,
+            doseMin, doseMax, needDose,
+            exerciseMin, exerciseMax, needExercise, 
+            note, supportMessage} = req.body
 
         const patient = await Patient.findById(req.params.patient_id)
 
-        patient.blood_glucose_level_minimum = glucoseMin
-        patient.blood_glucose_level_maximum = glucoseMax
+        if (glucoseMin != undefined) {
+            patient.blood_glucose_level_minimum = glucoseMin
+            patient.blood_glucose_level_maximum = glucoseMax
 
-        if (needGlucose == "on"){
-            patient.need_blood_glucose_level = true
-        } else {
-            patient.need_blood_glucose_level = false
+            if (needGlucose == "on"){
+                patient.need_blood_glucose_level = true
+            } else {
+                patient.need_blood_glucose_level = false
+            }
+            await patient.save()
+
+        } else if (weightMin != undefined) {
+            patient.weight_minimum = weightMin
+            patient.weight_maximum = weightMax
+
+            if (needWeight == "on"){
+                patient.need_weight = true
+            } else {
+                patient.need_weight = false
+            }
+            await patient.save()
+
+        } else if (doseMin != undefined) {
+            patient.doses_of_insulin_taken_minimum = doseMin
+            patient.doses_of_insulin_taken_maximum = doseMax
+
+            if (needDose == "on"){
+                patient.need_doses_of_insulin_taken = true
+            } else {
+                patient.need_doses_of_insulin_taken = false
+            }
+            await patient.save()
+
+        } else if (exerciseMin != undefined) {
+                patient.exercise_minimum = exerciseMin
+                patient.exercise_maximum = exerciseMax
+
+            if (needExercise == "on"){
+                patient.need_exercise = true
+            } else {
+                patient.need_exercise = false
+            }
+            await patient.save()
+
+        } else if (note != undefined) {
+            const newNote = new Note({patient_id: req.params.patient_id, text: note})
+            await newNote.save()
+
+        } else if (supportMessage != undefined) {
+            const newMessage = new Message({patient_id: req.params.patient_id, 
+                doctor_id:req.user._id, text: supportMessage})
+            await newMessage.save()
         }
 
-        await patient.save()
         return getPatientById(req, res, next)
     } catch (err) { 
         return next(err) 
     } 
 }
 
-const changeWeight = async (req, res, next) => {
-    try {
-        const {
-            weightMin, weightMax, needWeight } = req.body
-
-        const patient = await Patient.findById(req.params.patient_id)
-
-        patient.weight_minimum = weightMin
-        patient.weight_maximum = weightMax
-
-        if (needWeight == "on"){
-            patient.need_weight = true
-        } else {
-            patient.need_weight = false
-        }
-
-        await patient.save()
-        return getPatientById(req, res, next)
-    } catch (err) { 
-        return next(err) 
-    } 
-}
-
-const changeDose = async (req, res, next) => {
-    try {
-        const {
-            doseMin, doseMax, needDose } = req.body
-
-        const patient = await Patient.findById(req.params.patient_id)
-
-        patient.doses_of_insulin_taken_minimum = doseMin
-        patient.doses_of_insulin_taken_maximum = doseMax
-
-        if (needDose == "on"){
-            patient.need_doses_of_insulin_taken = true
-        } else {
-            patient.need_doses_of_insulin_taken = false
-        }
-
-        await patient.save()
-        return getPatientById(req, res, next)
-    } catch (err) { 
-        return next(err) 
-    } 
-}
-
-const changeExercise = async (req, res, next) => {
-    try {
-        const {
-            exerciseMin, exerciseMax, needExercise } = req.body
-
-        const patient = await Patient.findById(req.params.patient_id)
-
-        patient.exercise_minimum = exerciseMin
-        patient.exercise_maximum = exerciseMax
-
-        if (needExercise == "on"){
-            patient.need_exercise = true
-        } else {
-            patient.need_exercise = false
-        }
-
-        await patient.save()
-        return getPatientById(req, res, next)
-    } catch (err) { 
-        return next(err) 
-    } 
-}
-
-const addNote = async (req, res, next) => {
-    try {
-        const {
-            note } = req.body
-        const newNote = new Note({patient_id: req.params.patient_id, text: note})
-        await newNote.save()
-
-        return getPatientById(req, res, next)
-    } catch (err) { 
-        return next(err) 
-    } 
-}
-
-const addMessage = async (req, res, next) => {
-    try {
-        const {
-            supportMessage } = req.body
-        const newMessage = new Message({patient_id: req.params.patient_id, 
-            doctor_id:req.user._id, text: supportMessage})
-        await newMessage.save()
-
-        return getPatientById(req, res, next)
-    } catch (err) { 
-        return next(err) 
-    } 
-}
 
 module.exports = {
     getCurrentDoctor,
@@ -340,10 +293,5 @@ module.exports = {
     getPatientMessages,
     getPatientNotes,
     getComments,
-    changeGlucose,
-    changeWeight,
-    changeDose,
-    changeExercise,
-    addNote,
-    addMessage,
+    editPatientData,
 } 

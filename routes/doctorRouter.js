@@ -41,21 +41,15 @@ doctorRouter.get('/logout', (req, res) => {
 // add a route to handle the GET request for all patient data
 doctorRouter.get('/dashboard', isAuthenticated, doctorController.getAllPatientData)
 
-// add routes to handle the editing of the setting of the patient data
-doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.changeGlucose)
-doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.changeWeight)
-doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.changeDose)
-doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.changeExercise)
-
-// add routes to handle the inserting of the setting of note and message for patient
-doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.addNote)
-doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.addMessage)
+// add routes to handle the editing of the setting of the patient data, adding note and message
+doctorRouter.post('/patientDetail/:patient_id', isAuthenticated, doctorController.editPatientData)
 // add a route to handle the GET request for one data instance
 doctorRouter.get('/patientDetail/:patient_id', isAuthenticated, doctorController.getPatientById)
 
+doctorRouter.get('/patientDetail/:patient_id/chartview', isAuthenticated, doctorController.getPatientChartById)
+
 doctorRouter.get('/addNewPatient', isAuthenticated, doctorController.addPatientPage)
 doctorRouter.post('/addNewPatient', isAuthenticated, doctorController.insertNewPatient)
-doctorRouter.get('/patientDetail/:patient_id/chartview', isAuthenticated, doctorController.getPatientChartById)
 
 doctorRouter.get('/patientDetail/:patient_id/message', isAuthenticated, doctorController.getPatientMessages)
 
