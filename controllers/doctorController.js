@@ -166,35 +166,6 @@ const updatePatient = async(req, res, next) => {
     } 
 } 
 
-/*
-    Find the patient infomation and their records by ID (show chart instead of table)
-*/
-const getPatientChartById = async(req, res, next) => { 
-    try { 
-        const patient = await Patient.findById(req.params.patient_id).lean()
-        const records = await Record.find({patient_id: req.params.patient_id}).sort('-createdAt').lean()
-
-        var recordList = new Array();
-        if (!patient) { 
-            // no patient found in database
-            return res.sendStatus(404)
-        }
-        if (!patient) { 
-            // no patient found in database
-            return res.sendStatus(404)
-        }
-        // only show data of 7 records
-        for (let i = 0; i < 7; i++) {
-            records[i].patient = patient
-            // Change the format of createAt to YYYY/MM/DD
-            records[i].createdAt = records[i].createdAt.toISOString().split('T')[0]
-        }
-        return res.render('chartview', {patient: patient, recordList: recordList})
-    } catch (err) { 
-        return next(err) 
-    } 
-}
-
 const getPatientMessages = async(req, res, next) => {
     try {
         const patient = await Patient.findById(req.params.patient_id).lean()
@@ -342,6 +313,28 @@ const editPatientData = async (req, res, next) => {
     } 
 }
 
+/*
+    Find the patient infomation and their records by ID (show chart instead of table)
+*/
+const getPatientChartById = async(req, res, next) => { 
+    try { 
+        const patient = await Patient.findById(req.params.patient_id).lean()
+        const records = await Record.find({patient_id: req.params.patient_id}).sort('-createdAt').lean()
+        if (!patient) { 
+            // no patient found in database
+            return res.sendStatus(404)
+        }
+        // found person 
+        for (let i = 0; i < records.length; i++) {
+            records[i].patient = patient
+            // Change the format of createAt to YYYY/MM/DD
+            records[i].createdAt = records[i].createdAt.toISOString().split('T')[0]
+        }
+        return res.render('onePatientChartview', { patient: patient, recordList: records})
+    } catch (err) { 
+        return next(err) 
+    } 
+} 
 
 module.exports = {
     getCurrentDoctor,

@@ -5,13 +5,13 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css2?family=Scada&display=swap' rel='stylesheet'>
-    <title>Diabetes@Home</title>
-    <link rel="stylesheet" href="/css/doctor/style.css">
-   
     <script src="https://code.highcharts.com.cn/highcharts/9.3.2/highcharts.js"></script>
     <script src="https://code.highcharts.com.cn/highcharts/9.3.2/modules/data.js"></script>
     <script src="https://code.highcharts.com.cn/highcharts/9.3.2/modules/exporting.js"></script>
     <script src="https://code.highcharts.com.cn/highcharts/9.3.2/modules/accessibility.js"></script>
+    <title>Diabetes@Home</title>
+    <link rel="stylesheet" href="/css/doctor/style.css">
+    
 </head>
 
 <body>
@@ -21,7 +21,7 @@
         </a></p>
         <nav>
             <ul>
-            <li><a href="/doctor/patientDetail/{{patient._id}}/update">Edit Patient Info</a></li>
+            <li><a href="./update">Edit Patient Info</a></li>
             <li><a href="/doctor/addNewPatient">New Patient</a></li>
             <li><a href="/doctor/comment">Comments</a></li>
             <li><a href="/doctor/login">Log Out</a></li>
@@ -69,7 +69,7 @@
             
             <form action="#" method="post">Range:
                 <input type="text" class="min" name="weightMin" value={{this.weight_minimum}}> 
-                -- <input type="text" class="max" name="weightMax" value={{this.weight_level_maximum}}>
+                -- <input type="text" class="max" name="weightMax" value={{this.weight_maximum}}>
                 {{#if this.need_weight}}
                     <input type="checkbox" class="choose" name="needWeight" checked> 
                 {{else}}
@@ -129,7 +129,7 @@
             </form>
             <a href="/doctor/patientDetail/{{this._id}}/note"><img src="/media/historyicon.png" alt="view history" width="50" height="50"></a>
         </div>
-        {{!-- paitent support message, editable, click icon on the right to view history --}}
+        {{!-- patient support message, editable, click icon on the right to view history --}}
         <div class="supportMessage">
             <br>
             Support Message:
@@ -145,7 +145,7 @@
         {{/with}}
         {{!-- patient daily data history --}}
         <div class="dailydata">
-            
+
             <table id="datatableforchart">
                 <tr>
                     <th>Date</th>
@@ -190,8 +190,8 @@
             </table>
 
         </div>
-    
-        <div class="chart" id="chartcontainer" style="width: 1320px; height: 520px;"></div>
+        {{!-- 以下 --}}
+        <div id="chartcontainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
         <script>
             var chart = Highcharts.chart('chartcontainer', {
 	            data: {
@@ -219,7 +219,8 @@
                 }
             });
         </script>
-   
+        {{!-- 以上 --}}
+        
     </div>
   <footer>
     <div class="CHARTVIEW"> {{!-- link to chart view page --}}
@@ -231,4 +232,3 @@
 
 </body>
 </html>
-
