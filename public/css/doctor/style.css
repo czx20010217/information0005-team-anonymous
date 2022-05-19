@@ -749,7 +749,8 @@ doctor registration successful page
 }
 
 #datatableforchart{
-    /* display: none; */
+    display: none;
+    grid-area: dailydata;
 }
 
 
