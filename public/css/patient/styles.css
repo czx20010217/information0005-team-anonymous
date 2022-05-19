@@ -799,102 +799,7 @@ body {
 }
   
   
-  /* daily record page  */
-  /* date */
-  .date p{
-    font-size: 1.5vw;
-    font-family: 'Quattrocento Sans';
-    color:#000000
-  }
   
-  /* change size for the date form */
-  .date input{
-    color: #000000;
-    font-size: 1.5vw;
-    font-family: 'Roboto';
-  }
-  
-  /* records */
-  .recorddata h3{
-  font-size: 2.8vw;
-  font-weight: bolder;
-  color:white;
-  text-align: center;
-  background-color:#6AABDD;
-  margin: 0 auto;
-  }
-  
-  /* remove bullet on the unordered lists */
-  .records ul{
-    list-style-type: none;
-    padding-inline-start: 0px;
-  }
-  
-  /*adjust font size of the span part */
-  .recorddata span{
-  font-size: 2vw;
-  left: 30%;
-  }
-  
-  /* adjust style of recorddata */
-  .recorddata p{
-  font-size: 2vw;
-  text-indent: 10px;
-  }
-  
-  /* style of data input area */
-  .bglInput input, .weightInput input, .dosesInput input, .exerciseInput input{
-  margin-top: 3vw;
-  margin-left: 40vw;
-  align-content: center;
-  width: 15vw;
-  height: 3.5vw;
-  }
-  
-  .records select{
-    margin-top: 3vw;
-    margin-left: 40vw;
-    align-content: center;
-    width: 15vw;
-    height: 3.5vw;
-    font-size: 2vw;
-  }
-  
-  
-  /* adjust size of the textarea */
-  .recorddata textarea{
-    text-align: left;
-    border:1px solid #999999;
-    width:98%;
-    height: 80px;
-    margin:5px 0;
-    padding:1%;
-  }
-  
-  .subline{
-    display:block;
-  }
-  
-  /* adjust to submit button */
-  .submitbutton{
-  margin-left: 44vw;
-  background-color:#4770AE;
-  border:#000000;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 5vw;
-  font-size: 3vw;
-  margin-bottom: 5vw;
-  }
-  
-  .submitted {
-    margin-top: 20vh;
-    margin-bottom: 13vh;
-    text-align: center;
-  
-  }
   /* data submitted */
   /* adjust to the style of the font */
   .submitted h2{
@@ -1873,28 +1778,33 @@ nav p{
   margin:20px auto;
   flex-direction: column;
 }
+
 .contentA{
   width: 100%;
   font-size: 2.6vw;
   color:#505050;
 }
+
 .time{
   width: 50%;
   font-size: 2vw;
   margin-left: 34.6vw;
 }
+
 .rank{
   width: 90%;
   margin:2.6vw auto 1vw;
   display: flex;
   justify-content: space-between;
 }
+
 .ranks{
   width: 100%;
   margin-top: 1vw;
   border-top: 2px solid rgba(144, 140, 140, 0.711);
   border-bottom: 1px solid rgba(144, 140, 140, 0.711);
 }
+
 .to{
   width: 100%;
   margin: auto;
@@ -1902,67 +1812,166 @@ nav p{
   bottom:8%;
   background-color: #fff;
 }
+
 .left{
   width: 50%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 #nu-a,#nu-b,#nu-c{
   color: coral;
 }
+
 .mm{
   width: 70%;
   display: flex;
   align-items: center;
 }
+
 .one{
   font-size: 2.8vw;
 }
+
 .one{
 margin-left: 1.25vw;
 }
+
 .left img{
   height: 4.2vw;
 }
+
 .two{
   font-size: 1.56vw;
   color: #7B7B7B;
 }
+
 .right{
   width: 20%;
 }
+
 .right span{
   font-size: 3.1vw;
 }
 
 /* suppoert message page */
-
 .bnner1{
   width: 93%;
   margin-bottom: 1.5vw;
   display: flex;
   flex-direction: column;
 }
+
 .d{
   width: 100%;
   height: 1vw;
   background-color:#727977 ;
 }
+
 .topic0{
   width: 100%;
   font-size: 2vw;
   font-weight: bold;
   margin-left: 1vw;
 }
+
 .content0{
   width: 100%;
   font-size: 1.8vw;
   color:#727977;
   margin-left: 1.5vw;
 }
+
 .time0{
   width: 0%;
   font-size: 2vw;
   margin-left: 66.6vw;
+}
+
+
+
+/* addRecords page*/
+.patientadd {
+width: 92%;
+margin:1vw auto 1.1vw;
+height: 27vw;
+border-bottom: 0.2vw solid #E4E4E4;
+}
+
+.patientadd-a {
+width: 100%;
+height: 7.5vw;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+
+}
+
+.patientadd-a span {
+font-size: 2vw;
+color: #4B6DA7;
+font-weight: bolder;
+}
+
+.datadata {
+width: 20vw;
+height: 3.5vw;
+margin-left: 38vw;
+display: flex;
+}
+.datadata span{
+font-size: 2vw;
+color: black;
+}
+input {
+width: 10vw;
+height: 2.5vw;
+font-size: 1vw;
+caret-color: transparent;
+border: 0.05vw solid #4F70A9;
+outline: none;
+}
+
+
+.datadata span {
+font-size: 1.5vw;
+margin-left: 2vw;
+}
+textarea{
+border: 0.05vw solid #4F70A9;
+margin-top: 0.5vw;
+width: 100%;
+height: 13.4vw;
+font-size: 1vw;
+outline: none;
+
+}
+.button0 {
+width: 100%;
+margin: auto;
+display: flex;
+flex-direction: column;
+}
+
+.button0 span {
+font-size: 1.5vw;
+}
+
+.submit-a {
+width: 60%;
+height: 2.05vw;
+margin:1vw auto;
+display: flex;
+justify-content: space-between;
+}
+
+.submit-a button {
+width: 9.5vw;
+height: 3.05vw;
+font-size: 1.8vw;
+color: #fff;
+border-radius: 0.36vw;
+background-color: #4F70A9;
+border: 0.05vw solid #4F70A9;
 }

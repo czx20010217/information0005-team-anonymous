@@ -205,7 +205,14 @@ const getPatientNotes = async(req, res, next) => {
 
 const getComments  = async(req, res, next) => {
     try { 
-        var records = await Record.find().sort('-createdAt').lean()
+        // get curent logged in doctor
+        const current_doctor = await getCurrentDoctor(req)
+        var patients = await Patient.find({doctor_id: current_doctor._id}).lean()
+        var patient_ids = [];
+        for(let i = 0; i < patients.length; i++){
+            patient_ids.push(patients[i]._id);
+        }
+        var records = await Record.find({patient_id: patient_ids}).sort('-createdAt').lean()
         let comments = new Array()
 
         for (let i = 0; i < records.length; i++) {
