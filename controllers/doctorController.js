@@ -18,8 +18,13 @@ const getAllPatientData = async (req, res, next) => {
     try { 
         // get curent logged in doctor
         const current_doctor = await getCurrentDoctor(req)
+        var patients = await Patient.find({doctor_id: current_doctor._id}).lean()
+        var patient_ids = [];
+        for(let i = 0; i < patients.length; i++){
+            patient_ids.push(patients[i]._id);
+        }
 
-        var records = await Record.find().sort('-createdAt').lean()
+        var records = await Record.find({patient_id: patient_ids}).sort('-createdAt').lean()
         for (let i = 0; i < records.length; i++) {
             const patient = await Patient.findById(records[i].patient_id).lean()
             records[i].patient = patient
@@ -310,10 +315,8 @@ const editPatientData = async (req, res, next) => {
         // this page shows chart (it is in the chartview page) instead of table
         if (req.url.search("chartview") != -1) {
             return res.redirect('/doctor/patientDetail/' + req.params.patient_id + '/chartview')
-            return getPatientChartById(req, res, next)
         } else {
             return res.redirect('/doctor/patientDetail/' + req.params.patient_id)
-            return getPatientById(req, res, next)
         }
     } catch (err) { 
         return next(err) 
