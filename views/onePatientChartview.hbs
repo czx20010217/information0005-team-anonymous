@@ -211,8 +211,10 @@
                         },
                 tooltip: {
                     formatter: function () {
-                        return '<b>' + this.series.name + '</b><br/>' +
-                            this.point.y + ' 个' + this.point.name.toLowerCase();
+                        {{!-- return '<b>' + this.series.name + '</b><br/>' +
+                            this.point.y + ' 个' + this.point.name.toLowerCase(); --}}
+                            return '<span style="color: '+ this.series.color + '">\u25CF</span> '+
+           this.series.name+': <b>'+ this.y +'</b><br/>.'
                     }
                 }
             });
