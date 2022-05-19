@@ -1755,7 +1755,7 @@ nav p{
   padding-top: 30vw;
 }
 
-.LoginButton input{
+.LoginButton button{
   font-family: 'Roboto';
   font-size: 5vw;
   color: white;
