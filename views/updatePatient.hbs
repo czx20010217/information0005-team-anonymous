@@ -12,14 +12,14 @@
 </head>
 <body>
     <div class="header">
-        <p><a href="/doctor/">
+        <p><a href="/doctor/dashboard">
         <img src="/media/logo.png" alt="LOGO">
         </a></p>
         <nav>
             <ul>
-            <li><a href="#">New Patient</a></li>
-            <li><a href="#">Comments</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="/doctor/addNewPatient">New Patient</a></li>
+            <li><a href="/doctor/comment">Comments</a></li>
+            <li><a href="/doctor/login">Log Out</a></li>
           </ul>
         </nav>
       </div>
@@ -52,7 +52,7 @@
                 ~<input type="number" class="number" name="exercise_maximum" value="{{patient.exercise_maximum}}"><br>
 
                 <input type="submit" class="submitbutton"value="SUBMIT">
-                <input type="button" class="cancelbutton" value="CANCEL">
+                <input type="button" class="cancelbutton" value="CANCEL" onclick="history.back()">
                 
                 
         </form>
