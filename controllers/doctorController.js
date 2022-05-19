@@ -138,7 +138,7 @@ const getPatientChartById = async(req, res, next) => {
 const getPatientMessages = async(req, res, next) => {
     try {
         const patient = await Patient.findById(req.params.patient_id).lean()
-        var messages = await Message.find({patient_id: patient._id}).lean()
+        const messages = await Message.find({patient_id: patient._id}).sort('-createdAt').lean()
 
         for (let i = 0; i < messages.length; i++) {
             // Change the format of createAt to YYYY-MM-DD
@@ -154,7 +154,7 @@ const getPatientMessages = async(req, res, next) => {
 const getPatientNotes = async(req, res, next) => {
     try {
         const patient = await Patient.findById(req.params.patient_id).lean()
-        var notes = await Note.find({patient_id: patient._id}).lean()
+        const notes = await Note.find({patient_id: patient._id}).sort('-createdAt').lean()
 
         for (let i = 0; i < notes.length; i++) {
             // Change the format of createAt to YYYY-MM-DD
@@ -256,8 +256,8 @@ const editPatientData = async (req, res, next) => {
             await patient.save()
 
         } else if (exerciseMin != undefined) {
-                patient.exercise_minimum = exerciseMin
-                patient.exercise_maximum = exerciseMax
+            patient.exercise_minimum = exerciseMin
+            patient.exercise_maximum = exerciseMax
 
             if (needExercise == "on"){
                 patient.need_exercise = true
@@ -272,7 +272,7 @@ const editPatientData = async (req, res, next) => {
 
         } else if (supportMessage != undefined) {
             const newMessage = new Message({patient_id: req.params.patient_id, 
-                doctor_id:req.user._id, text: supportMessage})
+                doctor_id: req.user._id, text: supportMessage})
             await newMessage.save()
         }
 
