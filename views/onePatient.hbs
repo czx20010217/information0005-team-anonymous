@@ -158,10 +158,14 @@
                     <td>{{this.createdAt}}</td>
 
                     {{!-- if the data is outside of the safety range or missing, then color become red --}}
-                    {{#if this.blood_glucose_level}}
-                        <td {{#if (outRange this.blood_glucose_level this.patient.blood_glucose_level_minimum this.patient.blood_glucose_level_maximum)}}style="color:red;"{{/if}}>{{this.blood_glucose_level}}</td>
+                    {{#if this.need_blood_glucose_level}}
+                        {{#if this.blood_glucose_level}}
+                            <td {{#if (outRange this.blood_glucose_level this.patient.blood_glucose_level_minimum this.patient.blood_glucose_level_maximum)}}style="color:red;"{{/if}}>{{this.blood_glucose_level}}</td>
+                        {{else}}
+                            <td style="color:red;">missing</td>
+                        {{/if}}
                     {{else}}
-                        <td style="color:red;">missing</td>
+                        <td style="color:red;">not required</td>
                     {{/if}}
 
                     {{#if this.weight}}
