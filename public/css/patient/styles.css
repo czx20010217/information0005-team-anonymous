@@ -1966,12 +1966,12 @@ display: flex;
 justify-content: space-between;
 }
 
-.submit-a button {
-width: 9.5vw;
-height: 3.05vw;
-font-size: 1.8vw;
-color: #fff;
-border-radius: 0.36vw;
-background-color: #4F70A9;
-border: 0.05vw solid #4F70A9;
+.buttona {
+  width: 9.5vw;
+  height: 3.05vw;
+  font-size: 1.8vw;
+  color: #fff;
+  border-radius: 0.36vw;
+  background-color: #4F70A9;
+  border: 0.05vw solid #4F70A9;
 }
