@@ -5,6 +5,10 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css2?family=Scada&display=swap' rel='stylesheet'>
+    <script src="https://code.highcharts.com.cn/highcharts/9.3.2/highcharts.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/9.3.2/modules/data.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/9.3.2/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/9.3.2/modules/accessibility.js"></script>
     <title>Diabetes@Home</title>
     <link rel="stylesheet" href="/css/doctor/style.css">
     
@@ -142,7 +146,7 @@
         {{!-- patient daily data history --}}
         <div class="dailydata">
            
-            <table >
+            <table id="datatableforchart">
                 <tr>
                     <th>Date</th>
                     <th>Blood glucose</th>
@@ -186,6 +190,36 @@
             </table>
 
         </div>
+        {{!-- 以下 --}}
+        <div id="chartcontainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        <script>
+            var chart = Highcharts.chart('chartcontainer', {
+	            data: {
+                    table: 'datatableforchart'
+                    },
+	            chart: {
+		            type: 'line'
+	                },
+	            title: {
+		            text: 'DAILY RECODING'
+		// 该功能依赖 data.js 模块，详见https://www.hcharts.cn/docs/data-modules
+	            },
+                yAxis:{
+                            title: {
+                                text: 'data'
+                            },
+                            type: 'logarithmic',
+                            minorTickInterval: 0.1
+                        },
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '</b><br/>' +
+                            this.point.y + ' 个' + this.point.name.toLowerCase();
+                    }
+                }
+            });
+        </script>
+        {{!-- 以上 --}}
         
     </div>
   <footer>
