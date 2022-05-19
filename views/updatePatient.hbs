@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/doctor/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css2?family=Scada&display=swap' rel='stylesheet'>
+    <title>Diabetes@Home</title>
+</head>
+<body>
+    <div class="header">
+        <p><a href="/doctor/">
+        <img src="/media/logo.png" alt="LOGO">
+        </a></p>
+        <nav>
+            <ul>
+            <li><a href="#">New Patient</a></li>
+            <li><a href="#">Comments</a></li>
+            <li><a href="#">Log Out</a></li>
+          </ul>
+        </nav>
+      </div>
+
+    <div class="newPatientInfo">
+        <form action="#" method="post">
+            
+                <legend>Update Patient Information</legend>
+                <legend>Patient name: {{patient.first_name}} {{patient.last_name}}</legend>
+                
+                <input type="checkbox" id="blood_glucose_level" name="blood_glucose_level" {{#if patient.need_blood_glucose_level}}check{{/if}}>
+                <label for="blood_glucose_level"> blood glucose level range</label>
+                <input type="checkbox" id="weight" name="weight" {{#if patient.need_weight}}check{{/if}}>
+                <label for="weight"> weight</label>
+                <input type="checkbox" id="dose_of_insulin_taken" name="dose_of_insulin_taken" {{#if patient.need_doses_of_insulin_taken}}check{{/if}}>
+                <label for="dose_of_insulin_taken"> dose of insulin taken</label>
+                <input type="checkbox" id="exercise" name="exercise" {{#if patient.need_exercise}}check{{/if}}>
+                <label for="exercise"> exercise</label><br>
+
+                Blood glucose level range: <input type="number" class="number" name="blood_glucose_level_minimum" value="{{patient.blood_glucose_level_minimum}}">
+                ~<input type="number" class="number" name="blood_glucose_level_maximum" value="{{patient.blood_glucose_level_maximum}}"><br>
+
+                Weight range: <input type="number" class="number" name="weight_minimum" value="{{patient.weight_minimum}}">
+                ~<input type="number" class="number" name="weight_maximum" value="{{patient.weight_maximum}}"><br>
+
+                Dose of insulin taken range: <input type="number" class="number" name="doses_of_insulin_taken_minimum" value="{{patient.doses_of_insulin_taken_minimum}}">
+                ~<input type="number" class="number" name="doses_of_insulin_taken_maximum" value="{{patient.doses_of_insulin_taken_maximum}}"><br>
+
+                Exercise range: <input type="number" class="number" name="exercise_minimum" value="{{patient.exercise_maximum}}">
+                ~<input type="number" class="number" name="exercise_maximum" value="{{patient.exercise_maximum}}"><br>
+
+                <input type="submit" class="submitbutton"value="SUBMIT">
+                <input type="button" class="cancelbutton" value="CANCEL">
+                
+                
+        </form>
+    </div>
+
+
+          
+</body>
+</html>

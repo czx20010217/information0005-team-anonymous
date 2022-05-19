@@ -11,11 +11,11 @@ const doctorController = require('../controllers/doctorController')
 const isAuthenticated = (req, res, next) => {
     // If user is not authenticated via passport, redirect to login page
     if (!req.isAuthenticated()) {
-        return res.redirect('./login')
+        return res.redirect('/doctor/login')
     }
     if (req.user.user_type != 'doctor'){
         req.logout()
-        return res.redirect('./login')
+        return res.redirect('/doctor/login')
     }
     // Otherwise, proceed to next middleware function
     return next()
@@ -35,7 +35,7 @@ doctorRouter.post('/login',
 // Handle logout
 doctorRouter.get('/logout', (req, res) => {
     req.logout()
-    res.redirect('./login')
+    res.redirect('/doctor/login')
 })
 
 // add a route to handle the GET request for all patient data
@@ -62,6 +62,9 @@ doctorRouter.get('/patientDetail/:patient_id/message', isAuthenticated, doctorCo
 doctorRouter.get('/patientDetail/:patient_id/note', isAuthenticated, doctorController.getPatientNotes)
 
 doctorRouter.get('/comment', isAuthenticated, doctorController.getComments)
+
+doctorRouter.get('/patientDetail/:patient_id/update', isAuthenticated, doctorController.getUpdatePatientPage)
+doctorRouter.post('/patientDetail/:patient_id/update', isAuthenticated, doctorController.updatePatient)
 
 
 

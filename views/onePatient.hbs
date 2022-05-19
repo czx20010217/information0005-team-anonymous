@@ -17,7 +17,7 @@
         </a></p>
         <nav>
             <ul>
-            <li><a href="#">Edit Patient Info</a></li>
+            <li><a href="./{{patient._id}}/update">Edit Patient Info</a></li>
             <li><a href="/doctor/addNewPatient">New Patient</a></li>
             <li><a href="/doctor/comment">Comments</a></li>
             <li><a href="/doctor/login">Log Out</a></li>
@@ -65,7 +65,7 @@
             
             <form action="#" method="post">Range:
                 <input type="text" class="min" name="weightMin" value={{this.weight_minimum}}> 
-                -- <input type="text" class="max" name="weightMax" value={{this.weight_level_maximum}}>
+                -- <input type="text" class="max" name="weightMax" value={{this.weight_maximum}}>
                 {{#if this.need_weight}}
                     <input type="checkbox" class="choose" name="needWeight" checked> 
                 {{else}}

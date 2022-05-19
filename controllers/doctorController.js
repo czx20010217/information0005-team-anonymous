@@ -111,6 +111,61 @@ const insertNewPatient = async(req, res, next) => {
     } 
 } 
 
+const getUpdatePatientPage = async(req, res, next) => { 
+    try { 
+        const patient = await Patient.findById(req.params.patient_id).lean()
+        
+        return res.render('updatePatient', { layout: false, patient: patient })
+    } catch (err) { 
+        return next(err) 
+    } 
+} 
+
+const updatePatient = async(req, res, next) => { 
+    try { 
+        const patient = await Patient.findById(req.params.patient_id)
+        const {
+            blood_glucose_level, weight, dose_of_insulin_taken, exercise, 
+            blood_glucose_level_minimum, blood_glucose_level_maximum, weight_minimum, weight_maximum, 
+            doses_of_insulin_taken_minimum, doses_of_insulin_taken_maximum, exercise_minimum, exercise_maximum, } = req.body;
+
+        var need_blood_glucose_level = false, need_weight = false, need_doses_of_insulin_taken = false, need_exercise = false
+
+        if (blood_glucose_level == "on"){
+            var need_blood_glucose_level = true
+        }
+        if (weight == "on"){
+            var need_weight = true
+        }
+        if (dose_of_insulin_taken == "on"){
+            var need_doses_of_insulin_taken = true
+        }
+        if (exercise == "on"){
+            var need_exercise = true
+        }
+
+        patient.blood_glucose_level_minimum = blood_glucose_level_minimum
+        patient.blood_glucose_level_maximum = blood_glucose_level_maximum
+        patient.weight_minimum = weight_minimum
+        patient.weight_maximum = weight_maximum
+        patient.doses_of_insulin_taken_minimum = doses_of_insulin_taken_minimum
+        patient.doses_of_insulin_taken_maximum = doses_of_insulin_taken_maximum
+        patient.exercise_minimum = exercise_minimum
+        patient.exercise_maximum = exercise_maximum
+
+        patient.need_blood_glucose_level = need_blood_glucose_level
+        patient.need_weight = need_weight
+        patient.need_doses_of_insulin_taken = need_doses_of_insulin_taken
+        patient.need_exercise = need_exercise
+
+        await patient.save()
+
+        return res.redirect('/doctor/patientDetail/' + req.params.patient_id)
+    } catch (err) { 
+        return next(err) 
+    } 
+} 
+
 /*
     Find the patient infomation and their records by ID (show chart instead of table)
 */
@@ -345,5 +400,7 @@ module.exports = {
     changeDose,
     changeExercise,
     addNote,
-    addMessage,
+    addMessage, 
+    updatePatient, 
+    getUpdatePatientPage, 
 } 
