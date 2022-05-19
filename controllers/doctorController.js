@@ -179,10 +179,15 @@ const getPatientChartById = async(req, res, next) => {
             // no patient found in database
             return res.sendStatus(404)
         }
+        if (!patient) { 
+            // no patient found in database
+            return res.sendStatus(404)
+        }
         // only show data of 7 records
         for (let i = 0; i < 7; i++) {
-            var row = [records[i].createdAt.toISOString().split('T')[0], records[i].weight];
-            recordList.push(row);
+            records[i].patient = patient
+            // Change the format of createAt to YYYY/MM/DD
+            records[i].createdAt = records[i].createdAt.toISOString().split('T')[0]
         }
         return res.render('chartview', {patient: patient, recordList: recordList})
     } catch (err) { 
