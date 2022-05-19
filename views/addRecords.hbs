@@ -35,7 +35,7 @@
           <div class="records">
               <form action="" method="post">
                 <ul class="recorddata">
-                  
+                    {{#if patient.need_blood_glucose_level}}
                     <li class="bglInput">
                       <h3>blood glucose level:</h3><!-- here to entrer the blood glucose level -->
                       <input type="number" name="blood_glucose_level" min="0" step="0.1" style= "text-align: center;"><span>nmol/L</span>
@@ -43,17 +43,19 @@
                       <p>comment(optional)</p>
                       <textarea name="blood_glucose_level_commment"></textarea>
                    </li>
+                   {{/if}}
                   
-                  
+                    {{#if patient.need_weight}}
                     <li class="weightInput">
                       <h3>weight:</h3><!-- here to enter the weight -->
                       <input type="number" name="weight" min="0" step="0.01"><span>kg</span>
                       <p>comment(optional)</p>
                       <textarea name="weight_commment"></textarea>
                     </li>
+                    {{/if}}
                   
                   <hr>
-                  
+                    {{#if patient.need_doses_of_insulin_taken}}
                     <li class="dosesInput">
                       <h3>doses of insulin taken:</h3><!-- here to choose the numbver of doses patient taken -->
                       <select name="doses_of_insulin_taken">
@@ -67,13 +69,16 @@
                       <p>comment(optional)</p>
                       <textarea name="doses_of_insulin_taken_commment"></textarea>
                    </li>
+                   {{/if}}
                   
+                    {{#if patient.need_exercise}}
                     <li class="exerciseInput">
                       <h3>exercise:</h3><!-- here to enter exercise -->
                       <input type="number" name="exercise" min="0"><span>steps</span>
                       <p>comment(optional)</p>
                       <textarea name="exercise_commment"></textarea>
                     </li>
+                    {{/if}}
                     <div class="subline">
                       <input class="submitbutton" type="submit" value="submit"></a>
                     </div>

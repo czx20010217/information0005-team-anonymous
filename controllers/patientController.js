@@ -86,7 +86,7 @@ const addDailyRecord = async (req,res) => {
             res.render("recordAlreadySubmitted", {layout: false})
             return
         }
-        return res.render('addRecords', {layout: false})
+        return res.render('addRecords', {layout: false, patient: patient})
     } catch (err) { 
         return next(err) 
     } 

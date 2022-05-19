@@ -24,6 +24,7 @@
                 <h2>MY RECORDS</h2> 
           </div>
             <div class="myRecordsButtons">   <!-- button list -->
+                {{#if patient.need_exercise}}
                 <div class="RecordDataE">
                   <input type="checkbox" id="one" >
                 <label for="one" class="exercisePart">
@@ -40,6 +41,8 @@
                     </ul>
                 </label>
               </div>
+              {{/if}}
+              {{#if patient.need_blood_glucose_level}}
               <div class="RecordDataB">
                 <input type="checkbox" id="two" >
               <label for="two" class="BloodPart">
@@ -56,6 +59,9 @@
                   </ul>
               </label>
              </div>
+             {{/if}}
+
+            {{#if patient.need_weight}}
              <div class="RecordDataW">
               <input type="checkbox" id="three" >
             <label for="three" class="WeightPart">
@@ -72,6 +78,8 @@
                 </ul>
             </label>
            </div>
+            {{/if}}
+          {{#if patient.need_doses_of_insulin_taken}}
            <div class="RecordDataD">
             <input type="checkbox" id="four" >
           <label for="four" class="DosesPart">
@@ -88,6 +96,8 @@
               </ul>
           </label>
          </div>
+          {{/if}}
+
             </div>
           </div>
     </body>
