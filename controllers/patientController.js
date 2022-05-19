@@ -31,8 +31,8 @@ const insertRecord = async (req,res) => {
         const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
 
         // check and avoid same record for same patient in one day
-        const record = await Record.findOne({patient_id: patient_id, updatedAt: {$gte: startOfToday}}).lean()
-        if (record){
+        const record = await Record.findOne({patient_id: patient_id, updatedAt: {$gte: startOfToday}})
+        if (record && record.submitted){
             res.render("recordSubmited", {layout: false})
             return
         }
@@ -45,16 +45,87 @@ const insertRecord = async (req,res) => {
             exercise, exercise_commment} = req.body;
 
         submitted = true
-        const newRecord = new Record({ patient_id, submitted, 
+        if (record){
+            // update existing record
+            record.blood_glucose_level = blood_glucose_level
+            record.blood_glucose_level_commment = blood_glucose_level_commment
+            record.weight = weight
+            record.weight_commment = weight_commment
+            record.doses_of_insulin_taken = doses_of_insulin_taken
+            record.doses_of_insulin_taken_commment = doses_of_insulin_taken_commment
+            record.exercise = exercise
+            record.exercise_commment = exercise_commment
+            record.submitted = submitted
+            record.save()
+        }else{
+            // add and save new record
+            const newRecord = new Record({ patient_id, submitted, 
+                blood_glucose_level, blood_glucose_level_commment, 
+                weight, weight_commment, 
+                doses_of_insulin_taken, doses_of_insulin_taken_commment, 
+                exercise, exercise_commment});
+
+            newRecord.save();
+        }
+        const currentEngagement = await Engagement.findOne({patient_id: patient_id})
+        await Engagement.updateOne({patient_id: patient_id}, {engage_count: currentEngagement.engage_count + 1})
+        return res.render('recordSubmited', { layout: false, submitted: submitted }) 
+    } catch (err) { 
+        return next(err) 
+    }
+}
+
+// save records
+const saveRecord = async (req,res) => {
+    try {
+        // get current user
+        const patient = await getCurrentpatient(req)
+        patient_id = patient._id
+
+        // get current date
+        var now = new Date()
+        const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+
+        // check and avoid same record for same patient in one day
+        const record = await Record.findOne({patient_id: patient_id, updatedAt: {$gte: startOfToday}})
+        if (record && record.submitted){
+            res.render("recordSubmited", {layout: false})
+            return
+        }
+
+        // create and save new record
+        const {
             blood_glucose_level, blood_glucose_level_commment, 
             weight, weight_commment, 
             doses_of_insulin_taken, doses_of_insulin_taken_commment, 
-            exercise, exercise_commment});
+            exercise, exercise_commment} = req.body;
 
-        newRecord.save();
-        const currentEngagement = await Engagement.findOne({patient_id: patient_id})
-        await Engagement.updateOne({patient_id: patient_id}, {engage_count: currentEngagement.engage_count + 1})
-        return res.render('recordSubmited', { layout: false }) 
+        submitted = false
+        if (record){
+            // update existing record
+            record.blood_glucose_level = blood_glucose_level
+            record.blood_glucose_level_commment = blood_glucose_level_commment
+            record.weight = weight
+            record.weight_commment = weight_commment
+            record.doses_of_insulin_taken = doses_of_insulin_taken
+            record.doses_of_insulin_taken_commment = doses_of_insulin_taken_commment
+            record.exercise = exercise
+            record.exercise_commment = exercise_commment
+            record.submitted = submitted
+            record.save()
+        }else{
+            // add and save new record
+            const newRecord = new Record({ patient_id, submitted, 
+                blood_glucose_level, blood_glucose_level_commment, 
+                weight, weight_commment, 
+                doses_of_insulin_taken, doses_of_insulin_taken_commment, 
+                exercise, exercise_commment});
+
+            newRecord.save();
+        }
+
+        
+        return res.render('recordSubmited', { layout: false, submitted: submitted }) 
     } catch (err) { 
         return next(err) 
     }
@@ -64,8 +135,19 @@ const getDashBoard = async (req,res) => {
     try {
         // get current logged in user
         const patient = await getCurrentpatient(req)
+        var engagement = await Engagement.findOne({patient_id: patient._id}).lean()
+        // calculate engagement rate
+        var now = new Date()
+        var time_diff = now.getTime() - engagement.createdAt.getTime()
+        var day_diff = Math.floor(time_diff / (1000 * 3600 * 24) + 1)
+        var engagement_rate = Math.round((engagement.engage_count / day_diff) * 100)
 
-        return res.render('patientDashboard.hbs', {layout: false, patient: patient})
+        var over_eight = false
+        if (engagement_rate>= 80){
+            over_eight = true
+        }
+
+        return res.render('patientDashboard.hbs', {layout: false, patient: patient, engagement_rate: engagement_rate, over_eight: over_eight})
     } catch (err) { 
         return next(err) 
     } 
@@ -82,11 +164,11 @@ const addDailyRecord = async (req,res) => {
 
         // check and avoid same record for same patient in one day
         const record = await Record.findOne({patient_id: patient._id, updatedAt: {$gte: startOfToday}}).lean()
-        if (record){
+        if (record && record.submitted){
             res.render("recordAlreadySubmitted", {layout: false})
             return
         }
-        return res.render('addRecords', {layout: false, patient: patient})
+        return res.render('addRecords', {layout: false, patient: patient, record: record })
     } catch (err) { 
         return next(err) 
     } 
@@ -181,6 +263,7 @@ const getSupprotMessage = async (req,res, next) => {
 
 module.exports = {
     insertRecord, 
+    saveRecord, 
     getDashBoard, 
     addDailyRecord, 
     myRecords, 
