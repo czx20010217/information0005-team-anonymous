@@ -54,6 +54,7 @@ patientRouter.post('/changePassword', patientController.changePassword)
 
 // add a route to handle the GET request for all people data
 patientRouter.post('/addDailyRecord', isAuthenticated, patientController.insertRecord)
+patientRouter.post('/addDailyRecord/save', isAuthenticated, patientController.saveRecord)
 patientRouter.get('/addDailyRecord', isAuthenticated, patientController.addDailyRecord)
 
 patientRouter.get('/dashboard', isAuthenticated, patientController.getDashBoard)

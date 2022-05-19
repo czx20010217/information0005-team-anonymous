@@ -21,9 +21,12 @@
       </div>
 
       <!-- this page told patient that he has already submitted the data -->
-      <div class="submitted">     
+      <div class="submitted">   
+        {{#if submitted}}  
         <h2>Data submitted!</h2>
-        
+        {{else}}
+        <h2>Data saved!</h2>
+        {{/if}}
         <p>
             <img src="/media/submit.png" alt="submitted" width="200" height="200"><br>
         <!-- it is the button to return to the add records page -->

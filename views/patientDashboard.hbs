@@ -32,9 +32,11 @@
         <div class="card">
             <div class="engagement">   <!-- part 2-about engagement and logo img -->
                 <h2>Your Overall engagement rate is</h2>
-                <h3>50%</h3>
+                <h3>{{engagement_rate}}%</h3>
                   <div class="WellDone">
+                  {{#if over_eight}}
                   <img src="/media/well done.png" alt="Pic">
+                  {{/if}}
                   </div>  
                 <p>Engage everyday to get the badge!
                   <br>
