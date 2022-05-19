@@ -194,20 +194,29 @@ const getLeaderboard = async (req,res, next) => {
     var now = new Date()
 
     try { 
+        const current_patient = await getCurrentpatient(req)
+        var own_engagement
         var engagements = await Engagement.find().lean()
         for (let i = 0; i < engagements.length; i++) {
             var time_diff = now.getTime() - engagements[i].createdAt.getTime()
             var day_diff = Math.floor(time_diff / (1000 * 3600 * 24) + 1)
-            engagements[i].engagement_rate = Math.round((engagements[i].engage_count / day_diff) * 100)
+            var engagement_rate = Math.round((engagements[i].engage_count / day_diff) * 100)
+            engagements[i].engagement_rate = Math.max(engagements, 100)
+            engagements[i].engagement_rate = Math.min(engagements, 0)
+            engagements[i].engagement_rate = engagement_rate
 
             const patient = await Patient.findById(engagements[i].patient_id).lean()
             engagements[i].patient = patient
+
+            if (engagements[i].patient_id == current_patient._id){
+                own_engagement = engagements[i]
+            }
         }
         engagements.sort((a, b) => parseFloat(a.engagement_rate) - parseFloat(b.engagement_rate));
         engagements = engagements.slice(0, 5)
         engagements = engagements.reverse()
 
-        return res.render('leaderboard', {layout: false, engagements: engagements})
+        return res.render('leaderboard', {layout: false, engagements: engagements, own_engagement: own_engagement})
     } catch (err) { 
         return next(err) 
     } 
