@@ -166,22 +166,34 @@
                         <td>not required</td>
                     {{/if}}
 
-                    {{#if this.weight}}
-                        <td {{#if (outRange this.weight this.patient.weight_minimum this.patient.weight_maximum)}}style="color:red;"{{/if}}>{{this.weight}}</td>
+                    {{#if patient.need_weight}}
+                        {{#if this.weight}}
+                            <td {{#if (outRange this.weight this.patient.weight_minimum this.patient.weight_maximum)}}style="color:red;"{{/if}}>{{this.weight}}</td>
+                        {{else}}
+                            <td style="color:red;">missing</td>
+                        {{/if}}
                     {{else}}
-                        <td style="color:red;">missing</td>
+                        <td>not required</td>
                     {{/if}}
 
-                    {{#if this.doses_of_insulin_taken}}
-                        <td {{#if (outRange this.doses_of_insulin_taken this.patient.doses_of_insulin_taken_minimum this.patient.doses_of_insulin_taken_maximum)}}style="color:red;"{{/if}}>{{this.doses_of_insulin_taken}}</td>
+                    {{#if patient.need_doses_of_insulin_taken}}
+                        {{#if this.doses_of_insulin_taken}}
+                            <td {{#if (outRange this.doses_of_insulin_taken this.patient.doses_of_insulin_taken_minimum this.patient.doses_of_insulin_taken_maximum)}}style="color:red;"{{/if}}>{{this.doses_of_insulin_taken}}</td>
+                        {{else}}
+                            <td style="color:red;">missing</td>
+                        {{/if}}
                     {{else}}
-                        <td style="color:red;">missing</td>
+                        <td>not required</td>
                     {{/if}}
                     
-                    {{#if this.exercise}}
-                        <td {{#if (outRange this.exercise this.patient.exercise_minimum this.patient.exercise_maximum)}}style="color:red;"{{/if}}>{{this.exercise}}</td>
+                    {{#if patient.need_exercise}}
+                        {{#if this.exercise}}
+                            <td {{#if (outRange this.exercise this.patient.exercise_minimum this.patient.exercise_maximum)}}style="color:red;"{{/if}}>{{this.exercise}}</td>
+                        {{else}}
+                            <td style="color:red;">missing</td>
+                        {{/if}}
                     {{else}}
-                        <td style="color:red;">missing</td>
+                        <td>not required</td>
                     {{/if}}
 
                 </tr>
