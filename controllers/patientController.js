@@ -270,6 +270,15 @@ const getSupprotMessage = async (req,res, next) => {
     } 
 }
 
+const getMorePage = async (req,res, next) => {
+    try {
+
+        return res.render('more', {layout: false})
+    } catch (err) { 
+        return next(err) 
+    } 
+}
+
 module.exports = {
     insertRecord, 
     saveRecord, 
@@ -280,5 +289,6 @@ module.exports = {
     getLeaderboard, 
     getSecurityPage, 
     getSupprotMessage, 
-    changePassword
+    changePassword, 
+    getMorePage
 }

@@ -33,7 +33,7 @@ patientRouter.post('/login',
     })
 )
 // Handle logout
-patientRouter.post('/logout', (req, res) => {
+patientRouter.get('/logout', (req, res) => {
     req.logout()
     res.redirect('./dashboard')
 })
@@ -64,6 +64,8 @@ patientRouter.get('/myRecords', isAuthenticated, patientController.myRecords)
 patientRouter.get('/leaderBoard', isAuthenticated, patientController.getLeaderboard)
 
 patientRouter.get('/supportMessage', isAuthenticated, patientController.getSupprotMessage)
+
+patientRouter.get('/more', isAuthenticated, patientController.getMorePage)
 
 
 // export the router

@@ -30,13 +30,13 @@
                 <legend>Update Patient Information</legend>
                 <legend>Patient name: {{patient.first_name}} {{patient.last_name}}</legend>
                 
-                <input type="checkbox" id="blood_glucose_level" name="blood_glucose_level" {{#if patient.need_blood_glucose_level}}check{{/if}}>
+                <input type="checkbox" id="blood_glucose_level" name="blood_glucose_level" {{#if patient.need_blood_glucose_level}}checked{{/if}}>
                 <label for="blood_glucose_level"> blood glucose level range</label>
-                <input type="checkbox" id="weight" name="weight" {{#if patient.need_weight}}check{{/if}}>
+                <input type="checkbox" id="weight" name="weight" {{#if patient.need_weight}}checked{{/if}}>
                 <label for="weight"> weight</label>
-                <input type="checkbox" id="dose_of_insulin_taken" name="dose_of_insulin_taken" {{#if patient.need_doses_of_insulin_taken}}check{{/if}}>
+                <input type="checkbox" id="dose_of_insulin_taken" name="dose_of_insulin_taken" {{#if patient.need_doses_of_insulin_taken}}checked{{/if}}>
                 <label for="dose_of_insulin_taken"> dose of insulin taken</label>
-                <input type="checkbox" id="exercise" name="exercise" {{#if patient.need_exercise}}check{{/if}}>
+                <input type="checkbox" id="exercise" name="exercise" {{#if patient.need_exercise}}checked{{/if}}>
                 <label for="exercise"> exercise</label><br>
 
                 Blood glucose level range: <input type="number" class="number" name="blood_glucose_level_minimum" value="{{patient.blood_glucose_level_minimum}}">
