@@ -51,8 +51,8 @@
             
             
             <form action="#" method="post">Range:
-                <input type="text" class="min" name="glucoseMin" value={{this.blood_glucose_level_minimum}}> 
-                -- <input type="text" class="max" name="glucoseMax" value={{this.blood_glucose_level_maximum}}>
+                <input type="number" class="min" name="glucoseMin" value={{this.blood_glucose_level_minimum}} step="any"> 
+                -- <input type="number" class="max" name="glucoseMax" value={{this.blood_glucose_level_maximum}} step="any">
                 {{#if this.need_blood_glucose_level}}
                     <input type="checkbox" class="choose" name="needGlucose" checked> 
                 {{else}}
@@ -68,8 +68,8 @@
             
             
             <form action="#" method="post">Range:
-                <input type="text" class="min" name="weightMin" value={{this.weight_minimum}}> 
-                -- <input type="text" class="max" name="weightMax" value={{this.weight_maximum}}>
+                <input type="number" class="min" name="weightMin" value={{this.weight_minimum}} step="any"> 
+                -- <input type="number" class="max" name="weightMax" value={{this.weight_maximum}} step="any">
                 {{#if this.need_weight}}
                     <input type="checkbox" class="choose" name="needWeight" checked> 
                 {{else}}
@@ -86,8 +86,8 @@
 
             
             <form action="#" method="post">Range:
-                <input type="text" class="min" name="doseMin" value={{this.doses_of_insulin_taken_minimum}}> 
-                -- <input type="text" class="max" name="doseMax" value={{this.doses_of_insulin_taken_maximum }}>
+                <input type="number" class="min" name="doseMin" value={{this.doses_of_insulin_taken_minimum}}> 
+                -- <input type="number" class="max" name="doseMax" value={{this.doses_of_insulin_taken_maximum }}>
                 {{#if need_doses_of_insulin_taken}}
                     <input type="checkbox" class="choose" name="needDose" checked> 
                 {{else}}
@@ -104,8 +104,8 @@
             
 
             <form action="#" method="post">Range:
-                <input type="text" class="min" name="exerciseMin" value={{this.exercise_minimum}}> 
-                -- <input type="text" class="max" name="exerciseMax" value={{this.exercise_maximum }}>
+                <input type="number" class="min" name="exerciseMin" value={{this.exercise_minimum}}> 
+                -- <input type="number" class="max" name="exerciseMax" value={{this.exercise_maximum }}>
                 {{#if need_exercise}}
                     <input type="checkbox" class="choose" name="needExercise" checked> 
                 {{else}}

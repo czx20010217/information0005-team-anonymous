@@ -254,8 +254,8 @@ const editPatientData = async (req, res, next) => {
         const patient = await Patient.findById(req.params.patient_id)
 
         if (glucoseMin != undefined) {
-            patient.blood_glucose_level_minimum = glucoseMin
-            patient.blood_glucose_level_maximum = glucoseMax
+            patient.blood_glucose_level_minimum = Math.max(glucoseMin, 0)
+            patient.blood_glucose_level_maximum = Math.max(glucoseMax, 0)
 
             if (needGlucose == "on"){
                 patient.need_blood_glucose_level = true
@@ -265,8 +265,8 @@ const editPatientData = async (req, res, next) => {
             await patient.save()
 
         } else if (weightMin != undefined) {
-            patient.weight_minimum = weightMin
-            patient.weight_maximum = weightMax
+            patient.weight_minimum = Math.max(weightMin, 0)
+            patient.weight_maximum = Math.max(weightMax, 0)
 
             if (needWeight == "on"){
                 patient.need_weight = true
@@ -276,8 +276,8 @@ const editPatientData = async (req, res, next) => {
             await patient.save()
 
         } else if (doseMin != undefined) {
-            patient.doses_of_insulin_taken_minimum = doseMin
-            patient.doses_of_insulin_taken_maximum = doseMax
+            patient.doses_of_insulin_taken_minimum = Math.max(doseMin, 0)
+            patient.doses_of_insulin_taken_maximum = Math.max(doseMax, 0)
 
             if (needDose == "on"){
                 patient.need_doses_of_insulin_taken = true
@@ -287,8 +287,8 @@ const editPatientData = async (req, res, next) => {
             await patient.save()
 
         } else if (exerciseMin != undefined) {
-            patient.exercise_minimum = exerciseMin
-            patient.exercise_maximum = exerciseMax
+            patient.exercise_minimum = Math.max(exerciseMin, 0)
+            patient.exercise_maximum = Math.max(exerciseMax, 0)
 
             if (needExercise == "on"){
                 patient.need_exercise = true
