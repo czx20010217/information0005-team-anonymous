@@ -25,6 +25,7 @@
         <h1>Enter Your Security Infomation</h1>
     </div>
         {{#if missMatch}}<p style="color: red;">UserName and secret code mismatch</p>{{/if}}
+        {{#if passwordLen}}<p style="color: red;">Password must be atleast 8 bits</p>{{/if}}
         <div class="SecInputBox">  <!-- user can input user name in this box -->
             <form method="post">
                 <div class="UserNamePart">
@@ -33,7 +34,7 @@
                 </div>
                 <div class="NewPasswordPart">
                     <p>New Password</p>
-                <input class="NewPassword" type="password" name="new_password" placeholder="Enter your new password..." required autofocus><br>
+                <input class="NewPassword" type="password" name="new_password" minlength="8" placeholder="Enter your new password..." required autofocus><br>
                 </div>
                 <div class="SecretCodePart">
                     <p>Secret Code</p>

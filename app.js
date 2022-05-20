@@ -5,6 +5,7 @@ const express = require('express')
 // Import flash and session
 const flash = require('express-flash')
 const session = require('express-session')
+const schedule = require('node-schedule');
 
 // Set your app up as an express app
 const app = express()
@@ -76,3 +77,10 @@ app.get('/', (req, res) => {
 app.listen(process.env.PORT || 3000, () => {
     console.log('Demo app is listening on port 3000!')
 })
+
+// generate empty records for each patient at 0:10:0 everyday
+const patientController = require('./controllers/patientController')
+let job = schedule.scheduleJob('0 10 0 * * *', () => {
+    console.log("start generating empty records")
+    patientController.createEmptyRecord()
+});

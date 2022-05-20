@@ -31,7 +31,7 @@ const insertRecord = async (req,res) => {
         const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
 
         // check and avoid same record for same patient in one day
-        const record = await Record.findOne({patient_id: patient_id, updatedAt: {$gte: startOfToday}})
+        const record = await Record.findOne({patient_id: patient_id, createdAt: {$gte: startOfToday}})
         if (record && record.submitted){
             res.render("recordSubmited", {layout: false})
             return
@@ -87,7 +87,7 @@ const saveRecord = async (req,res) => {
         const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
 
         // check and avoid same record for same patient in one day
-        const record = await Record.findOne({patient_id: patient_id, updatedAt: {$gte: startOfToday}})
+        const record = await Record.findOne({patient_id: patient_id, createdAt: {$gte: startOfToday}})
         if (record && record.submitted){
             res.render("recordSubmited", {layout: false})
             return
@@ -163,7 +163,7 @@ const addDailyRecord = async (req,res) => {
         const patient = await getCurrentpatient(req)
 
         // check and avoid same record for same patient in one day
-        const record = await Record.findOne({patient_id: patient._id, updatedAt: {$gte: startOfToday}}).lean()
+        const record = await Record.findOne({patient_id: patient._id, createdAt: {$gte: startOfToday}}).lean()
         if (record && record.submitted){
             res.render("recordAlreadySubmitted", {layout: false})
             return
@@ -239,6 +239,12 @@ const changePassword = async (req,res, next) => {
             username, new_password, secret } = req.body;
 
         const user = await User.findOne({username: username})
+
+        if (new_password.length < 8){
+            console.log("password length not enough")
+            return res.render('EnterSecurity', {layout: false, passwordLen: true})
+        }
+
         if (user.secret != secret){
             console.log("mismatch")
             return res.render('EnterSecurity', {layout: false, missMatch: true})
@@ -279,6 +285,31 @@ const getMorePage = async (req,res, next) => {
     } 
 }
 
+const createEmptyRecord = async() => { 
+    try { 
+        // get current date
+        var now = new Date()
+        const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+
+        const patients = await Patient.find().lean()
+
+        for(let i = 0; i < patients.length; i++){
+            var patient_id = patients[i]._id
+            var curent_record = await Record.findOne({patient_id: patient_id, createdAt: {$gte: startOfToday}}).lean()
+            if (curent_record){
+                console.log("already exist:", patient_id)
+            }else{
+                const newRecord = new Record({ patient_id: patient_id, submitted: false})
+                newRecord.save()
+            }
+        }
+        console.log("generating empty records finished")
+    } catch (err) { 
+        console.log(err)
+        return err
+    } 
+} 
+
 module.exports = {
     insertRecord, 
     saveRecord, 
@@ -290,5 +321,6 @@ module.exports = {
     getSecurityPage, 
     getSupprotMessage, 
     changePassword, 
-    getMorePage
+    getMorePage, 
+    createEmptyRecord
 }

@@ -16,6 +16,9 @@ const getCurrentDoctor = async (req) => {
 const getAllPatientData = async (req, res, next) => {
     
     try { 
+        // get current date
+        var now = new Date()
+        const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
         // get curent logged in doctor
         const current_doctor = await getCurrentDoctor(req)
         var patients = await Patient.find({doctor_id: current_doctor._id}).lean()
@@ -24,7 +27,7 @@ const getAllPatientData = async (req, res, next) => {
             patient_ids.push(patients[i]._id);
         }
 
-        var records = await Record.find({patient_id: patient_ids}).sort('-createdAt').lean()
+        var records = await Record.find({patient_id: patient_ids, createdAt: {$gte: startOfToday}}).sort('-createdAt').lean()
         for (let i = 0; i < records.length; i++) {
             const patient = await Patient.findById(records[i].patient_id).lean()
             records[i].patient = patient
