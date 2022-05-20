@@ -750,7 +750,7 @@ doctor registration successful page
 
 /* donot display table in chart view page */
 #datatableforchart{
-    /* display: none; */
+    display: none;
     grid-area: dailydata;
 }
 
