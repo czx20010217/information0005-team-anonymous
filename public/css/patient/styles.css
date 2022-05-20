@@ -797,10 +797,15 @@ body {
   
   }
 }
+    /* data submitted */
+.submitted {
+  margin-top: 20vh;
+  margin-bottom: 13vh;
+  text-align: center;
+
+}
   
-  
-  
-  /* data submitted */
+
   /* adjust to the style of the font */
   .submitted h2{
   text-align: center;

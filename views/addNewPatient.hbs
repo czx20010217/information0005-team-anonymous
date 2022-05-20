@@ -43,7 +43,7 @@
                 Exercise range: <input type="number" class="number" name="exercise_minimum">~<input type="number" class="number" name="exercise_maximum"><br>
                 {{#if repeat}}<p style="color: red;">Username already taken</p>{{/if}}
                 Username: <input type="text" class="text" name="username" placeholder="Set a username for patient" required><br>
-                Password: <input type="text" class="text" name="password" placeholder="Set a password for patient" required><br>
+                Password: <input type="text" class="text" name="password" minlength="8" placeholder="Set a password for patient" required><br>
                 Secret Code (for change password): <input type="text" class="text" name="secret" placeholder="Set a password for patient" required><br>
                 <input type="submit" class="submitbutton"value="SUBMIT">
                 <input type="button" class="cancelbutton" value="CANCEL" onclick="history.back()">
