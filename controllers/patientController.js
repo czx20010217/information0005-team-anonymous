@@ -253,7 +253,7 @@ const changePassword = async (req,res, next) => {
         user.password = new_password;
         await user.save()
 
-        return res.render('EnterSecurity', {layout: false})
+        return res.redirect('/patient/login')
     } catch (err) { 
         return next(err) 
     } 
