@@ -86,6 +86,11 @@ const insertNewPatient = async(req, res, next) => {
             return res.render('addNewPatient', { layout: false, repeat: true })
         }
 
+        if (password.length < 8){
+            console.log("password length not enough")
+            return res.render('addNewPatient', {layout: false, passwordLen: true})
+        }
+
         var need_blood_glucose_level = false, need_weight = false, need_doses_of_insulin_taken = false, need_exercise = false
 
         if (blood_glucose_level == "on"){
